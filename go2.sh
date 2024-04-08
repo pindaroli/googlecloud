@@ -60,3 +60,31 @@ DATA=$(printf 'Hello World!'|base64) && gcloud functions call helloWorld --data 
 gcloud functions logs read helloWorld
 
 gcloud pubsub subscriptions pull --auto-ack MySub
+
+gcloud pubsub topics create myTopic
+gcloud pubsub topics create Test1
+gcloud pubsub topics create Test2
+gcloud pubsub topics list
+gcloud pubsub topics delete Test1
+gcloud  pubsub subscriptions create --topic myTopic mySubscription
+gcloud  pubsub subscriptions create --topic myTopic Test1
+gcloud pubsub topics list-subscriptions myTopic
+gcloud pubsub subscriptions delete Test1
+gcloud pubsub topics publish myTopic --message "Hello"
+gcloud pubsub topics publish myTopic --message "Publisher's name is <YOUR NAME>"
+gcloud pubsub subscriptions pull mySubscription --auto-ack
+gcloud pubsub subscriptions pull mySubscription --auto-ack --limit=3
+
+sudo apt-get install -y virtualenv
+python3 -m venv venv
+source venv/bin/activate
+pip install --upgrade google-cloud-pubsub
+git clone https://github.com/googleapis/python-pubsub.git
+echo $GOOGLE_CLOUD_PROJECT
+python publisher.py $GOOGLE_CLOUD_PROJECT create MyTopic
+python subscriber.py $GOOGLE_CLOUD_PROJECT create MyTopic MySub
+python subscriber.py $GOOGLE_CLOUD_PROJECT list-in-project
+python subscriber.py -h
+gcloud pubsub topics publish MyTopic --message "Hello"
+gcloud pubsub topics publish MyTopic --message "Publisher's name is <YOUR NAME>"
+python subscriber.py $GOOGLE_CLOUD_PROJECT receive MySub

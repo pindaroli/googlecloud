@@ -1,8 +1,9 @@
 #!/bin/bash
-R=us-central1
-Z=us-central1-b
-export NOMESERVER=nucleus-webserver1
+R=us-east1
+Z=us-east1-b
+export NOMESERVER=nucleus-jumphost-845
 export MYNAMEDPORT=http:80
+export FWRULE=accept-tcp-rule-373
 
 gcloud config set compute/region $R && export REGION=$(gcloud config get compute/region) && echo $REGION
 gcloud config set compute/zone $Z && export ZONE=$(gcloud config get compute/zone) && echo $ZONE
@@ -40,7 +41,7 @@ read -p "Press enter to continue"
 gcloud compute instance-groups set-named-ports rocco-instance-group --named-ports $MYNAMEDPORT --zone $ZONE
 
 #Create a firewall rule named as Firewall rule to allow traffic (80/tcp). "allow-healt-check permette di agganciarla alle istanze managed
-gcloud compute firewall-rules create permit-tcp-rule-587 \
+gcloud compute firewall-rules create $FWRULE \
   --network=default \
   --action=allow \
   --direction=ingress \
@@ -82,7 +83,7 @@ gcloud compute addresses create lb-ipv4-1 \
   --global
 read -p "Press enter to continue"
 
-export IP=$(gcloud compute addresses describe lb-ipv4 --format="get(address)" --global)
+export IP=$(gcloud compute addresses describe lb-ipv4-1 --format="get(address)" --global)
 
 gcloud compute forwarding-rules create http-content-rule \
    --address=lb-ipv4-1\
@@ -92,3 +93,16 @@ gcloud compute forwarding-rules create http-content-rule \
 
 echo "IP address is $IP"
 exit 
+
+gcloud compute instance-templates create nucleus-instance-template-1 --region=$REGION --network=default --subnet=default --tags=allow-health-check --machine-type=e2-medium --image-family=debian-11 --image-project=debian-cloud --metadata-from-file=startup-script=startup.sh
+gcloud compute instance-groups managed create nucleus-instance-group-1 --template=nucleus-instance-template-1 --size=2 --zone=$ZONE
+gcloud compute instance-groups set-named-ports nucleus-instance-group-1 --named-ports http:80 --zone $ZONE
+gcloud compute firewall-rules create $FWR --network=default --action=allow --direction=ingress --source-ranges=130.211.0.0/22,35.191.0.0/16 --target-tags=allow-health-check --rules=tcp:80
+gcloud compute addresses create nucleus-ip-address-v4-1 --ip-version=ipv4 --global
+export IP=$(gcloud compute addresses describe nucleus-ip-address-v4-1 --format="get(address)" --global)
+gcloud compute health-checks create http nucleus-http-basic-check-1 --port 80
+gcloud compute backend-services create nucleus-backend-service-1 --protocol=HTTP --port-name=http --health-checks=nucleus-http-basic-check-1 --global
+gcloud compute backend-services add-backend nucleus-backend-service-1 --instance-group=nucleus-instance-group-1 --instance-group-zone=$ZONE --global
+gcloud compute url-maps create nucleus-url-map-1 --default-service nucleus-backend-service-1
+gcloud compute target-http-proxies create nucleus-target-http-proxy-1 --url-map nucleus-url-map-1
+gcloud compute forwarding-rules create nucleus-forwarding-rule --address=nucleus-ip-address-v4-1 --global --target-http-proxy=nucleus-target-http-proxy-1 --ports=80
