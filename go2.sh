@@ -58,3 +58,5 @@ gcloud functions deploy helloWorld \
 gcloud functions describe helloWorld
 DATA=$(printf 'Hello World!'|base64) && gcloud functions call helloWorld --data '{"data":"'$DATA'"}'
 gcloud functions logs read helloWorld
+
+gcloud pubsub subscriptions pull --auto-ack MySub
