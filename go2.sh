@@ -88,3 +88,32 @@ python subscriber.py -h
 gcloud pubsub topics publish MyTopic --message "Hello"
 gcloud pubsub topics publish MyTopic --message "Publisher's name is <YOUR NAME>"
 python subscriber.py $GOOGLE_CLOUD_PROJECT receive MySub
+
+
+gcloud compute instances create \	vm-internal \
+    --project=qwiklabs-gcp-04-d387c1ae4b9a \
+    --zone=us-east4-c \
+    --machine-type=e2-medium \
+    --network-interface=network-tier=PREMIUM,stack-type=IPV4_ONLY,subnet=privatenet-us \
+    --metadata=enable-oslogin=true \
+    --maintenance-policy=MIGRATE \
+    --provisioning-model=STANDARD \
+    --service-account=78100645807-compute@developer.gserviceaccount.com \
+    --scopes=https://www.googleapis.com/auth/devstorage.read_only,https://www.googleapis.com/auth/logging.write,https://www.googleapis.com/auth/monitoring.write,https://www.googleapis.com/auth/servicecontrol,https://www.googleapis.com/auth/service.management.readonly,https://www.googleapis.com/auth/trace.append \
+    --create-disk=auto-delete=yes,boot=yes,device-name=\ \
+vm-internal,image=projects/debian-cloud/global/images/debian-11-bullseye-v20240312,mode=rw,size=10,type=projects/qwiklabs-gcp-04-d387c1ae4b9a/zones/us-east4-c/diskTypes/pd-balanced \
+    --no-shielded-secure-boot \
+    --no-shielded-vtpm \
+    --no-shielded-integrity-monitoring \
+    --labels=goog-ec-src=vm_add-gcloud \
+    --reservation-affinity=any
+
+    Chiarire IAP
+    gcloud compute ssh vm-internal --zone us-east4-c --tunnel-through-iap
+    gcloud compute ssh vm-internal --zone us-east4-c --tunnel-through-iap
+
+    85PE(O7sbne$LCe passwinvmn
+
+     sudo dmidecode -t 17 memoria installata
+     nproc
+     lscpu info sul cpu

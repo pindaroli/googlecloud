@@ -93,7 +93,7 @@ gcloud compute forwarding-rules create http-content-rule \
 
 echo "IP address is $IP"
 exit 
-
+### soluzione del professore
 gcloud compute instance-templates create nucleus-instance-template-1 --region=$REGION --network=default --subnet=default --tags=allow-health-check --machine-type=e2-medium --image-family=debian-11 --image-project=debian-cloud --metadata-from-file=startup-script=startup.sh
 gcloud compute instance-groups managed create nucleus-instance-group-1 --template=nucleus-instance-template-1 --size=2 --zone=$ZONE
 gcloud compute instance-groups set-named-ports nucleus-instance-group-1 --named-ports http:80 --zone $ZONE
@@ -106,3 +106,4 @@ gcloud compute backend-services add-backend nucleus-backend-service-1 --instance
 gcloud compute url-maps create nucleus-url-map-1 --default-service nucleus-backend-service-1
 gcloud compute target-http-proxies create nucleus-target-http-proxy-1 --url-map nucleus-url-map-1
 gcloud compute forwarding-rules create nucleus-forwarding-rule --address=nucleus-ip-address-v4-1 --global --target-http-proxy=nucleus-target-http-proxy-1 --ports=80
+

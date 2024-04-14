@@ -1,20 +1,18 @@
 #!/bin/bash
-R=us-east1
-Z=us-east1-b
-export BUCKET_NAME=
-export TOPIC_NAME
-export FUN_NAME=
-export PROJECT_ID=
-export CLOUD_STORAGE=
+R=us-west1
+Z=us-west1-b
+export BUCKET_NAME=qwiklabs-gcp-02-1172b7dfbffc-bucket
+export TOPIC_NAME=topic-memories-352
+export FUN_NAME=memories-thumbnail-generator
+export PROJECT_ID=qwiklabs-gcp-02-1172b7dfbffc
+
 
 gcloud config set compute/region $R && export REGION=$(gcloud config get compute/region) && echo $REGION
 gcloud config set compute/zone $Z && export ZONE=$(gcloud config get compute/zone) && echo $ZONE
 
 
 
-#Create a Cloud Function called Cloud Function Name
-mkdir $FUN_NAME
-cd $FUN_NAME
+
 
 #Task 1. Create a bucket
 gsutil mb gs://$BUCKET_NAME
@@ -24,6 +22,10 @@ read -p "Press enter to continue"
 gcloud pubsub topics create $TOPIC_NAME
 
 #Task 3. Create the thumbnail Cloud Function
+#Create a Cloud Function called Cloud Function Name
+mkdir $FUN_NAME
+cd $FUN_NAME
+
 cat << EOF > index.js
 const functions = require('@google-cloud/functions-framework');
 const crc32 = require("fast-crc32c");
@@ -130,6 +132,7 @@ gsutil mb -p $PROJECT_ID gs://$BUCKET_NAME
 
 # 
 gcloud functions deploy $FUN_NAME \
+  --gen2 \
   --stage-bucket $BUCKET_NAME \
   --trigger-bucket $BUCKET_NAME \
   --runtime nodejs20
