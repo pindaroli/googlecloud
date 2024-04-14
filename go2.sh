@@ -117,3 +117,22 @@ vm-internal,image=projects/debian-cloud/global/images/debian-11-bullseye-v202403
      sudo dmidecode -t 17 memoria installata
      nproc
      lscpu info sul cpu
+
+     sudo mkfs.ext4 -F -E lazy_itable_init=0,\
+lazy_journal_init=0,discard \
+/dev/disk/by-id/google-minecraft-disk
+
+sudo mount -o discard,defaults /dev/disk/by-id/google-minecraft-disk /home/minecraft
+
+sudo wget https://launcher.mojang.com/v1/objects/d0d0fe2b1dc6ab4c65554cb734270872b72dadd6/server.jar
+
+sudo apt-get install -y screen
+sudo screen -S mcs java -Xmx1024M -Xms1024M -jar server.jar nogui
+#to detach the screen terminal, press Ctrl+A, Ctrl+D
+sudo screen -r mcs # to reattach the screen terminal
+sudo screen -r -X stuff '/stop\n' # to stop the Minecraft server
+#backup
+#!/bin/bash
+screen -r mcs -X stuff '/save-all\n/save-off\n'
+/usr/bin/gcloud storage cp -R ${BASH_SOURCE%/*}/world gs://${YOUR_BUCKET_NAME}-minecraft-backup/$(date "+%Y%m%d-%H%M%S")-world
+screen -r mcs -X stuff '/save-on\n'
