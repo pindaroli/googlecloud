@@ -1,0 +1,49 @@
+student_01_637332f9533c@cloudshell:~ (qwiklabs-gcp-00-d8f935be948f)$ terraform import google_compute_instance.tf-instance-2 $PRJ/$ZONE/$IST2ID
+Error: resource address "google_compute_instance.tf-instance-2" does not exist in the configuration.
+
+Before importing this resource, please create its configuration in the root module. For example:
+
+resource "google_compute_instance" "tf-instance-2" {
+  # (resource arguments)
+}
+terraform import google_compute_instance.tf-instance-2 $PRJ/$ZONE/$IST2ID
+
+student_01_637332f9533c@cloudshell:~ (qwiklabs-gcp-00-d8f935be948f)$ terraform import module.instances.google_compute_instance.tf_instance-1 6148686466931455101
+var.proj
+  The name of the project
+
+  Enter a value: qwiklabs-gcp-00-d8f935be948f
+
+module.instances.google_compute_instance.tf_instance-1: Importing from ID "6148686466931455101"...
+╷
+│ Error: Cannot determine zone: set in this resource, or set provider-level zone.
+│
+│
+╵
+ terraform import module.instances.google_compute_instance.tf_instance-1 6148686466931455101
+Plan: 3 to add, 0 to change, 0 to destroy.
+╷
+│ Error: Resource instance managed by newer provider version
+│
+│ The current state of module.storage.google_storage_bucket.static-site was created by a newer provider version than is currently selected. Upgrade the google
+│ provider to work with this state.
+╵
+student_00_38d184df3a52@cloudshell:~ (qwiklabs-gcp-00-57ca296fccd7)$ terraform version
+Terraform v1.7.5
+on linux_amd64
++ provider registry.terraform.io/hashicorp/google v4.84.0
++ provider registry.terraform.io/hashicorp/google-beta v4.84.0
+
+Your version of Terraform is out of date! The latest version
+is 1.8.0. You can update by downloading from https://www.terraform.io/downloads.html
+ral1-c/instances/tf-instance-1]
+╷
+│ Error: Error updating network interface: googleapi: Error 400: Invalid value for field 'resource': '{  "network": "projects/qwiklabs-gcp-00-dd1687b2224d/global/networks/default",  "subnetwork": "proje...'. Subnetwork does not belong to the network., invalid
+│
+│   with module.instances.google_compute_instance.tf_instance-1,
+│   on modules/instances/instances.tf line 1, in resource "google_compute_instance" "tf_instance-1":
+│    1: resource "google_compute_instance" "tf_instance-1" {
+│
+╵
+╷
+│ Error: Error updating network interface: googleapi: Error 400: Invalid value for field 'resource': '{  "network": "projects/qwiklabs-gcp-00-dd1687b2224d/global/networks/default",  "subnetwork": "proje...'. Subnetwork does not belong to the network., invalid

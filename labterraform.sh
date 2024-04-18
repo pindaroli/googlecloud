@@ -1,11 +1,11 @@
 #!/bin/bash
-R=europe-west4
-Z=europe-west4-a
-export PRJ=qwiklabs-gcp-01-19604e18d13b
-export IST1ID=ist1
-export IST2ID=ist2
-export BUCKET_NAME=
-export VPC_NAME=
+R=us-central1
+Z=us-central1-c
+export PRJ=qwiklabs-gcp-00-dd1687b2224d
+export IST1ID=759937300111188604
+export IST2ID=4045485323322548860
+export BUCKET_NAME=tf-bucket-284652
+export VPC_NAME=tf-vpc-211009
 
 gcloud config set compute/region $R && export REGION=$(gcloud config get compute/region) && echo $REGION
 gcloud config set compute/zone $Z && export ZONE=$(gcloud config get compute/zone) && echo $ZONE
@@ -35,9 +35,10 @@ variable "zone" {
   default     = "$ZONE"
 }
 
-variable "proj" {
+variable "prj" {
   description = "The name of the project"
   type        = string
+  default    = "$PRJ"
 }
 
 variable "environment" {
@@ -49,8 +50,10 @@ EOF
 
 cat << EOF > ../main.tf
 provider "google" {
+  version     = "<5.0"
   project     = "$PRJ"
   region      = "$REGION"
+  zone        = "$ZONE"
 }
 EOF
 
@@ -61,21 +64,21 @@ read -p "Task 1. Create the configuration files"
 
 cat << EOF >> main.tf
 module "instances" {
-  source = "~/modules/instances"
+  source = "./modules/instances"
   // inserisci qui le variabili del modulo
 }
 
 module "storage" {
-  source = "~/modules/storage"
+  source = "./modules/storage"
   // inserisci qui le variabili del modulo
 }
 EOF
-
+terraform init
 cat << EOF > modules/instances/instances.tf
-resource "google_compute_instance" "tf_instance_1" {
+resource "google_compute_instance" "tf_instance-1" {
   name         = "tf-instance-1"
   machine_type = "e2-micro"
-  zone         = var.zone
+  zone         = "$ZONE"
 
   allow_stopping_for_update = true
 
@@ -93,10 +96,10 @@ resource "google_compute_instance" "tf_instance_1" {
   metadata_startup_script = "#!/bin/bash"
 }
 
-resource "google_compute_instance" "tf_instance_2" {
+resource "google_compute_instance" "tf_instance-2" {
   name         = "tf-instance-2"
   machine_type = "e2-micro"
-  zone         = var.zone
+  zone         = "$ZONE"
 
   allow_stopping_for_update = true
 
@@ -115,12 +118,11 @@ resource "google_compute_instance" "tf_instance_2" {
 }
 EOF
 
-terraform import google_compute_instance.tf_instance_1 $PRJ/$ZONE/$IST1ID
-terraform import google_compute_instance.tf_instance_2 $PRJ/$ZONE/$IST2ID
+terraform import module.instances.google_compute_instance.tf_instance-2 $IST2ID
 
 terraform apply
 
-read -p "Import infrastructure"
+read -p "task.2 Import infrastructure"
 
 cat << EOF > modules/storage/storage.tf
 resource "google_storage_bucket" "static-site" {
@@ -147,7 +149,7 @@ terraform apply
 cat << EOF >> main.tf
 terraform {
   backend "gcs" {
-    bucket  = "$BUCKET_NAME
+    bucket  = "$BUCKET_NAME"
     prefix  = "terraform/state"
   }
 }
@@ -162,7 +164,7 @@ module "vpc" {
     version = "6.0.0"
 
     project_id   = "$PRJ"
-    network_name = "$VPC_VPC_NAME"
+    network_name = "$VPC_NAME"
     routing_mode = "GLOBAL"
 
     subnets = [
@@ -183,3 +185,21 @@ module "vpc" {
 }
 EOF
 read -p "Task 6. Use a module from the Registry"
+
+cat << EOF >> main.tf
+resource "google_compute_firewall" "default" {
+  name    = "tf-firewall"
+  network = "$VPC_NAME"
+
+  allow {
+    protocol = "tcp"
+    ports    = ["80"]
+  }
+
+  source_ranges = ["0.0.0.0/0"]
+}
+EOF
+
+terraform apply
+
+read -p "Task 7. Configure a firewall"
