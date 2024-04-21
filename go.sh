@@ -11,6 +11,7 @@ gcloud config set compute/zone $Z && export ZONE=$(gcloud config get compute/zon
 gcloud compute instances create $NOMESERVER --machine-type e2-micro --zone $ZONE
 read -p "Press enter to continue"
 
+gcloud compute instances create --help
 
 
 # create an instance template
