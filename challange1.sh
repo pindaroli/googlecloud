@@ -2,7 +2,7 @@ R=us-east1
 export ZONE=us-west1-c
 export PRJ=qwiklabs-gcp-04-05805755962a
 export BCK=$PRJ-olibk
-export STURL=https://storage.cloud.google.com/qwiklabs-gcp-04-05805755962a-olibk/install-web.sh
+
 
 cat << EOF > install-web.sh
 #!/bin/bash
@@ -27,7 +27,7 @@ gcloud compute firewall-rules create www-firewall-network-lb \
     --image-family=debian-11 \
     --image-project=debian-cloud \
     --scopes storage-ro \
-    --metadata=startup-script-url=https://storage.googleapis.com/$BCK/install-web.s
+    --metadata=startup-script-url=https://storage.googleapis.com/$BCK/install-web.sh
 
 gcloud compute instances list
-curl http://[IP_ADDRESS]
+curl http://34.145.103.10

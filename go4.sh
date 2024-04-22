@@ -129,3 +129,34 @@ gsutil rm -r gs://$DEVSHELL_PROJECT_ID
 logName=("projects/qwiklabs-gcp-00-dd3325549569/logs/cloudaudit.googleapis.com%2Factivity" OR "projects/qwiklabs-gcp-00-dd3325549569/logs/cloudaudit.googleapis.com%2Fdata_access" OR "projects/qwiklabs-gcp-00-dd3325549569/logs/cloudaudit.googleapis.com%2Fsystem_event")
 gcloud logging read \
 "logName=projects/$DEVSHELL_PROJECT_ID/logs/cloudaudit.googleapis.com%2Fdata_access"
+
+gcloud config set compute/zone "Zone"
+export ZONE=$(gcloud config get compute/zone)
+
+gcloud config set compute/region "Region"
+export REGION=$(gcloud config get compute/region)
+
+gcloud compute networks create taw-custom-network --subnet-mode custom
+gcloud compute networks subnets create subnet-us-east1 \
+   --network taw-custom-network \
+   --region us-east1 \
+   --range 10.2.0.0/16
+gcloud compute networks subnets list \
+   --network taw-custom-network
+gcloud compute firewall-rules create nw101-allow-http \
+--allow tcp:80 --network taw-custom-network --source-ranges 0.0.0.0/0 \
+--target-tags http
+gcloud compute firewall-rules create "nw101-allow-icmp" --allow icmp --network "taw-custom-network" --target-tags rules
+gcloud compute firewall-rules create "nw101-allow-internal" --allow tcp:0-65535,udp:0-65535,icmp --network "taw-custom-network" --source-ranges "10.0.0.0/16","10.2.0.0/16","10.1.0.0/16"
+gcloud compute firewall-rules create "nw101-allow-ssh" --allow tcp:22 --network "taw-custom-network" --target-tags "ssh"
+gcloud compute instances create us-test-01 \
+--subnet subnet-europe-west4 \
+--zone europe-west4-c \
+--machine-type e2-standard-2 \
+--tags ssh,http,rules
+EXTERNAL_IP: 34.32.142.15
+sudo apt-get update
+sudo apt-get -y install traceroute mtr tcpdump iperf whois host dnsutils siege
+traceroute www.icann.org
+traceroute www.icann.org
+iperf -s #run in server mode
