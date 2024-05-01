@@ -1,6 +1,7 @@
 export zone=us-west1-b
 export kname=onlineboutique-cluster-197
-export prj=qwiklabs-gcp-02-9d00a4cb2f57
+#export prj=qwiklabs-gcp-02-9d00a4cb2f57
+export prj=$(gcloud config get-value project)
 export poolname=optimized-pool-6274
 export maxreplicas=12
 
@@ -106,3 +107,5 @@ gcloud beta container clusters update $kname --enable-autoscaling \
 
 
 kubectl exec $(kubectl get pod --namespace=dev | grep 'loadgenerator' | cut -f1 -d ' ') -it --namespace=dev -- bash -c 'export USERS=8000; locust --host="http://34.145.117.58" --headless -u "8000" 2>&1'
+export PROJECT_ID=$(gcloud config get-value project)
+gcloud config set project $PROJECT_ID
