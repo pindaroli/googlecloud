@@ -1,7 +1,7 @@
-export zone=europe-west4-b
-export kname=onlineboutique-cluster-427
-export prj=qwiklabs-gcp-00-99fa63494391
-export poolname=optimized-pool-2352
+export zone=us-west1-b
+export kname=onlineboutique-cluster-197
+export prj=qwiklabs-gcp-02-9d00a4cb2f57
+export poolname=optimized-pool-6274
 export maxreplicas=12
 
 #Task 1. Create a cluster and deploy your app
@@ -14,15 +14,19 @@ gcloud container clusters create $kname \
 --release-channel rapid \
 --project $prj
 
-
 kubectl create namespace dev
 kubectl create namespace prod
 
+kubectl config set-context --current --namespace dev
 
 git clone https://github.com/GoogleCloudPlatform/microservices-demo.git &&
 cd microservices-demo && kubectl apply -f ./release/kubernetes-manifests.yaml --namespace dev
 
-gcloud compute addresses describe frontend-external --region=<your-region> --format="get(address)"
+kubectl get svc -w --namespace dev
+#35.205.226.178, 34.145.117.58
+
+# non va gcloud compute addresses describe frontend-external --zone=$zone --format="get(address)"
+kubectl config set-context --current --namespace dev
 
 #Task 2. Migrate to an optimized node pool
 gcloud container node-pools create $poolname \
@@ -42,7 +46,7 @@ for node in $(kubectl get nodes -l cloud.google.com/gke-nodepool=default-pool -o
 done
 
 # per controllare
-kubectl get pods -o=wide
+kubectl get pods -o=wide --namespace dev
 
 
 gcloud container node-pools delete default-pool \
@@ -62,9 +66,12 @@ spec:
     matchLabels:
       app: frontend
 
+#alternativa
+kubectl create poddisruptionbudget onlineboutique-frontend-pdb \
+--selector app=frontend --min-available 1  --namespace dev
 
-
-
+#like a PRO
+KUBE_EDITOR="nano -c" kubectl edit deployment/frontend --namespace dev
 
 
 
@@ -87,9 +94,15 @@ spec:
       target:
         type: Utilization
         averageUtilization: 50  # adjust to match your target CPU percentage
+# in alternativa
+kubectl autoscale deployment frontend --cpu-percent=50 \
+   --min=1 --max=12 --namespace dev
 
-gcloud container clusters update $kname --enable-autoscaling \
+kubectl get hpa --namespace dev
+
+gcloud beta container clusters update $kname --enable-autoscaling \
 --min-nodes 1 --max-nodes 6 \
 --zone $zone 
 
-kubectl exec $(kubectl get pod --namespace=dev | grep 'loadgenerator' | cut -f1 -d ' ') -it --namespace=dev -- bash -c 'export USERS=8000; locust --host="http://34.91.2.36" --headless -u "8000" 2>&1'
+
+kubectl exec $(kubectl get pod --namespace=dev | grep 'loadgenerator' | cut -f1 -d ' ') -it --namespace=dev -- bash -c 'export USERS=8000; locust --host="http://34.145.117.58" --headless -u "8000" 2>&1'

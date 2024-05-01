@@ -1,0 +1,3252 @@
+<!DOCTYPE html>
+<!-- saved from url=(0067)https://www.cloudskillsboost.google/course_templates/2/video/464484 -->
+<html lang="en" class="mdl-js"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">.turbo-progress-bar {
+  position: fixed;
+  display: block;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: #0076ff;
+  z-index: 2147483647;
+  transition:
+    width 300ms ease-out,
+    opacity 150ms 150ms ease-in;
+  transform: translate3d(0, 0, 0);
+}
+</style><style type="text/css" data-tag-name="trix-editor">trix-editor {
+    display: block;
+}
+
+trix-editor:empty:not(:focus)::before {
+    content: attr(placeholder);
+    color: graytext;
+    cursor: text;
+    pointer-events: none;
+    white-space: pre-line;
+}
+
+trix-editor a[contenteditable=false] {
+    cursor: text;
+}
+
+trix-editor img {
+    max-width: 100%;
+    height: auto;
+}
+
+trix-editor [data-trix-attachment] figcaption textarea {
+    resize: none;
+}
+
+trix-editor [data-trix-attachment] figcaption textarea.trix-autoresize-clone {
+    position: absolute;
+    left: -9999px;
+    max-height: 0px;
+}
+
+trix-editor [data-trix-attachment] figcaption[data-trix-placeholder]:empty::before {
+    content: attr(data-trix-placeholder);
+    color: graytext;
+}
+
+trix-editor [data-trix-cursor-target] {
+    display: inline-block !important;
+    width: 1px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+}
+
+trix-editor [data-trix-cursor-target=left] {
+    vertical-align: top !important;
+    margin-left: -1px !important;
+}
+
+trix-editor [data-trix-cursor-target=right] {
+    vertical-align: bottom !important;
+    margin-right: -1px !important;
+}</style><style type="text/css" data-tag-name="trix-toolbar">trix-toolbar {
+  display: block;
+}
+
+trix-toolbar {
+  white-space: nowrap;
+}
+
+trix-toolbar [data-trix-dialog] {
+  display: none;
+}
+
+trix-toolbar [data-trix-dialog][data-trix-active] {
+  display: block;
+}
+
+trix-toolbar [data-trix-dialog] [data-trix-validate]:invalid {
+  background-color: #ffdddd;
+}</style>
+<title>Billing | Google Cloud Skills Boost</title>
+<meta name="action-cable-url" content="/cable">
+<script type="text/javascript" id="www-widgetapi-script" src="./Billing _ Google Cloud Skills Boost_files/www-widgetapi.js" async=""></script><script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-5XSKHDX"></script><script>
+//<![CDATA[
+window.gon={};gon.deployment="google-run";
+//]]>
+</script>
+<script>
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer',"GTM-5XSKHDX");
+</script>
+<script src="https://www.googletagmanager.com/gtag/js?id=G-2X30ZRBDSG" async="async"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', "G-2X30ZRBDSG", {
+    user_id: "13750146"
+  });
+</script>
+<script>
+  const properties = JSON.parse(atob('eyJsb2NhbGUiOiJlbiIsInN1YnNjcmlwdGlvbiI6Im1vbnRobHkiLCJ1c2VyX3JvbGVzIjoic3R1ZGVudCIsImZlYXR1cmVfY3JlZGx5X21hbmFnZW1lbnQiOmZhbHNlLCJmZWF0dXJlX2NyZWRseSI6dHJ1ZSwiZmVhdHVyZV9iYXJrZXJfcGF1c2UiOmZhbHNlLCJmZWF0dXJlX2NvdXJzZV9tb25ldGl6YXRpb24iOmZhbHNlLCJmZWF0dXJlX3Byb2dyYW1fYW5ub3VuY2VtZW50cyI6dHJ1ZSwiZmVhdHVyZV9pbHRfY29udGVudF9wcm9ncmFtIjpmYWxzZSwiZmVhdHVyZV9zaG93X2FubnVhbF9wdXJjaGFzZV9ub3ciOnRydWUsImZlYXR1cmVfdGVhbXMiOnRydWUsImZlYXR1cmVfcGVlcl9hc3NpZ25tZW50IjpmYWxzZSwiZmVhdHVyZV9sb2dfY29va2llcyI6ZmFsc2UsImZlYXR1cmVfb3JnYW5pemF0aW9uX2Fubm91bmNlbWVudHMiOnRydWUsImZlYXR1cmVfY2hhdF9vZmZfZm9yX3NpZ25lZF9vdXRfdXNlcnMiOnRydWUsImZlYXR1cmVfY3JlZGx5X2ludGVncmF0aW9uX2Fubm91bmNlbWVudF9tb2RhbCI6dHJ1ZSwiZmVhdHVyZV9ndWVzdF91c2VyIjp0cnVlLCJmZWF0dXJlX2NvbXBsZXRpb25zX2Rhc2hib2FyZCI6ZmFsc2UsImZlYXR1cmVfbGFuZGluZ19wYWdlIjp0cnVlLCJmZWF0dXJlX3RlbGxfbmF2eV9hbGxvd2VkX3pvbmVzIjpmYWxzZSwiZmVhdHVyZV9jb3Vyc2VfdXBncmFkZSI6dHJ1ZSwiZmVhdHVyZV9hbGV4YW5kcmlhX3N1YnNjcmlwdGlvbnNfcGFnaW5hdGlvbiI6dHJ1ZSwiZmVhdHVyZV9vcmdhbml6YXRpb25fbGVhcm5pbmdfcGxhbnMiOnRydWUsImZlYXR1cmVfZGVkdXBfYmFkZ2UiOnRydWUsImZlYXR1cmVfc2VhcmNoX3VwZGF0ZXMiOnRydWUsImZlYXR1cmVfcGVyZl90ZXN0IjpmYWxzZSwiZmVhdHVyZV9hYl9jb250ZW50X2djcC1vbmRlbWFuZC1jb250ZW50L1QtR09PR0FWLUJ8cHJvamVjdC1zZWVraG8tcHVibGljLWNhdGFsb2d8MS4wfDEuMSI6ZmFsc2UsImZlYXR1cmVfcHJvZ3JhbV9sZWFybmluZ19hc3NpZ25tZW50Ijp0cnVlLCJmZWF0dXJlX2NvbnRlbnRfcHJvdmlkZXJfYWRtaW4iOnRydWUsImZlYXR1cmVfY2Fub25pY2FsX2RvbWFpbl9yZWRpcmVjdCI6dHJ1ZSwiZmVhdHVyZV9vbnJhbXAiOnRydWUsImZlYXR1cmVfYWlfc2tpbGxzIjp0cnVlLCJmZWF0dXJlX29hdXRoX3Jpc2Nfc2h1dG9mZiI6dHJ1ZSwiZmVhdHVyZV90dXJibyI6ZmFsc2UsImZlYXR1cmVfb25lX3RhcCI6dHJ1ZSwiZmVhdHVyZV91c2VkX2luIjp0cnVlLCJmZWF0dXJlX3BlcnNvbmFsaXplZF9xdWVzdHMiOmZhbHNlLCJmZWF0dXJlX2FsZXhhbmRyaWFfc2hvd19idW5kbGVfZXJyb3JzIjp0cnVlLCJmZWF0dXJlX2NvbW11bml0eV9mb3J1bSI6ZmFsc2UsImdyb3VwX3N1YWRtaW5zIjpmYWxzZSwiZ3JvdXBfbm9uX3N1YWRtaW5zIjp0cnVlLCJncm91cF9hZG1pbnMiOmZhbHNlLCJncm91cF90cmFpbmVycyI6ZmFsc2UsImdyb3VwX2Nvb3JkaW5hdG9ycyI6ZmFsc2UsImdyb3VwX2NyZWF0b3JzIjpmYWxzZSwiZ3JvdXBfc3R1ZGVudHMiOnRydWUsImdyb3VwX25vbl9vcmdhbml6YXRpb24iOnRydWUsImdyb3VwX25vbl9wcm9ncmFtIjp0cnVlLCJncm91cF9nb29nbGVycyI6ZmFsc2V9'));
+  gtag('set', 'user_properties', properties);
+</script>
+<script src="./Billing _ Google Cloud Skills Boost_files/webcomponents-loader-b1b28b59480cca2ab0c23485f64ba2ec8893bdc9.js"></script>
+<script src="./Billing _ Google Cloud Skills Boost_files/vendor-6b6a2202d2979a44b0731a6ad7ee32328de70ac8.js"></script>
+<script src="./Billing _ Google Cloud Skills Boost_files/application-b866d7b136b92bbdf4ef873053ed02809f85aa1b.js"></script><style>:root {
+  --game-color: #E52592;
+  --classroom-color: #01877E;
+  --external-course-color: #D56E0C;
+  --certification-color: #C5221F;
+}
+
+abbr[title],
+abbr[data-original-title] {
+  border-bottom: none !important;
+}
+
+label abbr[title] {
+  color: var(--primary-text-on-surface-color);
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--hairline-color);
+  display: block;
+  height: 1px;
+  margin: 24px 0;
+  padding: 0;
+}
+
+mark {
+  background-color: #F9AB00;
+  border-radius: 2px;
+  color: inherit;
+  padding: 2px 0px;
+}
+
+p, li {
+  font: var(--md-sys-typescale-body-large);
+}
+
+._small-label_1gdx7_37,
+._label--small_1gdx7_38 {
+  font: var(--md-sys-typescale-body-medium);
+  text-decoration: none;
+}
+
+strong {
+  font-weight: 700;
+}
+
+._mdl-typography--small-title_1gdx7_47 {
+  color: #202124;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+._text--blue_1gdx7_53 {
+  color: var(--primary-text-on-surface-color);
+}
+
+._text--center_1gdx7_57 {
+  text-align: center;
+}
+
+._text--capitalize_1gdx7_61 {
+  text-transform: capitalize;
+}
+
+._text--code_1gdx7_65 {
+  font-family: "Roboto Mono", monospace;
+}
+
+._text--copy_1gdx7_69 {
+  font-family: var(--md-ref-typeface-plain);
+}
+
+._text--error_1gdx7_73 {
+  color: var(--warn-color);
+}
+
+._text--free_1gdx7_77 {
+  color: var(--success-color);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+._text--gray_1gdx7_83 {
+  color: rgba(0, 0, 0, 0.54);
+}
+
+._text--light_1gdx7_87 {
+  color: var(--light-text-on-surface-color) !important;
+}
+
+._text--right_1gdx7_91 {
+  text-align: right;
+}
+
+._text--sign_1gdx7_95 {
+  font-family: "Oswald", sans-serif;
+}
+
+._text--small_1gdx7_99 {
+  font-size: 14px !important;
+}
+
+._text--large_1gdx7_103 {
+  font-size: 20px !important;
+}
+
+._text--success_1gdx7_107 {
+  color: var(--success-color) !important;
+}
+
+._text--yellow_1gdx7_111 {
+  color: #F9AB00;
+}
+
+._text--red_1gdx7_115 {
+  color: #D93025;
+}
+
+._text--green_1gdx7_119 {
+  color: #34A853;
+}
+
+u {
+  text-decoration: none;
+}
+
+._material-icons_1gdx7_127 {
+  font-family: "Material Icons";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px; /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+  /* Support for IE. */
+  font-feature-settings: "liga";
+}
+
+._ellipsis_1gdx7_149 {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+._text--rtl_1gdx7_155 {
+  direction: rtl;
+}
+
+._body-wrapper_1gdx7_159 {
+  max-width: 800px;
+}
+
+._text--button_1gdx7_163 {
+  font: var(--md-sys-typescale-label-large);
+}</style>
+<script src="./Billing _ Google Cloud Skills Boost_files/hallofmirrors-ba58bb806e32529d6afee54ea84b8d8a99b3c49b.js"></script><script async="" src="./Billing _ Google Cloud Skills Boost_files/lazy.min.js"></script>
+<custom-style>
+  <style is="custom-style">[hidden] {
+  display: none !important;
+}
+
+</style>
+</custom-style>
+<custom-style>
+  <style is="custom-style">html {
+  --layout_-_display:  flex;;
+
+      --layout-inline_-_display:  inline-flex;;
+
+      --layout-horizontal_-_display:  var(--layout_-_display); --layout-horizontal_-_-ms-flex-direction:  row; --layout-horizontal_-_-webkit-flex-direction:  row; --layout-horizontal_-_flex-direction:  row;;
+
+      --layout-horizontal-reverse_-_display:  var(--layout_-_display); --layout-horizontal-reverse_-_-ms-flex-direction:  row-reverse; --layout-horizontal-reverse_-_-webkit-flex-direction:  row-reverse; --layout-horizontal-reverse_-_flex-direction:  row-reverse;;
+
+      --layout-vertical_-_display:  var(--layout_-_display); --layout-vertical_-_-ms-flex-direction:  column; --layout-vertical_-_-webkit-flex-direction:  column; --layout-vertical_-_flex-direction:  column;;
+
+      --layout-vertical-reverse_-_display:  var(--layout_-_display); --layout-vertical-reverse_-_-ms-flex-direction:  column-reverse; --layout-vertical-reverse_-_-webkit-flex-direction:  column-reverse; --layout-vertical-reverse_-_flex-direction:  column-reverse;;
+
+      --layout-wrap_-_-ms-flex-wrap:  wrap; --layout-wrap_-_-webkit-flex-wrap:  wrap; --layout-wrap_-_flex-wrap:  wrap;;
+
+      --layout-wrap-reverse_-_-ms-flex-wrap:  wrap-reverse; --layout-wrap-reverse_-_-webkit-flex-wrap:  wrap-reverse; --layout-wrap-reverse_-_flex-wrap:  wrap-reverse;;
+
+      --layout-flex-auto_-_-ms-flex:  1 1 auto; --layout-flex-auto_-_-webkit-flex:  1 1 auto; --layout-flex-auto_-_flex:  1 1 auto;;
+
+      --layout-flex-none_-_-ms-flex:  none; --layout-flex-none_-_-webkit-flex:  none; --layout-flex-none_-_flex:  none;;
+
+      --layout-flex_-_-ms-flex:  1 1 0.000000001px; --layout-flex_-_-webkit-flex:  1; --layout-flex_-_flex:  1; --layout-flex_-_-webkit-flex-basis:  0.000000001px; --layout-flex_-_flex-basis:  0.000000001px;;
+
+      --layout-flex-2_-_-ms-flex:  2; --layout-flex-2_-_-webkit-flex:  2; --layout-flex-2_-_flex:  2;;
+
+      --layout-flex-3_-_-ms-flex:  3; --layout-flex-3_-_-webkit-flex:  3; --layout-flex-3_-_flex:  3;;
+
+      --layout-flex-4_-_-ms-flex:  4; --layout-flex-4_-_-webkit-flex:  4; --layout-flex-4_-_flex:  4;;
+
+      --layout-flex-5_-_-ms-flex:  5; --layout-flex-5_-_-webkit-flex:  5; --layout-flex-5_-_flex:  5;;
+
+      --layout-flex-6_-_-ms-flex:  6; --layout-flex-6_-_-webkit-flex:  6; --layout-flex-6_-_flex:  6;;
+
+      --layout-flex-7_-_-ms-flex:  7; --layout-flex-7_-_-webkit-flex:  7; --layout-flex-7_-_flex:  7;;
+
+      --layout-flex-8_-_-ms-flex:  8; --layout-flex-8_-_-webkit-flex:  8; --layout-flex-8_-_flex:  8;;
+
+      --layout-flex-9_-_-ms-flex:  9; --layout-flex-9_-_-webkit-flex:  9; --layout-flex-9_-_flex:  9;;
+
+      --layout-flex-10_-_-ms-flex:  10; --layout-flex-10_-_-webkit-flex:  10; --layout-flex-10_-_flex:  10;;
+
+      --layout-flex-11_-_-ms-flex:  11; --layout-flex-11_-_-webkit-flex:  11; --layout-flex-11_-_flex:  11;;
+
+      --layout-flex-12_-_-ms-flex:  12; --layout-flex-12_-_-webkit-flex:  12; --layout-flex-12_-_flex:  12;;
+
+      
+
+      --layout-start_-_-ms-flex-align:  start; --layout-start_-_-webkit-align-items:  flex-start; --layout-start_-_align-items:  flex-start;;
+
+      --layout-center_-_-ms-flex-align:  center; --layout-center_-_-webkit-align-items:  center; --layout-center_-_align-items:  center;;
+
+      --layout-end_-_-ms-flex-align:  end; --layout-end_-_-webkit-align-items:  flex-end; --layout-end_-_align-items:  flex-end;;
+
+      --layout-baseline_-_-ms-flex-align:  baseline; --layout-baseline_-_-webkit-align-items:  baseline; --layout-baseline_-_align-items:  baseline;;
+
+      
+
+      --layout-start-justified_-_-ms-flex-pack:  start; --layout-start-justified_-_-webkit-justify-content:  flex-start; --layout-start-justified_-_justify-content:  flex-start;;
+
+      --layout-center-justified_-_-ms-flex-pack:  center; --layout-center-justified_-_-webkit-justify-content:  center; --layout-center-justified_-_justify-content:  center;;
+
+      --layout-end-justified_-_-ms-flex-pack:  end; --layout-end-justified_-_-webkit-justify-content:  flex-end; --layout-end-justified_-_justify-content:  flex-end;;
+
+      --layout-around-justified_-_-ms-flex-pack:  distribute; --layout-around-justified_-_-webkit-justify-content:  space-around; --layout-around-justified_-_justify-content:  space-around;;
+
+      --layout-justified_-_-ms-flex-pack:  justify; --layout-justified_-_-webkit-justify-content:  space-between; --layout-justified_-_justify-content:  space-between;;
+
+      --layout-center-center_-_-ms-flex-align:  var(--layout-center_-_-ms-flex-align); --layout-center-center_-_-webkit-align-items:  var(--layout-center_-_-webkit-align-items); --layout-center-center_-_align-items:  var(--layout-center_-_align-items); --layout-center-center_-_-ms-flex-pack:  var(--layout-center-justified_-_-ms-flex-pack); --layout-center-center_-_-webkit-justify-content:  var(--layout-center-justified_-_-webkit-justify-content); --layout-center-center_-_justify-content:  var(--layout-center-justified_-_justify-content);;
+
+      
+
+      --layout-self-start_-_-ms-align-self:  flex-start; --layout-self-start_-_-webkit-align-self:  flex-start; --layout-self-start_-_align-self:  flex-start;;
+
+      --layout-self-center_-_-ms-align-self:  center; --layout-self-center_-_-webkit-align-self:  center; --layout-self-center_-_align-self:  center;;
+
+      --layout-self-end_-_-ms-align-self:  flex-end; --layout-self-end_-_-webkit-align-self:  flex-end; --layout-self-end_-_align-self:  flex-end;;
+
+      --layout-self-stretch_-_-ms-align-self:  stretch; --layout-self-stretch_-_-webkit-align-self:  stretch; --layout-self-stretch_-_align-self:  stretch;;
+
+      --layout-self-baseline_-_-ms-align-self:  baseline; --layout-self-baseline_-_-webkit-align-self:  baseline; --layout-self-baseline_-_align-self:  baseline;;
+
+      
+
+      --layout-start-aligned_-_-ms-flex-line-pack:  start; --layout-start-aligned_-_-ms-align-content:  flex-start; --layout-start-aligned_-_-webkit-align-content:  flex-start; --layout-start-aligned_-_align-content:  flex-start;;
+
+      --layout-end-aligned_-_-ms-flex-line-pack:  end; --layout-end-aligned_-_-ms-align-content:  flex-end; --layout-end-aligned_-_-webkit-align-content:  flex-end; --layout-end-aligned_-_align-content:  flex-end;;
+
+      --layout-center-aligned_-_-ms-flex-line-pack:  center; --layout-center-aligned_-_-ms-align-content:  center; --layout-center-aligned_-_-webkit-align-content:  center; --layout-center-aligned_-_align-content:  center;;
+
+      --layout-between-aligned_-_-ms-flex-line-pack:  justify; --layout-between-aligned_-_-ms-align-content:  space-between; --layout-between-aligned_-_-webkit-align-content:  space-between; --layout-between-aligned_-_align-content:  space-between;;
+
+      --layout-around-aligned_-_-ms-flex-line-pack:  distribute; --layout-around-aligned_-_-ms-align-content:  space-around; --layout-around-aligned_-_-webkit-align-content:  space-around; --layout-around-aligned_-_align-content:  space-around;;
+
+      
+
+      --layout-block_-_display:  block;;
+
+      --layout-invisible_-_visibility:  hidden !important;;
+
+      --layout-relative_-_position:  relative;;
+
+      --layout-fit_-_position:  absolute; --layout-fit_-_top:  0; --layout-fit_-_right:  0; --layout-fit_-_bottom:  0; --layout-fit_-_left:  0;;
+
+      --layout-scroll_-_-webkit-overflow-scrolling:  touch; --layout-scroll_-_overflow:  auto;;
+
+      --layout-fullbleed_-_margin:  0; --layout-fullbleed_-_height:  100vh;;
+
+      
+
+      --layout-fixed-top_-_position:  fixed; --layout-fixed-top_-_top:  0; --layout-fixed-top_-_left:  0; --layout-fixed-top_-_right:  0;;
+
+      --layout-fixed-right_-_position:  fixed; --layout-fixed-right_-_top:  0; --layout-fixed-right_-_right:  0; --layout-fixed-right_-_bottom:  0;;
+
+      --layout-fixed-bottom_-_position:  fixed; --layout-fixed-bottom_-_right:  0; --layout-fixed-bottom_-_bottom:  0; --layout-fixed-bottom_-_left:  0;;
+
+      --layout-fixed-left_-_position:  fixed; --layout-fixed-left_-_top:  0; --layout-fixed-left_-_bottom:  0; --layout-fixed-left_-_left:  0;;
+}
+
+</style>
+</custom-style><style>[hidden] { display: none !important; }</style><custom-style>
+  <style is="custom-style">html {
+  --google-red-100: #f4c7c3;
+      --google-red-300: #e67c73;
+      --google-red-500: #db4437;
+      --google-red-700: #c53929;
+
+      --google-blue-100: #c6dafc;
+      --google-blue-300: #7baaf7;
+      --google-blue-500: #4285f4;
+      --google-blue-700: #3367d6;
+
+      --google-green-100: #b7e1cd;
+      --google-green-300: #57bb8a;
+      --google-green-500: #0f9d58;
+      --google-green-700: #0b8043;
+
+      --google-yellow-100: #fce8b2;
+      --google-yellow-300: #f7cb4d;
+      --google-yellow-500: #f4b400;
+      --google-yellow-700: #f09300;
+
+      --google-grey-100: #f5f5f5;
+      --google-grey-300: #e0e0e0;
+      --google-grey-500: #9e9e9e;
+      --google-grey-700: #616161;
+
+      
+
+      --paper-red-50: #ffebee;
+      --paper-red-100: #ffcdd2;
+      --paper-red-200: #ef9a9a;
+      --paper-red-300: #e57373;
+      --paper-red-400: #ef5350;
+      --paper-red-500: #f44336;
+      --paper-red-600: #e53935;
+      --paper-red-700: #d32f2f;
+      --paper-red-800: #c62828;
+      --paper-red-900: #b71c1c;
+      --paper-red-a100: #ff8a80;
+      --paper-red-a200: #ff5252;
+      --paper-red-a400: #ff1744;
+      --paper-red-a700: #d50000;
+
+      --paper-pink-50: #fce4ec;
+      --paper-pink-100: #f8bbd0;
+      --paper-pink-200: #f48fb1;
+      --paper-pink-300: #f06292;
+      --paper-pink-400: #ec407a;
+      --paper-pink-500: #e91e63;
+      --paper-pink-600: #d81b60;
+      --paper-pink-700: #c2185b;
+      --paper-pink-800: #ad1457;
+      --paper-pink-900: #880e4f;
+      --paper-pink-a100: #ff80ab;
+      --paper-pink-a200: #ff4081;
+      --paper-pink-a400: #f50057;
+      --paper-pink-a700: #c51162;
+
+      --paper-purple-50: #f3e5f5;
+      --paper-purple-100: #e1bee7;
+      --paper-purple-200: #ce93d8;
+      --paper-purple-300: #ba68c8;
+      --paper-purple-400: #ab47bc;
+      --paper-purple-500: #9c27b0;
+      --paper-purple-600: #8e24aa;
+      --paper-purple-700: #7b1fa2;
+      --paper-purple-800: #6a1b9a;
+      --paper-purple-900: #4a148c;
+      --paper-purple-a100: #ea80fc;
+      --paper-purple-a200: #e040fb;
+      --paper-purple-a400: #d500f9;
+      --paper-purple-a700: #aa00ff;
+
+      --paper-deep-purple-50: #ede7f6;
+      --paper-deep-purple-100: #d1c4e9;
+      --paper-deep-purple-200: #b39ddb;
+      --paper-deep-purple-300: #9575cd;
+      --paper-deep-purple-400: #7e57c2;
+      --paper-deep-purple-500: #673ab7;
+      --paper-deep-purple-600: #5e35b1;
+      --paper-deep-purple-700: #512da8;
+      --paper-deep-purple-800: #4527a0;
+      --paper-deep-purple-900: #311b92;
+      --paper-deep-purple-a100: #b388ff;
+      --paper-deep-purple-a200: #7c4dff;
+      --paper-deep-purple-a400: #651fff;
+      --paper-deep-purple-a700: #6200ea;
+
+      --paper-indigo-50: #e8eaf6;
+      --paper-indigo-100: #c5cae9;
+      --paper-indigo-200: #9fa8da;
+      --paper-indigo-300: #7986cb;
+      --paper-indigo-400: #5c6bc0;
+      --paper-indigo-500: #3f51b5;
+      --paper-indigo-600: #3949ab;
+      --paper-indigo-700: #303f9f;
+      --paper-indigo-800: #283593;
+      --paper-indigo-900: #1a237e;
+      --paper-indigo-a100: #8c9eff;
+      --paper-indigo-a200: #536dfe;
+      --paper-indigo-a400: #3d5afe;
+      --paper-indigo-a700: #304ffe;
+
+      --paper-blue-50: #e3f2fd;
+      --paper-blue-100: #bbdefb;
+      --paper-blue-200: #90caf9;
+      --paper-blue-300: #64b5f6;
+      --paper-blue-400: #42a5f5;
+      --paper-blue-500: #2196f3;
+      --paper-blue-600: #1e88e5;
+      --paper-blue-700: #1976d2;
+      --paper-blue-800: #1565c0;
+      --paper-blue-900: #0d47a1;
+      --paper-blue-a100: #82b1ff;
+      --paper-blue-a200: #448aff;
+      --paper-blue-a400: #2979ff;
+      --paper-blue-a700: #2962ff;
+
+      --paper-light-blue-50: #e1f5fe;
+      --paper-light-blue-100: #b3e5fc;
+      --paper-light-blue-200: #81d4fa;
+      --paper-light-blue-300: #4fc3f7;
+      --paper-light-blue-400: #29b6f6;
+      --paper-light-blue-500: #03a9f4;
+      --paper-light-blue-600: #039be5;
+      --paper-light-blue-700: #0288d1;
+      --paper-light-blue-800: #0277bd;
+      --paper-light-blue-900: #01579b;
+      --paper-light-blue-a100: #80d8ff;
+      --paper-light-blue-a200: #40c4ff;
+      --paper-light-blue-a400: #00b0ff;
+      --paper-light-blue-a700: #0091ea;
+
+      --paper-cyan-50: #e0f7fa;
+      --paper-cyan-100: #b2ebf2;
+      --paper-cyan-200: #80deea;
+      --paper-cyan-300: #4dd0e1;
+      --paper-cyan-400: #26c6da;
+      --paper-cyan-500: #00bcd4;
+      --paper-cyan-600: #00acc1;
+      --paper-cyan-700: #0097a7;
+      --paper-cyan-800: #00838f;
+      --paper-cyan-900: #006064;
+      --paper-cyan-a100: #84ffff;
+      --paper-cyan-a200: #18ffff;
+      --paper-cyan-a400: #00e5ff;
+      --paper-cyan-a700: #00b8d4;
+
+      --paper-teal-50: #e0f2f1;
+      --paper-teal-100: #b2dfdb;
+      --paper-teal-200: #80cbc4;
+      --paper-teal-300: #4db6ac;
+      --paper-teal-400: #26a69a;
+      --paper-teal-500: #009688;
+      --paper-teal-600: #00897b;
+      --paper-teal-700: #00796b;
+      --paper-teal-800: #00695c;
+      --paper-teal-900: #004d40;
+      --paper-teal-a100: #a7ffeb;
+      --paper-teal-a200: #64ffda;
+      --paper-teal-a400: #1de9b6;
+      --paper-teal-a700: #00bfa5;
+
+      --paper-green-50: #e8f5e9;
+      --paper-green-100: #c8e6c9;
+      --paper-green-200: #a5d6a7;
+      --paper-green-300: #81c784;
+      --paper-green-400: #66bb6a;
+      --paper-green-500: #4caf50;
+      --paper-green-600: #43a047;
+      --paper-green-700: #388e3c;
+      --paper-green-800: #2e7d32;
+      --paper-green-900: #1b5e20;
+      --paper-green-a100: #b9f6ca;
+      --paper-green-a200: #69f0ae;
+      --paper-green-a400: #00e676;
+      --paper-green-a700: #00c853;
+
+      --paper-light-green-50: #f1f8e9;
+      --paper-light-green-100: #dcedc8;
+      --paper-light-green-200: #c5e1a5;
+      --paper-light-green-300: #aed581;
+      --paper-light-green-400: #9ccc65;
+      --paper-light-green-500: #8bc34a;
+      --paper-light-green-600: #7cb342;
+      --paper-light-green-700: #689f38;
+      --paper-light-green-800: #558b2f;
+      --paper-light-green-900: #33691e;
+      --paper-light-green-a100: #ccff90;
+      --paper-light-green-a200: #b2ff59;
+      --paper-light-green-a400: #76ff03;
+      --paper-light-green-a700: #64dd17;
+
+      --paper-lime-50: #f9fbe7;
+      --paper-lime-100: #f0f4c3;
+      --paper-lime-200: #e6ee9c;
+      --paper-lime-300: #dce775;
+      --paper-lime-400: #d4e157;
+      --paper-lime-500: #cddc39;
+      --paper-lime-600: #c0ca33;
+      --paper-lime-700: #afb42b;
+      --paper-lime-800: #9e9d24;
+      --paper-lime-900: #827717;
+      --paper-lime-a100: #f4ff81;
+      --paper-lime-a200: #eeff41;
+      --paper-lime-a400: #c6ff00;
+      --paper-lime-a700: #aeea00;
+
+      --paper-yellow-50: #fffde7;
+      --paper-yellow-100: #fff9c4;
+      --paper-yellow-200: #fff59d;
+      --paper-yellow-300: #fff176;
+      --paper-yellow-400: #ffee58;
+      --paper-yellow-500: #ffeb3b;
+      --paper-yellow-600: #fdd835;
+      --paper-yellow-700: #fbc02d;
+      --paper-yellow-800: #f9a825;
+      --paper-yellow-900: #f57f17;
+      --paper-yellow-a100: #ffff8d;
+      --paper-yellow-a200: #ffff00;
+      --paper-yellow-a400: #ffea00;
+      --paper-yellow-a700: #ffd600;
+
+      --paper-amber-50: #fff8e1;
+      --paper-amber-100: #ffecb3;
+      --paper-amber-200: #ffe082;
+      --paper-amber-300: #ffd54f;
+      --paper-amber-400: #ffca28;
+      --paper-amber-500: #ffc107;
+      --paper-amber-600: #ffb300;
+      --paper-amber-700: #ffa000;
+      --paper-amber-800: #ff8f00;
+      --paper-amber-900: #ff6f00;
+      --paper-amber-a100: #ffe57f;
+      --paper-amber-a200: #ffd740;
+      --paper-amber-a400: #ffc400;
+      --paper-amber-a700: #ffab00;
+
+      --paper-orange-50: #fff3e0;
+      --paper-orange-100: #ffe0b2;
+      --paper-orange-200: #ffcc80;
+      --paper-orange-300: #ffb74d;
+      --paper-orange-400: #ffa726;
+      --paper-orange-500: #ff9800;
+      --paper-orange-600: #fb8c00;
+      --paper-orange-700: #f57c00;
+      --paper-orange-800: #ef6c00;
+      --paper-orange-900: #e65100;
+      --paper-orange-a100: #ffd180;
+      --paper-orange-a200: #ffab40;
+      --paper-orange-a400: #ff9100;
+      --paper-orange-a700: #ff6500;
+
+      --paper-deep-orange-50: #fbe9e7;
+      --paper-deep-orange-100: #ffccbc;
+      --paper-deep-orange-200: #ffab91;
+      --paper-deep-orange-300: #ff8a65;
+      --paper-deep-orange-400: #ff7043;
+      --paper-deep-orange-500: #ff5722;
+      --paper-deep-orange-600: #f4511e;
+      --paper-deep-orange-700: #e64a19;
+      --paper-deep-orange-800: #d84315;
+      --paper-deep-orange-900: #bf360c;
+      --paper-deep-orange-a100: #ff9e80;
+      --paper-deep-orange-a200: #ff6e40;
+      --paper-deep-orange-a400: #ff3d00;
+      --paper-deep-orange-a700: #dd2c00;
+
+      --paper-brown-50: #efebe9;
+      --paper-brown-100: #d7ccc8;
+      --paper-brown-200: #bcaaa4;
+      --paper-brown-300: #a1887f;
+      --paper-brown-400: #8d6e63;
+      --paper-brown-500: #795548;
+      --paper-brown-600: #6d4c41;
+      --paper-brown-700: #5d4037;
+      --paper-brown-800: #4e342e;
+      --paper-brown-900: #3e2723;
+
+      --paper-grey-50: #fafafa;
+      --paper-grey-100: #f5f5f5;
+      --paper-grey-200: #eeeeee;
+      --paper-grey-300: #e0e0e0;
+      --paper-grey-400: #bdbdbd;
+      --paper-grey-500: #9e9e9e;
+      --paper-grey-600: #757575;
+      --paper-grey-700: #616161;
+      --paper-grey-800: #424242;
+      --paper-grey-900: #212121;
+
+      --paper-blue-grey-50: #eceff1;
+      --paper-blue-grey-100: #cfd8dc;
+      --paper-blue-grey-200: #b0bec5;
+      --paper-blue-grey-300: #90a4ae;
+      --paper-blue-grey-400: #78909c;
+      --paper-blue-grey-500: #607d8b;
+      --paper-blue-grey-600: #546e7a;
+      --paper-blue-grey-700: #455a64;
+      --paper-blue-grey-800: #37474f;
+      --paper-blue-grey-900: #263238;
+
+      
+      --dark-divider-opacity: 0.12;
+      --dark-disabled-opacity: 0.38; 
+      --dark-secondary-opacity: 0.54;
+      --dark-primary-opacity: 0.87;
+
+      
+      --light-divider-opacity: 0.12;
+      --light-disabled-opacity: 0.3; 
+      --light-secondary-opacity: 0.7;
+      --light-primary-opacity: 1.0;
+}
+
+</style>
+</custom-style><custom-style>
+  <style is="custom-style">html {
+  --primary-text-color: var(--light-theme-text-color);
+      --primary-background-color: var(--light-theme-background-color);
+      --secondary-text-color: var(--light-theme-secondary-color);
+      --disabled-text-color: var(--light-theme-disabled-color);
+      --divider-color: var(--light-theme-divider-color);
+      --error-color: var(--paper-deep-orange-a700);
+
+      
+      --primary-color: var(--paper-indigo-500);
+      --light-primary-color: var(--paper-indigo-100);
+      --dark-primary-color: var(--paper-indigo-700);
+
+      --accent-color: var(--paper-pink-a200);
+      --light-accent-color: var(--paper-pink-a100);
+      --dark-accent-color: var(--paper-pink-a400);
+
+
+      
+      --light-theme-background-color: #ffffff;
+      --light-theme-base-color: #000000;
+      --light-theme-text-color: var(--paper-grey-900);
+      --light-theme-secondary-color: #737373;  
+      --light-theme-disabled-color: #9b9b9b;  
+      --light-theme-divider-color: #dbdbdb;
+
+      
+      --dark-theme-background-color: var(--paper-grey-900);
+      --dark-theme-base-color: #ffffff;
+      --dark-theme-text-color: #ffffff;
+      --dark-theme-secondary-color: #bcbcbc;  
+      --dark-theme-disabled-color: #646464;  
+      --dark-theme-divider-color: #3c3c3c;
+
+      
+      --text-primary-color: var(--dark-theme-text-color);
+      --default-primary-color: var(--primary-color);
+}
+
+</style>
+</custom-style><script src="./Billing _ Google Cloud Skills Boost_files/loader.js"></script>
+<script id="ze-snippet" src="./Billing _ Google Cloud Skills Boost_files/snippet.js"></script>
+
+
+<meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="CwR1tOky+p/09hq+X3bQWUCzxw4LMkJ9GYKBPGonTC23jjw9xu1dsOrTlytbygYLAQ3bZ9jK38U+G+eMcgJhEA==">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta content="1rRsY0INj8RvwB5EF5pwdxt2A2P9aDgAlsICaJ0d5w0" name="google-site-verification">
+<meta content="#3681E4" property="msapplication-TileColor">
+<meta content="/favicon-144.png" property="msapplication-TileImage">
+<meta content="{&quot;userId&quot;:13750146,&quot;experimentIds&quot;:[&quot;credly&quot;,&quot;program_announcements&quot;,&quot;show_annual_purchase_now&quot;,&quot;teams&quot;,&quot;organization_announcements&quot;,&quot;chat_off_for_signed_out_users&quot;,&quot;credly_integration_announcement_modal&quot;,&quot;guest_user&quot;,&quot;landing_page&quot;,&quot;course_upgrade&quot;,&quot;alexandria_subscriptions_pagination&quot;,&quot;organization_learning_plans&quot;,&quot;dedup_badge&quot;,&quot;search_updates&quot;,&quot;program_learning_assignment&quot;,&quot;content_provider_admin&quot;,&quot;canonical_domain_redirect&quot;,&quot;onramp&quot;,&quot;ai_skills&quot;,&quot;oauth_risc_shutoff&quot;,&quot;one_tap&quot;,&quot;used_in&quot;,&quot;alexandria_show_bundle_errors&quot;]}" name="help-api-product-data">
+<meta content="{&quot;groupIds&quot;:[&quot;non_suadmins&quot;,&quot;students&quot;,&quot;non_organization&quot;,&quot;non_program&quot;]}" name="help-api-custom-data">
+<meta content="Qwiklabs provides real Google Cloud environments that help developers and IT professionals learn cloud platforms and software, such as Firebase, Kubernetes and more." name="description">
+<meta content="Qwiklabs" name="author">
+<meta content="Billing | Google Cloud Skills Boost" property="og:title">
+<meta content="website" property="og:type">
+<meta content="/favicon-144.png" property="og:image">
+<meta content="Qwiklabs" property="og:site_name">
+<meta content="Qwiklabs provides real Google Cloud environments that help developers and IT professionals learn cloud platforms and software, such as Firebase, Kubernetes and more." property="og:description">
+<meta content="/qwiklabs_logo_900x887.png" property="og:logo" size="900x887">
+<meta content="/qwiklabs_logo_994x187.png" property="og:logo" size="994x187">
+<meta content="QX5cjCVkD-I" name="survey-video-ids">
+
+
+<meta property="og:url" content="https://www.cloudskillsboost.google/course_templates/2/video/464484"><link href="https://www.cloudskillsboost.google/course_templates/2/video/464484" rel="canonical">
+<link color="#3681E4" href="https://www.cloudskillsboost.google/favicon-svg.svg" rel="mask-icon">
+<link href="https://www.cloudskillsboost.google/favicon-180.png" rel="apple-touch-icon-precomposed">
+<link href="https://cdn.qwiklabs.com/X46FrQX4iLxHW5MxL8jICvgZM0evMEKscCeQO%2BazGdo%3D" rel="shortcut icon" type="image/x-icon">
+
+
+<link rel="stylesheet" href="./Billing _ Google Cloud Skills Boost_files/css" media="screen">
+
+<link rel="stylesheet" href="./Billing _ Google Cloud Skills Boost_files/application-1dc7bc3f3fb54a32ab0b6c085db83c41a04761e4.css" media="all">
+<link rel="stylesheet" href="./Billing _ Google Cloud Skills Boost_files/cookienotificationbar.min.css" media="screen">
+
+
+<style>
+  :root {
+    --primary-text-on-surface-color: #1a73e8;
+    --primary-text-on-surface-color-dark: #1568d6;
+    --primary-text-on-surface-color-darker: #135ec1;
+    --primary-text-on-surface-color-darkest: #1154ac;
+    --primary-surface-color: #1a73e8;
+    --primary-surface-color-rgb: 26,115,232;
+    --primary-surface-color-light: #d1e3fa;
+    --primary-surface-color-lightest: #e8f1fd;
+    --text-on-primary-color: #ffffff;
+    --accent-text-on-surface-color: #f29900;
+    --accent-surface-color: #f9ab00;
+    --accent-surface-color-rgb: 249,171,0;
+    --accent-surface-color-light: #ffefcc;
+    --text-on-accent-color: #202124;
+  }
+</style>
+
+
+
+</head>
+<body class="video-body course-layout-body l-full no-nav  learner-layout-body "><div class="glue-cookie-notification-bar" id="glue-cookie-notification-bar-1" aria-hidden="true" aria-labelledby="glue-cookie-notification-bar-1-label" inert="true" role="region" tabindex="-1"><p class="glue-cookie-notification-bar__text"><span id="glue-cookie-notification-bar-1-label">www.cloudskillsboost.google uses cookies from Google to deliver and enhance the quality of its services and to analyze traffic. </span><a href="https://policies.google.com/technologies/cookies?hl=en" class="glue-cookie-notification-bar__more" rel="noopener" aria-describedby="glue-cookie-notification-bar-1-label" target="_blank" aria-label="Learn more about how Google uses cookies. Opens in a new tab.">Learn more</a>.</p><button class="glue-cookie-notification-bar__accept">OK, got it</button></div>
+<ql-drawer-container class="body-container"><template shadowrootmode="open"><!---->
+      <slot name="drawer"></slot>
+      <div class="content" style="margin-left: 0px; margin-right: 0px;">
+        <slot name="drawer-content"></slot>
+        <slot></slot>
+      </div>
+      <!--?lit$966745129$-->
+    </template>
+<ql-drawer id="app-nav" mode="over" slot="drawer" width="288" tabindex="-1" aria-hidden="true" role="region" style="width: 288px; visibility: hidden;"><template shadowrootmode="open"><!---->
+      <!--?lit$966745129$-->
+      <slot></slot>
+    </template>
+<div class="nav-panel__logo">
+<div class="custom-logo"><img alt="Google Cloud Skills Boost" height="24" aria-label="Google Cloud Skills Boost" src="./Billing _ Google Cloud Skills Boost_files/PGyhmgS3zZncIEGywnx5UXsKwepRRFQ9BhAg_WHNrlQ="></div>
+</div>
+<nav class="ql-sidenav">
+<ql-sidenav-item href="/" icon="home" label="Dashboard"><template shadowrootmode="open"><!----> <!--?lit$966745129$-->
+      <a href="https://www.cloudskillsboost.google/" class=" sidenav-item " aria-label="Dashboard">
+        <!--?lit$966745129$-->
+      <ql-icon class="arrow"><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$966745129$--></slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template></ql-icon>
+      <ql-icon class="icon"><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$966745129$-->home</slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template></ql-icon>
+      <span class="label"><!--?lit$966745129$-->Dashboard</span>
+      <!--?lit$966745129$-->
+    
+      </a>
+     <!--?lit$966745129$--> </template></ql-sidenav-item>
+
+<ql-sidenav-item href="/paths" icon="playlist_add_check" label="Paths"><template shadowrootmode="open"><!----> <!--?lit$966745129$-->
+      <a href="https://www.cloudskillsboost.google/paths" class=" sidenav-item " aria-label="Paths">
+        <!--?lit$966745129$-->
+      <ql-icon class="arrow"><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$966745129$--></slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template></ql-icon>
+      <ql-icon class="icon"><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$966745129$-->playlist_add_check</slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template></ql-icon>
+      <span class="label"><!--?lit$966745129$-->Paths</span>
+      <!--?lit$966745129$-->
+    
+      </a>
+     <!--?lit$966745129$--> </template></ql-sidenav-item>
+
+<ql-sidenav-item href="/catalog" icon="school" label="Explore"><template shadowrootmode="open"><!----> <!--?lit$966745129$-->
+      <a href="https://www.cloudskillsboost.google/catalog" class=" sidenav-item " aria-label="Explore">
+        <!--?lit$966745129$-->
+      <ql-icon class="arrow"><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$966745129$--></slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template></ql-icon>
+      <ql-icon class="icon"><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$966745129$-->school</slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template></ql-icon>
+      <span class="label"><!--?lit$966745129$-->Explore</span>
+      <!--?lit$966745129$-->
+    
+      </a>
+     <!--?lit$966745129$--> </template></ql-sidenav-item>
+
+<ql-sidenav-item href="/profile" icon="event_note" label="Profile"><template shadowrootmode="open"><!----> <!--?lit$966745129$-->
+      <a href="https://www.cloudskillsboost.google/profile" class=" sidenav-item " aria-label="Profile">
+        <!--?lit$966745129$-->
+      <ql-icon class="arrow"><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$966745129$--></slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template></ql-icon>
+      <ql-icon class="icon"><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$966745129$-->event_note</slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template></ql-icon>
+      <span class="label"><!--?lit$966745129$-->Profile</span>
+      <!--?lit$966745129$-->
+    
+      </a>
+     <!--?lit$966745129$--> </template></ql-sidenav-item>
+
+<ql-sidenav-item href="/subscriptions" icon="subscriptions" label="Subscriptions"><template shadowrootmode="open"><!----> <!--?lit$966745129$-->
+      <a href="https://www.cloudskillsboost.google/subscriptions" class=" sidenav-item " aria-label="Subscriptions">
+        <!--?lit$966745129$-->
+      <ql-icon class="arrow"><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$966745129$--></slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template></ql-icon>
+      <ql-icon class="icon"><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$966745129$-->subscriptions</slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template></ql-icon>
+      <span class="label"><!--?lit$966745129$-->Subscriptions</span>
+      <!--?lit$966745129$-->
+    
+      </a>
+     <!--?lit$966745129$--> </template></ql-sidenav-item>
+
+<ql-button class="outline-back" hairline="" icon="arrow_forward" label="Back" onclick="ql.toggleAppNav(false)"><template shadowrootmode="open"><!----> <!--?lit$966745129$-->
+      <div class="buttonContainer" aria-disabled="false">
+        <!--?lit$966745129$-->
+        <button type="button" class=" mdc-button mdc-button--outlined gm-button-hairline ql-button default " aria-label="Back" aria-busy="false">
+          <!--?lit$966745129$-->
+      <span class="mdc-button__ripple"></span>
+      <!--?lit$966745129$-->
+        <ql-icon class="mdc-button__icon" aria-hidden="true"><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$966745129$--></slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template>
+          <!--?lit$966745129$-->arrow_forward
+        </ql-icon>
+       <!--?lit$966745129$--> <span class="mdc-button__label"> <!--?lit$966745129$-->Back </span> 
+    
+        </button>
+      </div>
+     <!--?lit$966745129$--> </template></ql-button>
+
+</nav>
+
+</ql-drawer>
+<ql-drawer-content class="body-content" slot="drawer-content"><template shadowrootmode="open"><!----><slot></slot></template>
+<ql-toolbar class="sticky app-toolbar" jumpenabled="" role="banner"><template shadowrootmode="open"><!---->
+      <!--?lit$966745129$-->
+      <div class=" jump-container ">
+        <ql-button hairline="" class="jump-to-content" href="#jump-content"><template shadowrootmode="open"><!----> <!--?lit$966745129$-->
+      <a href="https://www.cloudskillsboost.google/course_templates/2/video/464484#jump-content" class=" mdc-button mdc-button--outlined gm-button-hairline gm-hairline-text-label-button ql-button default ">
+        <!--?lit$966745129$-->
+      <span class="mdc-button__ripple"></span>
+      <!--?lit$966745129$--> <!--?lit$966745129$--> <span class="mdc-button__label"> <!--?lit$966745129$--><slot></slot> </span> 
+    
+      </a>
+     <!--?lit$966745129$--> </template>
+          <!--?lit$966745129$-->Jump to content
+        </ql-button>
+      </div>
+    
+      <span class="navigation">
+        <slot name="navigation"></slot>
+      </span>
+      <span class="title">
+        <slot name="title"></slot>
+      </span>
+      <span class="tabs">
+        <slot name="tabs"></slot>
+      </span>
+      <span class="actions">
+        <slot name="action"></slot>
+      </span>
+    </template>
+<div class="toolbar-navigation" slot="navigation">
+<ql-toggle-button class="always-show" for="outline-drawer" icon="menu" id="menu-toggle" label="Toggle course outline" tip="Toggle course outline"><template shadowrootmode="open"><!----> <!--?lit$966745129$-->
+      <div class="buttonContainer" aria-disabled="false">
+        <!--?lit$966745129$-->
+        <button type="button" class=" mdc-icon-button mdc-icon-button--display-flex gm-icon-button google-material-icons " aria-label="Toggle course outline" aria-busy="false" aria-pressed="false">
+          <!--?lit$966745129$-->
+      <span class="mdc-icon-button__ripple"></span>
+      <!--?lit$966745129$-->menu
+    
+        </button>
+      </div>
+     <!--?lit$966745129$--> </template></ql-toggle-button>
+
+</div>
+<div class="toolbar-title ql-title-medium" slot="title"><a class="custom-logo" aria-label="Google Cloud Skills Boost" href="https://www.cloudskillsboost.google/"><div class="custom-logo"><img alt="Google Cloud Skills Boost" height="24" aria-label="Google Cloud Skills Boost" src="./Billing _ Google Cloud Skills Boost_files/PGyhmgS3zZncIEGywnx5UXsKwepRRFQ9BhAg_WHNrlQ="></div></a>
+</div>
+<div class="toolbar-tabs" role="tablist" slot="tabs"><ql-tab href="/" label="Dashboard"><template shadowrootmode="open"><!----> <!--?lit$966745129$-->
+      <a href="https://www.cloudskillsboost.google/" role="tab" class=" mdc-tab mdc-tab--stacked gm-primary-tab " aria-label="Dashboard" aria-selected="false">
+        <!--?lit$966745129$-->
+      <!--?lit$966745129$-->
+      <span class="mdc-tab__content tab-content">
+        <!--?lit$966745129$-->
+        <span class="mdc-tab__text-label text-label"><!--?lit$966745129$-->Dashboard</span>
+        <!--?lit$966745129$-->
+      <span class=" mdc-tab-indicator gm-primary-tab-indicator ">
+        <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline underline">
+        </span>
+      </span>
+    
+      </span>
+      <span class="mdc-tab__ripple"></span>
+    
+      </a>
+     <!--?lit$966745129$--> </template></ql-tab>
+<ql-tab href="/paths" label="Paths"><template shadowrootmode="open"><!----> <!--?lit$966745129$-->
+      <a href="https://www.cloudskillsboost.google/paths" role="tab" class=" mdc-tab mdc-tab--stacked gm-primary-tab " aria-label="Paths" aria-selected="false">
+        <!--?lit$966745129$-->
+      <!--?lit$966745129$-->
+      <span class="mdc-tab__content tab-content">
+        <!--?lit$966745129$-->
+        <span class="mdc-tab__text-label text-label"><!--?lit$966745129$-->Paths</span>
+        <!--?lit$966745129$-->
+      <span class=" mdc-tab-indicator gm-primary-tab-indicator ">
+        <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline underline">
+        </span>
+      </span>
+    
+      </span>
+      <span class="mdc-tab__ripple"></span>
+    
+      </a>
+     <!--?lit$966745129$--> </template></ql-tab>
+<ql-tab href="/catalog" label="Explore"><template shadowrootmode="open"><!----> <!--?lit$966745129$-->
+      <a href="https://www.cloudskillsboost.google/catalog" role="tab" class=" mdc-tab mdc-tab--stacked gm-primary-tab " aria-label="Explore" aria-selected="false">
+        <!--?lit$966745129$-->
+      <!--?lit$966745129$-->
+      <span class="mdc-tab__content tab-content">
+        <!--?lit$966745129$-->
+        <span class="mdc-tab__text-label text-label"><!--?lit$966745129$-->Explore</span>
+        <!--?lit$966745129$-->
+      <span class=" mdc-tab-indicator gm-primary-tab-indicator ">
+        <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline underline">
+        </span>
+      </span>
+    
+      </span>
+      <span class="mdc-tab__ripple"></span>
+    
+      </a>
+     <!--?lit$966745129$--> </template></ql-tab>
+<ql-tab href="/profile" label="Profile"><template shadowrootmode="open"><!----> <!--?lit$966745129$-->
+      <a href="https://www.cloudskillsboost.google/profile" role="tab" class=" mdc-tab mdc-tab--stacked gm-primary-tab " aria-label="Profile" aria-selected="false">
+        <!--?lit$966745129$-->
+      <!--?lit$966745129$-->
+      <span class="mdc-tab__content tab-content">
+        <!--?lit$966745129$-->
+        <span class="mdc-tab__text-label text-label"><!--?lit$966745129$-->Profile</span>
+        <!--?lit$966745129$-->
+      <span class=" mdc-tab-indicator gm-primary-tab-indicator ">
+        <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline underline">
+        </span>
+      </span>
+    
+      </span>
+      <span class="mdc-tab__ripple"></span>
+    
+      </a>
+     <!--?lit$966745129$--> </template></ql-tab>
+<ql-tab href="/subscriptions" label="Subscriptions"><template shadowrootmode="open"><!----> <!--?lit$966745129$-->
+      <a href="https://www.cloudskillsboost.google/subscriptions" role="tab" class=" mdc-tab mdc-tab--stacked gm-primary-tab " aria-label="Subscriptions" aria-selected="false">
+        <!--?lit$966745129$-->
+      <!--?lit$966745129$-->
+      <span class="mdc-tab__content tab-content">
+        <!--?lit$966745129$-->
+        <span class="mdc-tab__text-label text-label"><!--?lit$966745129$-->Subscriptions</span>
+        <!--?lit$966745129$-->
+      <span class=" mdc-tab-indicator gm-primary-tab-indicator ">
+        <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline underline">
+        </span>
+      </span>
+    
+      </span>
+      <span class="mdc-tab__ripple"></span>
+    
+      </a>
+     <!--?lit$966745129$--> </template></ql-tab>
+</div>
+<div class="toolbar-actions" slot="action">
+<ql-user-points leaderboardhref="/profile/leaderboard" leagueimagesrc="https://cdn.qwiklabs.com/assets/leagues/diamond_icon-7d744713389d3462ef662ddf96206f0fec3952f0.png" points="1020" rank="12"><template shadowrootmode="open"><!---->
+      <a class="wrapper-link" href="https://www.cloudskillsboost.google/profile/leaderboard">
+        <div class="container   ">
+          <!--?lit$966745129$-->
+      <div class="points">
+        <ql-icon size="20" class="star"><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: 20px;">
+        <slot><!--?lit$966745129$--></slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template>star</ql-icon>
+        <!--?lit$966745129$-->1020 <!--?lit$966745129$-->pts
+      </div>
+     <!--?lit$966745129$--> <div class="rank   "> <!--?lit$966745129$--><img alt="" height="17" src="https://cdn.qwiklabs.com/assets/leagues/diamond_icon-7d744713389d3462ef662ddf96206f0fec3952f0.png"> <!--?lit$966745129$-->
+  12th
+ </div> 
+        </div>
+      </a>
+      <!--?lit$966745129$--><div class="message-container"><!--?lit$966745129$--></div>
+    </template></ql-user-points>
+
+<ql-button class="tablet-hide" hairline="" href="/course_templates/2/video/464484/complete_button" icon="arrow_forward" method="post" trailingicon=""><template shadowrootmode="open"><!----> <!--?lit$966745129$-->
+      <div class="buttonContainer" aria-disabled="false">
+        <!--?lit$966745129$-->
+        <button type="button" class=" mdc-button mdc-button--outlined gm-button-hairline ql-button default " aria-label="arrow_forward" aria-busy="false">
+          <!--?lit$966745129$-->
+        <span class="mdc-button__ripple"></span>
+        <!--?lit$966745129$--> <span class="mdc-button__label"> <!--?lit$966745129$--><slot></slot> </span>  <!--?lit$966745129$-->
+        <ql-icon class="mdc-button__icon" aria-hidden="true"><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$966745129$--></slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template>
+          <!--?lit$966745129$-->arrow_forward
+        </ql-icon>
+      
+      
+        </button>
+      </div>
+     <!--?lit$966745129$--> </template>
+Mark as Completed
+</ql-button>
+<ql-icon-button class="mobile-hide" icon="help_outline" id="help-menu-button" label="Open help menu" tip="Help"><template shadowrootmode="open"><!----> <!--?lit$966745129$-->
+      <div class="buttonContainer" aria-disabled="false">
+        <!--?lit$966745129$-->
+        <button type="button" class=" mdc-icon-button mdc-icon-button--display-flex gm-icon-button google-material-icons " aria-label="Open help menu" aria-busy="false" aria-haspopup="true" aria-controls="help-menu">
+          <!--?lit$966745129$-->
+      <span class="mdc-icon-button__ripple"></span>
+      <!--?lit$966745129$-->help_outline
+    
+        </button>
+      </div>
+     <!--?lit$966745129$--> </template></ql-icon-button>
+<ql-menu for="help-menu-button" id="help-menu" tabindex="-1" aria-hidden="true" style="left: -1000px; top: -1000px; opacity: 0; visibility: hidden;" role="menu" aria-labelledby="help-menu-button"><template shadowrootmode="open"><!---->
+      <ql-card elevation="3"><template shadowrootmode="open"><!---->
+      <div part="body" class="card   ">
+        <slot></slot>
+      </div>
+    </template>
+        <slot></slot>
+      </ql-card>
+    </template>
+<ql-menu-item data-analytics-action="opened_help" data-analytics-label="course" label="Help Center" onclick="hallofmirrors.helpService.startHelp({&quot;productData&quot;:{&quot;userId&quot;:13750146},&quot;context&quot;:&quot;course&quot;})"><template shadowrootmode="open"><!----> <!--?lit$966745129$-->
+      <div class="buttonContainer" aria-disabled="false">
+        <!--?lit$966745129$-->
+        <button type="button" class=" menu-item " role="menuitem" aria-label="Help Center" aria-busy="false">
+          <!--?lit$966745129$--><!--?lit$966745129$--> <!--?lit$966745129$-->Help Center<!--?-->
+        </button>
+      </div>
+     <!--?lit$966745129$--> </template></ql-menu-item>
+<ql-menu-item href="mailto:support@qwiklabs.com" label="Email support"><template shadowrootmode="open"><!----> <!--?lit$966745129$-->
+      <a href="mailto:support@qwiklabs.com" role="menuitem" class=" menu-item " aria-label="Email support">
+        <!--?lit$966745129$--><!--?lit$966745129$--> <!--?lit$966745129$-->Email support<!--?-->
+      </a>
+     <!--?lit$966745129$--> </template></ql-menu-item>
+<ql-menu-item label="Chat support" onclick="ql.chat.open()"><template shadowrootmode="open"><!----> <!--?lit$966745129$-->
+      <div class="buttonContainer" aria-disabled="false">
+        <!--?lit$966745129$-->
+        <button type="button" class=" menu-item " role="menuitem" aria-label="Chat support" aria-busy="false">
+          <!--?lit$966745129$--><!--?lit$966745129$--> <!--?lit$966745129$-->Chat support<!--?-->
+        </button>
+      </div>
+     <!--?lit$966745129$--> </template></ql-menu-item>
+<ql-menu-item href="https://reportingwidget.google.com/widget/54?cid=1&amp;url=https://www.cloudskillsboost.google/course_templates/2/video/464484?" label="Report Illegal Content"><template shadowrootmode="open"><!----> <!--?lit$966745129$-->
+      <a href="https://reportingwidget.google.com/widget/54?cid=1&amp;url=https://www.cloudskillsboost.google/course_templates/2/video/464484?" role="menuitem" class=" menu-item " aria-label="Report Illegal Content">
+        <!--?lit$966745129$--><!--?lit$966745129$--> <!--?lit$966745129$-->Report Illegal Content<!--?-->
+      </a>
+     <!--?lit$966745129$--> </template></ql-menu-item>
+</ql-menu>
+
+<ql-icon-button class="mobile-hide" icon="language" id="language" label="Select your language preference" tip="Language"><template shadowrootmode="open"><!----> <!--?lit$966745129$-->
+      <div class="buttonContainer" aria-disabled="false">
+        <!--?lit$966745129$-->
+        <button type="button" class=" mdc-icon-button mdc-icon-button--display-flex gm-icon-button google-material-icons " aria-label="Select your language preference" aria-busy="false" aria-haspopup="true" aria-controls="">
+          <!--?lit$966745129$-->
+      <span class="mdc-icon-button__ripple"></span>
+      <!--?lit$966745129$-->language
+    
+        </button>
+      </div>
+     <!--?lit$966745129$--> </template></ql-icon-button>
+<ql-menu for="language" tabindex="-1" aria-hidden="true" style="left: -1000px; top: -1000px; opacity: 0; visibility: hidden;" role="menu" aria-labelledby="language"><template shadowrootmode="open"><!---->
+      <ql-card elevation="3"><template shadowrootmode="open"><!---->
+      <div part="body" class="card   ">
+        <slot></slot>
+      </div>
+    </template>
+        <slot></slot>
+      </ql-card>
+    </template>
+<ql-menu-item data-analytics-action="changed_locale" data-analytics-label="ar" href="/course_templates/2/video/464484?locale=ar" label="العربية‬‎" lang="ar"><template shadowrootmode="open"><!----> <!--?lit$966745129$-->
+      <a href="https://www.cloudskillsboost.google/course_templates/2/video/464484?locale=ar" role="menuitem" class=" menu-item " aria-label="العربية‬‎">
+        <!--?lit$966745129$--><!--?lit$966745129$--> <!--?lit$966745129$-->العربية‬‎<!--?-->
+      </a>
+     <!--?lit$966745129$--> </template></ql-menu-item>
+<ql-menu-item data-analytics-action="changed_locale" data-analytics-label="de" href="/course_templates/2/video/464484?locale=de" label="Deutsch" lang="de"><template shadowrootmode="open"><!----> <!--?lit$966745129$-->
+      <a href="https://www.cloudskillsboost.google/course_templates/2/video/464484?locale=de" role="menuitem" class=" menu-item " aria-label="Deutsch">
+        <!--?lit$966745129$--><!--?lit$966745129$--> <!--?lit$966745129$-->Deutsch<!--?-->
+      </a>
+     <!--?lit$966745129$--> </template></ql-menu-item>
+<ql-menu-item data-analytics-action="changed_locale" data-analytics-label="en" href="/course_templates/2/video/464484?locale=en" label="English" lang="en"><template shadowrootmode="open"><!----> <!--?lit$966745129$-->
+      <a href="https://www.cloudskillsboost.google/course_templates/2/video/464484?locale=en" role="menuitem" class=" menu-item " aria-label="English">
+        <!--?lit$966745129$--><!--?lit$966745129$--> <!--?lit$966745129$-->English<!--?-->
+      </a>
+     <!--?lit$966745129$--> </template></ql-menu-item>
+<ql-menu-item data-analytics-action="changed_locale" data-analytics-label="es" href="/course_templates/2/video/464484?locale=es" label="español (Latinoamérica)" lang="es"><template shadowrootmode="open"><!----> <!--?lit$966745129$-->
+      <a href="https://www.cloudskillsboost.google/course_templates/2/video/464484?locale=es" role="menuitem" class=" menu-item " aria-label="español (Latinoamérica)">
+        <!--?lit$966745129$--><!--?lit$966745129$--> <!--?lit$966745129$-->español (Latinoamérica)<!--?-->
+      </a>
+     <!--?lit$966745129$--> </template></ql-menu-item>
+<ql-menu-item data-analytics-action="changed_locale" data-analytics-label="fr" href="/course_templates/2/video/464484?locale=fr" label="français" lang="fr"><template shadowrootmode="open"><!----> <!--?lit$966745129$-->
+      <a href="https://www.cloudskillsboost.google/course_templates/2/video/464484?locale=fr" role="menuitem" class=" menu-item " aria-label="français">
+        <!--?lit$966745129$--><!--?lit$966745129$--> <!--?lit$966745129$-->français<!--?-->
+      </a>
+     <!--?lit$966745129$--> </template></ql-menu-item>
+<ql-menu-item data-analytics-action="changed_locale" data-analytics-label="fr_CA" href="/course_templates/2/video/464484?locale=fr_CA" label="français (Canada)" lang="fr-CA"><template shadowrootmode="open"><!----> <!--?lit$966745129$-->
+      <a href="https://www.cloudskillsboost.google/course_templates/2/video/464484?locale=fr_CA" role="menuitem" class=" menu-item " aria-label="français (Canada)">
+        <!--?lit$966745129$--><!--?lit$966745129$--> <!--?lit$966745129$-->français (Canada)<!--?-->
+      </a>
+     <!--?lit$966745129$--> </template></ql-menu-item>
+<ql-menu-item data-analytics-action="changed_locale" data-analytics-label="he" href="/course_templates/2/video/464484?locale=he" label="עברית" lang="he"><template shadowrootmode="open"><!----> <!--?lit$966745129$-->
+      <a href="https://www.cloudskillsboost.google/course_templates/2/video/464484?locale=he" role="menuitem" class=" menu-item " aria-label="עברית">
+        <!--?lit$966745129$--><!--?lit$966745129$--> <!--?lit$966745129$-->עברית<!--?-->
+      </a>
+     <!--?lit$966745129$--> </template></ql-menu-item>
+<ql-menu-item data-analytics-action="changed_locale" data-analytics-label="id" href="/course_templates/2/video/464484?locale=id" label="bahasa Indonesia" lang="id"><template shadowrootmode="open"><!----> <!--?lit$966745129$-->
+      <a href="https://www.cloudskillsboost.google/course_templates/2/video/464484?locale=id" role="menuitem" class=" menu-item " aria-label="bahasa Indonesia">
+        <!--?lit$966745129$--><!--?lit$966745129$--> <!--?lit$966745129$-->bahasa Indonesia<!--?-->
+      </a>
+     <!--?lit$966745129$--> </template></ql-menu-item>
+<ql-menu-item data-analytics-action="changed_locale" data-analytics-label="it" href="/course_templates/2/video/464484?locale=it" label="italiano" lang="it"><template shadowrootmode="open"><!----> <!--?lit$966745129$-->
+      <a href="https://www.cloudskillsboost.google/course_templates/2/video/464484?locale=it" role="menuitem" class=" menu-item " aria-label="italiano">
+        <!--?lit$966745129$--><!--?lit$966745129$--> <!--?lit$966745129$-->italiano<!--?-->
+      </a>
+     <!--?lit$966745129$--> </template></ql-menu-item>
+<ql-menu-item data-analytics-action="changed_locale" data-analytics-label="ja" href="/course_templates/2/video/464484?locale=ja" label="日本語" lang="ja"><template shadowrootmode="open"><!----> <!--?lit$966745129$-->
+      <a href="https://www.cloudskillsboost.google/course_templates/2/video/464484?locale=ja" role="menuitem" class=" menu-item " aria-label="日本語">
+        <!--?lit$966745129$--><!--?lit$966745129$--> <!--?lit$966745129$-->日本語<!--?-->
+      </a>
+     <!--?lit$966745129$--> </template></ql-menu-item>
+<ql-menu-item data-analytics-action="changed_locale" data-analytics-label="ko" href="/course_templates/2/video/464484?locale=ko" label="한국어" lang="ko"><template shadowrootmode="open"><!----> <!--?lit$966745129$-->
+      <a href="https://www.cloudskillsboost.google/course_templates/2/video/464484?locale=ko" role="menuitem" class=" menu-item " aria-label="한국어">
+        <!--?lit$966745129$--><!--?lit$966745129$--> <!--?lit$966745129$-->한국어<!--?-->
+      </a>
+     <!--?lit$966745129$--> </template></ql-menu-item>
+<ql-menu-item data-analytics-action="changed_locale" data-analytics-label="pl" href="/course_templates/2/video/464484?locale=pl" label="polski" lang="pl"><template shadowrootmode="open"><!----> <!--?lit$966745129$-->
+      <a href="https://www.cloudskillsboost.google/course_templates/2/video/464484?locale=pl" role="menuitem" class=" menu-item " aria-label="polski">
+        <!--?lit$966745129$--><!--?lit$966745129$--> <!--?lit$966745129$-->polski<!--?-->
+      </a>
+     <!--?lit$966745129$--> </template></ql-menu-item>
+<ql-menu-item data-analytics-action="changed_locale" data-analytics-label="pt_BR" href="/course_templates/2/video/464484?locale=pt_BR" label="português (Brasil)" lang="pt-BR"><template shadowrootmode="open"><!----> <!--?lit$966745129$-->
+      <a href="https://www.cloudskillsboost.google/course_templates/2/video/464484?locale=pt_BR" role="menuitem" class=" menu-item " aria-label="português (Brasil)">
+        <!--?lit$966745129$--><!--?lit$966745129$--> <!--?lit$966745129$-->português (Brasil)<!--?-->
+      </a>
+     <!--?lit$966745129$--> </template></ql-menu-item>
+<ql-menu-item data-analytics-action="changed_locale" data-analytics-label="pt_PT" href="/course_templates/2/video/464484?locale=pt_PT" label="português (Portugal)" lang="pt-PT"><template shadowrootmode="open"><!----> <!--?lit$966745129$-->
+      <a href="https://www.cloudskillsboost.google/course_templates/2/video/464484?locale=pt_PT" role="menuitem" class=" menu-item " aria-label="português (Portugal)">
+        <!--?lit$966745129$--><!--?lit$966745129$--> <!--?lit$966745129$-->português (Portugal)<!--?-->
+      </a>
+     <!--?lit$966745129$--> </template></ql-menu-item>
+<ql-menu-item data-analytics-action="changed_locale" data-analytics-label="ru" href="/course_templates/2/video/464484?locale=ru" label="русский" lang="ru"><template shadowrootmode="open"><!----> <!--?lit$966745129$-->
+      <a href="https://www.cloudskillsboost.google/course_templates/2/video/464484?locale=ru" role="menuitem" class=" menu-item " aria-label="русский">
+        <!--?lit$966745129$--><!--?lit$966745129$--> <!--?lit$966745129$-->русский<!--?-->
+      </a>
+     <!--?lit$966745129$--> </template></ql-menu-item>
+<ql-menu-item data-analytics-action="changed_locale" data-analytics-label="tr" href="/course_templates/2/video/464484?locale=tr" label="Türkçe" lang="tr"><template shadowrootmode="open"><!----> <!--?lit$966745129$-->
+      <a href="https://www.cloudskillsboost.google/course_templates/2/video/464484?locale=tr" role="menuitem" class=" menu-item " aria-label="Türkçe">
+        <!--?lit$966745129$--><!--?lit$966745129$--> <!--?lit$966745129$-->Türkçe<!--?-->
+      </a>
+     <!--?lit$966745129$--> </template></ql-menu-item>
+<ql-menu-item data-analytics-action="changed_locale" data-analytics-label="uk" href="/course_templates/2/video/464484?locale=uk" label="українська" lang="uk"><template shadowrootmode="open"><!----> <!--?lit$966745129$-->
+      <a href="https://www.cloudskillsboost.google/course_templates/2/video/464484?locale=uk" role="menuitem" class=" menu-item " aria-label="українська">
+        <!--?lit$966745129$--><!--?lit$966745129$--> <!--?lit$966745129$-->українська<!--?-->
+      </a>
+     <!--?lit$966745129$--> </template></ql-menu-item>
+<ql-menu-item data-analytics-action="changed_locale" data-analytics-label="zh" href="/course_templates/2/video/464484?locale=zh" label="简体中文" lang="zh"><template shadowrootmode="open"><!----> <!--?lit$966745129$-->
+      <a href="https://www.cloudskillsboost.google/course_templates/2/video/464484?locale=zh" role="menuitem" class=" menu-item " aria-label="简体中文">
+        <!--?lit$966745129$--><!--?lit$966745129$--> <!--?lit$966745129$-->简体中文<!--?-->
+      </a>
+     <!--?lit$966745129$--> </template></ql-menu-item>
+<ql-menu-item data-analytics-action="changed_locale" data-analytics-label="zh_TW" href="/course_templates/2/video/464484?locale=zh_TW" label="繁體中文" lang="zh-TW"><template shadowrootmode="open"><!----> <!--?lit$966745129$-->
+      <a href="https://www.cloudskillsboost.google/course_templates/2/video/464484?locale=zh_TW" role="menuitem" class=" menu-item " aria-label="繁體中文">
+        <!--?lit$966745129$--><!--?lit$966745129$--> <!--?lit$966745129$-->繁體中文<!--?-->
+      </a>
+     <!--?lit$966745129$--> </template></ql-menu-item>
+</ql-menu>
+
+<ql-icon-button id="my_account" label="My account" tip="My account"><template shadowrootmode="open"><!----> <!--?lit$966745129$-->
+      <div class="buttonContainer" aria-disabled="false">
+        <!--?lit$966745129$-->
+        <button type="button" class=" mdc-icon-button mdc-icon-button--display-flex gm-icon-button google-material-icons " aria-label="My account" aria-busy="false" aria-haspopup="true" aria-controls="my_account_menu">
+          <!--?lit$966745129$-->
+      <span class="mdc-icon-button__ripple"></span>
+      <!--?lit$966745129$--><slot></slot>
+    
+        </button>
+      </div>
+     <!--?lit$966745129$--> </template>
+<ql-avatar><template shadowrootmode="open"><!---->
+      <ql-icon class="avatar" product="avatar_anonymous"><template shadowrootmode="open"><!---->
+      <img aria-hidden="true" src="https://www.gstatic.com/images/branding/product/2x/avatar_anonymous_512dp.png" width="40" height="40">
+      <!--?lit$966745129$--><!--?-->
+    </template>
+      </ql-icon>
+    </template></ql-avatar>
+</ql-icon-button>
+<ql-menu for="my_account" id="my_account_menu" tabindex="-1" aria-hidden="true" style="left: -1000px; top: -1000px; opacity: 0; visibility: hidden;" role="menu" aria-labelledby="my_account"><template shadowrootmode="open"><!---->
+      <ql-card elevation="3"><template shadowrootmode="open"><!---->
+      <div part="body" class="card   ">
+        <slot></slot>
+      </div>
+    </template>
+        <slot></slot>
+      </ql-card>
+    </template>
+<div class="my-account-menu">
+<ql-avatar class="l-mtl l-mbl" size="120"><template shadowrootmode="open"><!---->
+      <ql-icon class="avatar" product="avatar_anonymous"><template shadowrootmode="open"><!---->
+      <img aria-hidden="true" src="https://www.gstatic.com/images/branding/product/2x/avatar_anonymous_512dp.png" width="120" height="120">
+      <!--?lit$966745129$--><!--?-->
+    </template>
+      </ql-icon>
+    </template></ql-avatar>
+<div class="my-account-menu__user-info l-mbl">
+<h4 class="ql-title-medium">Olindo Pindaro</h4>
+<p class="ql-body-medium text--light">olindo.pindaro@rgigroup.com</p>
+<p class="ql-body-medium text--light">
+</p>
+<a class="text--green ql-title-small" href="https://www.cloudskillsboost.google/my_account/payments"><ql-chip positive=""><template shadowrootmode="open"><!---->
+      <div class=" chip positive ">
+        <!--?lit$966745129$-->
+        <slot></slot>
+      </div>
+      <!--?lit$966745129$-->
+    </template>
+Monthly Subscription
+</ql-chip>
+</a></div>
+<div class="buttons l-mbl">
+<a class="button button--hairline l-mrm" id="profile" href="https://www.cloudskillsboost.google/public_profiles/b55ea1c8-ed31-4c6b-b180-c194ddb795bb">Public Profile</a>
+<a class="button button--hairline" id="settings" href="https://www.cloudskillsboost.google/my_account/profile">Settings</a>
+</div>
+<hr>
+<ql-button data-analytics-action="clicked_sign_out" href="/users/sign_out" method="delete"><template shadowrootmode="open"><!----> <!--?lit$966745129$-->
+      <div class="buttonContainer" aria-disabled="false">
+        <!--?lit$966745129$-->
+        <button type="button" class=" mdc-button mdc-button--unelevated gm-button-fill gm-text-label-button ql-button default " aria-busy="false">
+          <!--?lit$966745129$-->
+      <span class="mdc-button__ripple"></span>
+      <!--?lit$966745129$--> <!--?lit$966745129$--> <span class="mdc-button__label"> <!--?lit$966745129$--><slot></slot> </span> 
+    
+        </button>
+      </div>
+     <!--?lit$966745129$--> </template>
+Sign Out
+</ql-button>
+<div class="privacy l-mtl">
+<a target="_blank" class="ql-label-medium text--light" href="https://www.cloudskillsboost.google/privacy_policy">Privacy</a>
+<span class="ql-label-medium text--light l-mls l-mrs">·</span>
+<a class="ql-label-medium text--light" href="https://www.cloudskillsboost.google/terms_of_service">Terms</a>
+</div>
+</div>
+</ql-menu>
+
+
+</div>
+</ql-toolbar>
+<div class="page-header">
+<ql-toolbar class="page-toolbar"><template shadowrootmode="open"><!---->
+      <!--?lit$966745129$-->
+      <span class="navigation">
+        <slot name="navigation"></slot>
+      </span>
+      <span class="title">
+        <slot name="title"></slot>
+      </span>
+      <span class="tabs">
+        <slot name="tabs"></slot>
+      </span>
+      <span class="actions">
+        <slot name="action"></slot>
+      </span>
+    </template>
+<h1 class="toolbar-title ql-title-medium" slot="title">Google Cloud Skills Boost</h1>
+<div class="toolbar-actions" slot="action"></div>
+</ql-toolbar>
+</div>
+<main id="jump-content">
+<ql-drawer-container class="course-container"><template shadowrootmode="open"><!---->
+      <slot name="drawer"></slot>
+      <div class="content" style="margin-left: 240px; margin-right: 0px;">
+        <slot name="drawer-content"></slot>
+        <slot></slot>
+      </div>
+      <!--?lit$966745129$-->
+    </template>
+<ql-drawer class="course-drawer course-drawer-left" id="outline-drawer" localstorageid="course-outline" open="" responsive="965" slot="drawer" width="240" aria-hidden="false" role="region" mode="side" style="width: 240px; visibility: visible;"><template shadowrootmode="open"><!---->
+      <!--?lit$966745129$-->
+      <slot></slot>
+    </template>
+<div class="course-outline-header">
+<ql-button class="main-menu" icon="arrow_back" label="Main menu" onclick="ql.toggleAppNav()" text=""><template shadowrootmode="open"><!----> <!--?lit$966745129$-->
+      <div class="buttonContainer" aria-disabled="false">
+        <!--?lit$966745129$-->
+        <button type="button" class=" mdc-button gm-button-text ql-button default " aria-label="Main menu" aria-busy="false">
+          <!--?lit$966745129$-->
+      <span class="mdc-button__ripple"></span>
+      <!--?lit$966745129$-->
+        <ql-icon class="mdc-button__icon" aria-hidden="true"><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$966745129$--></slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template>
+          <!--?lit$966745129$-->arrow_back
+        </ql-icon>
+       <!--?lit$966745129$--> <span class="mdc-button__label"> <!--?lit$966745129$-->Main menu </span> 
+    
+        </button>
+      </div>
+     <!--?lit$966745129$--> </template></ql-button>
+<div class="course-info">
+<h2 class="ql-title-medium">
+Getting Started with Google Kubernetes Engine
+</h2>
+<div class="course-progress">
+<ql-progress-bar color="var(--primary-surface-color)" progress="0.2" progressbarstyles="{&quot;height&quot;:&quot;4px&quot;,&quot;background&quot;:&quot;var(--primary-surface-color-light)&quot;}"><template shadowrootmode="open"><!---->
+      <div class="progress-bar" style="height: 4px; background: var(--primary-surface-color-light);">
+        <!--?lit$966745129$--><div class="bar" style="width: 20%; background: var(--primary-surface-color);"></div> <!--?lit$966745129$-->
+      </div>
+    </template></ql-progress-bar>
+<div class="course-progress__metadata ql-body-medium">
+<div>
+Course
+·
+8 hours
+</div>
+<div class="course-progress__metadata__completed" hidden="">
+<ql-icon size="16"><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: 16px;">
+        <slot><!--?lit$966745129$--></slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template>check</ql-icon>
+Complete
+</div>
+<div class="course-progress__metadata__in_progress">
+<div class="course-progress__percentage">20%</div>
+complete
+</div>
+</div>
+</div>
+</div>
+</div>
+<ql-course-outline activeactivityid="464484" coursepath="/course_templates/2" modules="[{&quot;id&quot;:&quot;68434&quot;,&quot;title&quot;:&quot;Course Introduction&quot;,&quot;description&quot;:&quot;\u003cp\u003eThe course introduction explains the course goals and previews each section.\u003c/p\u003e&quot;,&quot;steps&quot;:[{&quot;id&quot;:&quot;471680&quot;,&quot;prompt&quot;:null,&quot;isOptional&quot;:true,&quot;activities&quot;:[{&quot;id&quot;:&quot;464477&quot;,&quot;href&quot;:&quot;/course_sessions/13055280/documents/464477&quot;,&quot;isLocked&quot;:false,&quot;duration&quot;:1800000,&quot;title&quot;:&quot;Welcome and getting started guide&quot;,&quot;description&quot;:null,&quot;type&quot;:&quot;document&quot;,&quot;isComplete&quot;:true,&quot;inProgress&quot;:false,&quot;score&quot;:null,&quot;disabled&quot;:false}],&quot;isComplete&quot;:true,&quot;isTestedOut&quot;:false,&quot;allActivitiesRequired&quot;:false},{&quot;id&quot;:&quot;471681&quot;,&quot;prompt&quot;:null,&quot;isOptional&quot;:true,&quot;activities&quot;:[{&quot;id&quot;:&quot;464478&quot;,&quot;href&quot;:&quot;/course_sessions/13055280/video/464478&quot;,&quot;isLocked&quot;:false,&quot;duration&quot;:76000,&quot;title&quot;:&quot;Course introduction&quot;,&quot;description&quot;:null,&quot;type&quot;:&quot;video&quot;,&quot;isComplete&quot;:true,&quot;inProgress&quot;:false,&quot;score&quot;:null,&quot;disabled&quot;:false}],&quot;isComplete&quot;:true,&quot;isTestedOut&quot;:false,&quot;allActivitiesRequired&quot;:false}],&quot;expanded&quot;:false},{&quot;id&quot;:&quot;68435&quot;,&quot;title&quot;:&quot;Introduction to Google Cloud&quot;,&quot;description&quot;:&quot;\u003cp\u003eThe first section of this course introduces cloud computing concepts. Learners explore fundamental terminology, the Google Cloud network, how Google Cloud resources are organized in an hierarchy for management, and the tools available to connect to Google Cloud for allocating, changing, and releasing resources.\u003c/p\u003e&quot;,&quot;steps&quot;:[{&quot;id&quot;:&quot;471682&quot;,&quot;prompt&quot;:null,&quot;isOptional&quot;:true,&quot;activities&quot;:[{&quot;id&quot;:&quot;464479&quot;,&quot;href&quot;:&quot;/course_sessions/13055280/video/464479&quot;,&quot;isLocked&quot;:false,&quot;duration&quot;:44000,&quot;title&quot;:&quot;Introduction&quot;,&quot;description&quot;:null,&quot;type&quot;:&quot;video&quot;,&quot;isComplete&quot;:true,&quot;inProgress&quot;:false,&quot;score&quot;:null,&quot;disabled&quot;:false}],&quot;isComplete&quot;:true,&quot;isTestedOut&quot;:false,&quot;allActivitiesRequired&quot;:false},{&quot;id&quot;:&quot;471683&quot;,&quot;prompt&quot;:null,&quot;isOptional&quot;:true,&quot;activities&quot;:[{&quot;id&quot;:&quot;464480&quot;,&quot;href&quot;:&quot;/course_sessions/13055280/video/464480&quot;,&quot;isLocked&quot;:false,&quot;duration&quot;:109000,&quot;title&quot;:&quot;Cloud computing and Google Cloud&quot;,&quot;description&quot;:null,&quot;type&quot;:&quot;video&quot;,&quot;isComplete&quot;:true,&quot;inProgress&quot;:false,&quot;score&quot;:null,&quot;disabled&quot;:false}],&quot;isComplete&quot;:true,&quot;isTestedOut&quot;:false,&quot;allActivitiesRequired&quot;:false},{&quot;id&quot;:&quot;471684&quot;,&quot;prompt&quot;:null,&quot;isOptional&quot;:true,&quot;activities&quot;:[{&quot;id&quot;:&quot;464481&quot;,&quot;href&quot;:&quot;/course_sessions/13055280/video/464481&quot;,&quot;isLocked&quot;:false,&quot;duration&quot;:414000,&quot;title&quot;:&quot;Google Cloud compute offerings&quot;,&quot;description&quot;:null,&quot;type&quot;:&quot;video&quot;,&quot;isComplete&quot;:true,&quot;inProgress&quot;:false,&quot;score&quot;:null,&quot;disabled&quot;:false}],&quot;isComplete&quot;:true,&quot;isTestedOut&quot;:false,&quot;allActivitiesRequired&quot;:false},{&quot;id&quot;:&quot;471685&quot;,&quot;prompt&quot;:null,&quot;isOptional&quot;:true,&quot;activities&quot;:[{&quot;id&quot;:&quot;464482&quot;,&quot;href&quot;:&quot;/course_sessions/13055280/video/464482&quot;,&quot;isLocked&quot;:false,&quot;duration&quot;:138000,&quot;title&quot;:&quot;The Google network&quot;,&quot;description&quot;:null,&quot;type&quot;:&quot;video&quot;,&quot;isComplete&quot;:true,&quot;inProgress&quot;:false,&quot;score&quot;:null,&quot;disabled&quot;:false}],&quot;isComplete&quot;:true,&quot;isTestedOut&quot;:false,&quot;allActivitiesRequired&quot;:false},{&quot;id&quot;:&quot;471686&quot;,&quot;prompt&quot;:null,&quot;isOptional&quot;:true,&quot;activities&quot;:[{&quot;id&quot;:&quot;464483&quot;,&quot;href&quot;:&quot;/course_sessions/13055280/video/464483&quot;,&quot;isLocked&quot;:false,&quot;duration&quot;:307000,&quot;title&quot;:&quot;Resource management&quot;,&quot;description&quot;:null,&quot;type&quot;:&quot;video&quot;,&quot;isComplete&quot;:true,&quot;inProgress&quot;:false,&quot;score&quot;:null,&quot;disabled&quot;:false}],&quot;isComplete&quot;:true,&quot;isTestedOut&quot;:false,&quot;allActivitiesRequired&quot;:false},{&quot;id&quot;:&quot;471687&quot;,&quot;prompt&quot;:null,&quot;isOptional&quot;:true,&quot;activities&quot;:[{&quot;id&quot;:&quot;464484&quot;,&quot;href&quot;:&quot;/course_sessions/13055280/video/464484&quot;,&quot;isLocked&quot;:false,&quot;duration&quot;:167000,&quot;title&quot;:&quot;Billing&quot;,&quot;description&quot;:null,&quot;type&quot;:&quot;video&quot;,&quot;isComplete&quot;:false,&quot;inProgress&quot;:false,&quot;score&quot;:null,&quot;disabled&quot;:false}],&quot;isComplete&quot;:false,&quot;isTestedOut&quot;:false,&quot;allActivitiesRequired&quot;:false},{&quot;id&quot;:&quot;471688&quot;,&quot;prompt&quot;:null,&quot;isOptional&quot;:true,&quot;activities&quot;:[{&quot;id&quot;:&quot;464485&quot;,&quot;href&quot;:&quot;/course_sessions/13055280/video/464485&quot;,&quot;isLocked&quot;:false,&quot;duration&quot;:252000,&quot;title&quot;:&quot;Interacting with Google Cloud&quot;,&quot;description&quot;:null,&quot;type&quot;:&quot;video&quot;,&quot;isComplete&quot;:false,&quot;inProgress&quot;:false,&quot;score&quot;:null,&quot;disabled&quot;:false}],&quot;isComplete&quot;:false,&quot;isTestedOut&quot;:false,&quot;allActivitiesRequired&quot;:false},{&quot;id&quot;:&quot;471689&quot;,&quot;prompt&quot;:null,&quot;isOptional&quot;:true,&quot;activities&quot;:[{&quot;id&quot;:&quot;464486&quot;,&quot;href&quot;:&quot;/course_sessions/13055280/video/464486&quot;,&quot;isLocked&quot;:false,&quot;duration&quot;:25000,&quot;title&quot;:&quot;Lab Introduction: Accessing the Cloud console and Cloud Shell&quot;,&quot;description&quot;:null,&quot;type&quot;:&quot;video&quot;,&quot;isComplete&quot;:false,&quot;inProgress&quot;:false,&quot;score&quot;:null,&quot;disabled&quot;:false}],&quot;isComplete&quot;:false,&quot;isTestedOut&quot;:false,&quot;allActivitiesRequired&quot;:false},{&quot;id&quot;:&quot;471690&quot;,&quot;prompt&quot;:null,&quot;isOptional&quot;:false,&quot;activities&quot;:[{&quot;id&quot;:&quot;464487&quot;,&quot;href&quot;:&quot;/course_sessions/13055280/labs/464487&quot;,&quot;isLocked&quot;:false,&quot;duration&quot;:3600000,&quot;title&quot;:&quot;Accessing the Google Cloud Console and Cloud Shell&quot;,&quot;description&quot;:&quot;Architecting with Google Kubernetes Engine: Introduction to Google Cloud&quot;,&quot;type&quot;:&quot;lab&quot;,&quot;isComplete&quot;:false,&quot;inProgress&quot;:false,&quot;score&quot;:null,&quot;disabled&quot;:false}],&quot;isComplete&quot;:false,&quot;isTestedOut&quot;:false,&quot;allActivitiesRequired&quot;:false},{&quot;id&quot;:&quot;471691&quot;,&quot;prompt&quot;:null,&quot;isOptional&quot;:false,&quot;activities&quot;:[{&quot;id&quot;:&quot;464488&quot;,&quot;href&quot;:&quot;/course_sessions/13055280/quizzes/464488&quot;,&quot;isLocked&quot;:false,&quot;duration&quot;:1200000,&quot;title&quot;:&quot;Quiz&quot;,&quot;description&quot;:null,&quot;type&quot;:&quot;quiz&quot;,&quot;isComplete&quot;:false,&quot;inProgress&quot;:false,&quot;score&quot;:null,&quot;disabled&quot;:false}],&quot;isComplete&quot;:false,&quot;isTestedOut&quot;:false,&quot;allActivitiesRequired&quot;:false}],&quot;expanded&quot;:false},{&quot;id&quot;:&quot;68436&quot;,&quot;title&quot;:&quot;Introduction to Containers and Kubernetes&quot;,&quot;description&quot;:&quot;\u003cp\u003eThe second section of this course examines software containers and the benefit they bring to application deployment. Learners explore containers and container images, Cloud Build, Kubernetes, and Google Kubernetes Engine.\u003c/p\u003e&quot;,&quot;steps&quot;:[{&quot;id&quot;:&quot;471692&quot;,&quot;prompt&quot;:null,&quot;isOptional&quot;:true,&quot;activities&quot;:[{&quot;id&quot;:&quot;464489&quot;,&quot;href&quot;:&quot;/course_sessions/13055280/video/464489&quot;,&quot;isLocked&quot;:false,&quot;duration&quot;:33000,&quot;title&quot;:&quot;Introduction&quot;,&quot;description&quot;:null,&quot;type&quot;:&quot;video&quot;,&quot;isComplete&quot;:false,&quot;inProgress&quot;:false,&quot;score&quot;:null,&quot;disabled&quot;:false}],&quot;isComplete&quot;:false,&quot;isTestedOut&quot;:false,&quot;allActivitiesRequired&quot;:false},{&quot;id&quot;:&quot;471693&quot;,&quot;prompt&quot;:null,&quot;isOptional&quot;:true,&quot;activities&quot;:[{&quot;id&quot;:&quot;464490&quot;,&quot;href&quot;:&quot;/course_sessions/13055280/video/464490&quot;,&quot;isLocked&quot;:false,&quot;duration&quot;:337000,&quot;title&quot;:&quot;Containers&quot;,&quot;description&quot;:null,&quot;type&quot;:&quot;video&quot;,&quot;isComplete&quot;:false,&quot;inProgress&quot;:false,&quot;score&quot;:null,&quot;disabled&quot;:false}],&quot;isComplete&quot;:false,&quot;isTestedOut&quot;:false,&quot;allActivitiesRequired&quot;:false},{&quot;id&quot;:&quot;471694&quot;,&quot;prompt&quot;:null,&quot;isOptional&quot;:true,&quot;activities&quot;:[{&quot;id&quot;:&quot;464491&quot;,&quot;href&quot;:&quot;/course_sessions/13055280/video/464491&quot;,&quot;isLocked&quot;:false,&quot;duration&quot;:424000,&quot;title&quot;:&quot;Container images&quot;,&quot;description&quot;:null,&quot;type&quot;:&quot;video&quot;,&quot;isComplete&quot;:false,&quot;inProgress&quot;:false,&quot;score&quot;:null,&quot;disabled&quot;:false}],&quot;isComplete&quot;:false,&quot;isTestedOut&quot;:false,&quot;allActivitiesRequired&quot;:false},{&quot;id&quot;:&quot;471695&quot;,&quot;prompt&quot;:null,&quot;isOptional&quot;:true,&quot;activities&quot;:[{&quot;id&quot;:&quot;464492&quot;,&quot;href&quot;:&quot;/course_sessions/13055280/video/464492&quot;,&quot;isLocked&quot;:false,&quot;duration&quot;:23000,&quot;title&quot;:&quot;Lab introduction: Working with Cloud Build&quot;,&quot;description&quot;:null,&quot;type&quot;:&quot;video&quot;,&quot;isComplete&quot;:false,&quot;inProgress&quot;:false,&quot;score&quot;:null,&quot;disabled&quot;:false}],&quot;isComplete&quot;:false,&quot;isTestedOut&quot;:false,&quot;allActivitiesRequired&quot;:false},{&quot;id&quot;:&quot;471696&quot;,&quot;prompt&quot;:null,&quot;isOptional&quot;:false,&quot;activities&quot;:[{&quot;id&quot;:&quot;464493&quot;,&quot;href&quot;:&quot;/course_sessions/13055280/labs/464493&quot;,&quot;isLocked&quot;:false,&quot;duration&quot;:3600000,&quot;title&quot;:&quot;Working with Cloud Build&quot;,&quot;description&quot;:&quot;Architecting with Google Kubernetes Engine: Working with Cloud Build&quot;,&quot;type&quot;:&quot;lab&quot;,&quot;isComplete&quot;:false,&quot;inProgress&quot;:false,&quot;score&quot;:null,&quot;disabled&quot;:false}],&quot;isComplete&quot;:false,&quot;isTestedOut&quot;:false,&quot;allActivitiesRequired&quot;:false},{&quot;id&quot;:&quot;471697&quot;,&quot;prompt&quot;:null,&quot;isOptional&quot;:true,&quot;activities&quot;:[{&quot;id&quot;:&quot;464494&quot;,&quot;href&quot;:&quot;/course_sessions/13055280/video/464494&quot;,&quot;isLocked&quot;:false,&quot;duration&quot;:215000,&quot;title&quot;:&quot;Kubernetes&quot;,&quot;description&quot;:null,&quot;type&quot;:&quot;video&quot;,&quot;isComplete&quot;:false,&quot;inProgress&quot;:false,&quot;score&quot;:null,&quot;disabled&quot;:false}],&quot;isComplete&quot;:false,&quot;isTestedOut&quot;:false,&quot;allActivitiesRequired&quot;:false},{&quot;id&quot;:&quot;471698&quot;,&quot;prompt&quot;:null,&quot;isOptional&quot;:true,&quot;activities&quot;:[{&quot;id&quot;:&quot;464495&quot;,&quot;href&quot;:&quot;/course_sessions/13055280/video/464495&quot;,&quot;isLocked&quot;:false,&quot;duration&quot;:152000,&quot;title&quot;:&quot;Google Kubernetes Engine&quot;,&quot;description&quot;:null,&quot;type&quot;:&quot;video&quot;,&quot;isComplete&quot;:false,&quot;inProgress&quot;:false,&quot;score&quot;:null,&quot;disabled&quot;:false}],&quot;isComplete&quot;:false,&quot;isTestedOut&quot;:false,&quot;allActivitiesRequired&quot;:false},{&quot;id&quot;:&quot;471699&quot;,&quot;prompt&quot;:null,&quot;isOptional&quot;:false,&quot;activities&quot;:[{&quot;id&quot;:&quot;464496&quot;,&quot;href&quot;:&quot;/course_sessions/13055280/quizzes/464496&quot;,&quot;isLocked&quot;:false,&quot;duration&quot;:900000,&quot;title&quot;:&quot;Quiz&quot;,&quot;description&quot;:null,&quot;type&quot;:&quot;quiz&quot;,&quot;isComplete&quot;:false,&quot;inProgress&quot;:false,&quot;score&quot;:null,&quot;disabled&quot;:false}],&quot;isComplete&quot;:false,&quot;isTestedOut&quot;:false,&quot;allActivitiesRequired&quot;:false}],&quot;expanded&quot;:false},{&quot;id&quot;:&quot;68437&quot;,&quot;title&quot;:&quot;Kubernetes Architecture&quot;,&quot;description&quot;:&quot;\u003cp\u003eThe third section of this course explores the components of a Kubernetes cluster and how they work together. Learners deploy a Kubernetes cluster by using Google Kubernetes Engine, deploy Pods to a GKE cluster, and view and manage different Kubernetes objects.\u003c/p\u003e&quot;,&quot;steps&quot;:[{&quot;id&quot;:&quot;471700&quot;,&quot;prompt&quot;:null,&quot;isOptional&quot;:true,&quot;activities&quot;:[{&quot;id&quot;:&quot;464497&quot;,&quot;href&quot;:&quot;/course_sessions/13055280/video/464497&quot;,&quot;isLocked&quot;:false,&quot;duration&quot;:54000,&quot;title&quot;:&quot;Introduction&quot;,&quot;description&quot;:null,&quot;type&quot;:&quot;video&quot;,&quot;isComplete&quot;:false,&quot;inProgress&quot;:false,&quot;score&quot;:null,&quot;disabled&quot;:false}],&quot;isComplete&quot;:false,&quot;isTestedOut&quot;:false,&quot;allActivitiesRequired&quot;:false},{&quot;id&quot;:&quot;471701&quot;,&quot;prompt&quot;:null,&quot;isOptional&quot;:true,&quot;activities&quot;:[{&quot;id&quot;:&quot;464498&quot;,&quot;href&quot;:&quot;/course_sessions/13055280/video/464498&quot;,&quot;isLocked&quot;:false,&quot;duration&quot;:235000,&quot;title&quot;:&quot;Kubernetes concepts&quot;,&quot;description&quot;:null,&quot;type&quot;:&quot;video&quot;,&quot;isComplete&quot;:false,&quot;inProgress&quot;:false,&quot;score&quot;:null,&quot;disabled&quot;:false}],&quot;isComplete&quot;:false,&quot;isTestedOut&quot;:false,&quot;allActivitiesRequired&quot;:false},{&quot;id&quot;:&quot;471702&quot;,&quot;prompt&quot;:null,&quot;isOptional&quot;:true,&quot;activities&quot;:[{&quot;id&quot;:&quot;464499&quot;,&quot;href&quot;:&quot;/course_sessions/13055280/video/464499&quot;,&quot;isLocked&quot;:false,&quot;duration&quot;:403000,&quot;title&quot;:&quot;Kubernetes components&quot;,&quot;description&quot;:null,&quot;type&quot;:&quot;video&quot;,&quot;isComplete&quot;:false,&quot;inProgress&quot;:false,&quot;score&quot;:null,&quot;disabled&quot;:false}],&quot;isComplete&quot;:false,&quot;isTestedOut&quot;:false,&quot;allActivitiesRequired&quot;:false},{&quot;id&quot;:&quot;471703&quot;,&quot;prompt&quot;:null,&quot;isOptional&quot;:true,&quot;activities&quot;:[{&quot;id&quot;:&quot;464500&quot;,&quot;href&quot;:&quot;/course_sessions/13055280/video/464500&quot;,&quot;isLocked&quot;:false,&quot;duration&quot;:202000,&quot;title&quot;:&quot;GKE Autopilot and GKE standard&quot;,&quot;description&quot;:null,&quot;type&quot;:&quot;video&quot;,&quot;isComplete&quot;:false,&quot;inProgress&quot;:false,&quot;score&quot;:null,&quot;disabled&quot;:false}],&quot;isComplete&quot;:false,&quot;isTestedOut&quot;:false,&quot;allActivitiesRequired&quot;:false},{&quot;id&quot;:&quot;471704&quot;,&quot;prompt&quot;:null,&quot;isOptional&quot;:true,&quot;activities&quot;:[{&quot;id&quot;:&quot;464501&quot;,&quot;href&quot;:&quot;/course_sessions/13055280/video/464501&quot;,&quot;isLocked&quot;:false,&quot;duration&quot;:297000,&quot;title&quot;:&quot;Object management&quot;,&quot;description&quot;:null,&quot;type&quot;:&quot;video&quot;,&quot;isComplete&quot;:false,&quot;inProgress&quot;:false,&quot;score&quot;:null,&quot;disabled&quot;:false}],&quot;isComplete&quot;:false,&quot;isTestedOut&quot;:false,&quot;allActivitiesRequired&quot;:false},{&quot;id&quot;:&quot;471705&quot;,&quot;prompt&quot;:null,&quot;isOptional&quot;:true,&quot;activities&quot;:[{&quot;id&quot;:&quot;464502&quot;,&quot;href&quot;:&quot;/course_sessions/13055280/video/464502&quot;,&quot;isLocked&quot;:false,&quot;duration&quot;:21000,&quot;title&quot;:&quot;Lab introduction: Deploying GKE Autopilot Clusters&quot;,&quot;description&quot;:null,&quot;type&quot;:&quot;video&quot;,&quot;isComplete&quot;:false,&quot;inProgress&quot;:false,&quot;score&quot;:null,&quot;disabled&quot;:false}],&quot;isComplete&quot;:false,&quot;isTestedOut&quot;:false,&quot;allActivitiesRequired&quot;:false},{&quot;id&quot;:&quot;471706&quot;,&quot;prompt&quot;:null,&quot;isOptional&quot;:false,&quot;activities&quot;:[{&quot;id&quot;:&quot;464503&quot;,&quot;href&quot;:&quot;/course_sessions/13055280/labs/464503&quot;,&quot;isLocked&quot;:false,&quot;duration&quot;:3600000,&quot;title&quot;:&quot;Deploying GKE Autopilot Clusters&quot;,&quot;description&quot;:&quot;Getting Started with Google Kubernetes Engine: Creating a GKE Autopilot Cluster via Google Cloud Console&quot;,&quot;type&quot;:&quot;lab&quot;,&quot;isComplete&quot;:false,&quot;inProgress&quot;:false,&quot;score&quot;:null,&quot;disabled&quot;:false}],&quot;isComplete&quot;:false,&quot;isTestedOut&quot;:false,&quot;allActivitiesRequired&quot;:false},{&quot;id&quot;:&quot;471707&quot;,&quot;prompt&quot;:null,&quot;isOptional&quot;:false,&quot;activities&quot;:[{&quot;id&quot;:&quot;464504&quot;,&quot;href&quot;:&quot;/course_sessions/13055280/quizzes/464504&quot;,&quot;isLocked&quot;:false,&quot;duration&quot;:900000,&quot;title&quot;:&quot;Quiz&quot;,&quot;description&quot;:null,&quot;type&quot;:&quot;quiz&quot;,&quot;isComplete&quot;:false,&quot;inProgress&quot;:false,&quot;score&quot;:null,&quot;disabled&quot;:false}],&quot;isComplete&quot;:false,&quot;isTestedOut&quot;:false,&quot;allActivitiesRequired&quot;:false}],&quot;expanded&quot;:false},{&quot;id&quot;:&quot;68438&quot;,&quot;title&quot;:&quot;Kubernetes Operations&quot;,&quot;description&quot;:&quot;\u003cp\u003eThe final section of this course introduces the kubectl command, which is the command line utility used to interact with and manage the resources inside Kubernetes clusters. Learners are introduced to the concept of introspection, then get practice deploying Google Kubernetes Engine clusters from Cloud Shell.\u003c/p\u003e&quot;,&quot;steps&quot;:[{&quot;id&quot;:&quot;471708&quot;,&quot;prompt&quot;:null,&quot;isOptional&quot;:true,&quot;activities&quot;:[{&quot;id&quot;:&quot;464505&quot;,&quot;href&quot;:&quot;/course_sessions/13055280/video/464505&quot;,&quot;isLocked&quot;:false,&quot;duration&quot;:51000,&quot;title&quot;:&quot;Introduction&quot;,&quot;description&quot;:null,&quot;type&quot;:&quot;video&quot;,&quot;isComplete&quot;:false,&quot;inProgress&quot;:false,&quot;score&quot;:null,&quot;disabled&quot;:false}],&quot;isComplete&quot;:false,&quot;isTestedOut&quot;:false,&quot;allActivitiesRequired&quot;:false},{&quot;id&quot;:&quot;471709&quot;,&quot;prompt&quot;:null,&quot;isOptional&quot;:true,&quot;activities&quot;:[{&quot;id&quot;:&quot;464506&quot;,&quot;href&quot;:&quot;/course_sessions/13055280/video/464506&quot;,&quot;isLocked&quot;:false,&quot;duration&quot;:388000,&quot;title&quot;:&quot;The kubectl command&quot;,&quot;description&quot;:null,&quot;type&quot;:&quot;video&quot;,&quot;isComplete&quot;:false,&quot;inProgress&quot;:false,&quot;score&quot;:null,&quot;disabled&quot;:false}],&quot;isComplete&quot;:false,&quot;isTestedOut&quot;:false,&quot;allActivitiesRequired&quot;:false},{&quot;id&quot;:&quot;471710&quot;,&quot;prompt&quot;:null,&quot;isOptional&quot;:true,&quot;activities&quot;:[{&quot;id&quot;:&quot;464507&quot;,&quot;href&quot;:&quot;/course_sessions/13055280/video/464507&quot;,&quot;isLocked&quot;:false,&quot;duration&quot;:301000,&quot;title&quot;:&quot;Introspection&quot;,&quot;description&quot;:null,&quot;type&quot;:&quot;video&quot;,&quot;isComplete&quot;:false,&quot;inProgress&quot;:false,&quot;score&quot;:null,&quot;disabled&quot;:false}],&quot;isComplete&quot;:false,&quot;isTestedOut&quot;:false,&quot;allActivitiesRequired&quot;:false},{&quot;id&quot;:&quot;471711&quot;,&quot;prompt&quot;:null,&quot;isOptional&quot;:true,&quot;activities&quot;:[{&quot;id&quot;:&quot;464508&quot;,&quot;href&quot;:&quot;/course_sessions/13055280/video/464508&quot;,&quot;isLocked&quot;:false,&quot;duration&quot;:18000,&quot;title&quot;:&quot;Lab introduction: Deploying GKE Autopilot Clusters from Cloud Shell&quot;,&quot;description&quot;:null,&quot;type&quot;:&quot;video&quot;,&quot;isComplete&quot;:false,&quot;inProgress&quot;:false,&quot;score&quot;:null,&quot;disabled&quot;:false}],&quot;isComplete&quot;:false,&quot;isTestedOut&quot;:false,&quot;allActivitiesRequired&quot;:false},{&quot;id&quot;:&quot;471712&quot;,&quot;prompt&quot;:null,&quot;isOptional&quot;:false,&quot;activities&quot;:[{&quot;id&quot;:&quot;464509&quot;,&quot;href&quot;:&quot;/course_sessions/13055280/labs/464509&quot;,&quot;isLocked&quot;:false,&quot;duration&quot;:3600000,&quot;title&quot;:&quot;Deploying GKE Autopilot Clusters from Cloud Shell&quot;,&quot;description&quot;:&quot;Use this template for lab guides created after April 8, 2020. Report issues to mafaulkner.&quot;,&quot;type&quot;:&quot;lab&quot;,&quot;isComplete&quot;:false,&quot;inProgress&quot;:false,&quot;score&quot;:null,&quot;disabled&quot;:false}],&quot;isComplete&quot;:false,&quot;isTestedOut&quot;:false,&quot;allActivitiesRequired&quot;:false},{&quot;id&quot;:&quot;471713&quot;,&quot;prompt&quot;:null,&quot;isOptional&quot;:false,&quot;activities&quot;:[{&quot;id&quot;:&quot;464510&quot;,&quot;href&quot;:&quot;/course_sessions/13055280/quizzes/464510&quot;,&quot;isLocked&quot;:false,&quot;duration&quot;:1200000,&quot;title&quot;:&quot;Quiz&quot;,&quot;description&quot;:null,&quot;type&quot;:&quot;quiz&quot;,&quot;isComplete&quot;:false,&quot;inProgress&quot;:false,&quot;score&quot;:null,&quot;disabled&quot;:false}],&quot;isComplete&quot;:false,&quot;isTestedOut&quot;:false,&quot;allActivitiesRequired&quot;:false}],&quot;expanded&quot;:false},{&quot;id&quot;:&quot;68439&quot;,&quot;title&quot;:&quot;Course Summary&quot;,&quot;description&quot;:&quot;\u003cp\u003eThe course summary recaps the major concepts learners were introduced to during the course.\u003c/p\u003e&quot;,&quot;steps&quot;:[{&quot;id&quot;:&quot;471714&quot;,&quot;prompt&quot;:null,&quot;isOptional&quot;:true,&quot;activities&quot;:[{&quot;id&quot;:&quot;464511&quot;,&quot;href&quot;:&quot;/course_sessions/13055280/video/464511&quot;,&quot;isLocked&quot;:false,&quot;duration&quot;:94000,&quot;title&quot;:&quot;Course summary&quot;,&quot;description&quot;:null,&quot;type&quot;:&quot;video&quot;,&quot;isComplete&quot;:false,&quot;inProgress&quot;:false,&quot;score&quot;:null,&quot;disabled&quot;:false}],&quot;isComplete&quot;:false,&quot;isTestedOut&quot;:false,&quot;allActivitiesRequired&quot;:false}],&quot;expanded&quot;:false},{&quot;id&quot;:&quot;next-steps&quot;,&quot;title&quot;:&quot;Your Next Steps&quot;,&quot;description&quot;:null,&quot;steps&quot;:[{&quot;id&quot;:&quot;badge-step&quot;,&quot;prompt&quot;:null,&quot;isOptional&quot;:true,&quot;activities&quot;:[{&quot;id&quot;:&quot;badge&quot;,&quot;href&quot;:null,&quot;isLocked&quot;:true,&quot;duration&quot;:null,&quot;title&quot;:&quot;Course Badge&quot;,&quot;description&quot;:null,&quot;type&quot;:&quot;badge&quot;,&quot;isComplete&quot;:false,&quot;inProgress&quot;:false,&quot;score&quot;:null,&quot;disabled&quot;:false}],&quot;isComplete&quot;:false,&quot;isTestedOut&quot;:false,&quot;allActivitiesRequired&quot;:false},{&quot;id&quot;:&quot;survey-0-step&quot;,&quot;prompt&quot;:null,&quot;isOptional&quot;:true,&quot;activities&quot;:[{&quot;id&quot;:&quot;survey-0&quot;,&quot;href&quot;:null,&quot;isLocked&quot;:true,&quot;duration&quot;:null,&quot;title&quot;:&quot;Course Survey&quot;,&quot;description&quot;:null,&quot;type&quot;:&quot;survey&quot;,&quot;isComplete&quot;:false,&quot;inProgress&quot;:false,&quot;score&quot;:null,&quot;disabled&quot;:false}],&quot;isComplete&quot;:false,&quot;isTestedOut&quot;:false,&quot;allActivitiesRequired&quot;:false}],&quot;expanded&quot;:true}]"><template shadowrootmode="open"><!---->
+      <!--?lit$966745129$-->
+      <a data-analytics-action="Clicked course outline panel link." data-analytics-category="Course" data-analytics-label="Course overview" tabindex="0" href="https://www.cloudskillsboost.google/course_templates/2" class=" activity overview ">
+        <ql-icon><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$966745129$--></slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template>home</ql-icon>
+        <p><!--?lit$966745129$-->Course overview</p>
+      </a>
+    
+      <ql-expandable-list><template shadowrootmode="open"><!----> <slot></slot> </template>
+        <!--?lit$966745129$--><!---->
+      <ql-collapsible class=" module "><template shadowrootmode="open"><!----> <!--?lit$966745129$-->
+      <button aria-controls="panel" id="header" aria-expanded="false" class=" header toggle-button ">
+        <slot name="header"></slot>
+        <ql-icon icon="keyboard_arrow_right"><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: 24px;">
+        <slot><!--?lit$966745129$-->keyboard_arrow_right</slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template></ql-icon>
+      </button>
+     <!--?lit$966745129$-->
+      <div id="panel" role="region" aria-labelledby="header" class=" panel " hidden="true" style="height: 0px;">
+        <slot name="collapsible"></slot>
+      </div>
+     </template>
+        <h2 slot="header" class="ql-label-large" id="module-header-68434">
+          <!--?lit$966745129$-->Course Introduction
+        </h2>
+        <div role="region" slot="collapsible" aria-labelledby="module-header-68434">
+          <ul class="steps">
+            <!--?lit$966745129$--><!---->
+      <li class="step">
+        <!--?lit$966745129$-->
+        <ul class="activities">
+          <!--?lit$966745129$--><!---->
+        <li>
+          <a data-analytics-action="Clicked course outline panel link." data-analytics-category="Course" tabindex="0" data-analytics-label="Welcome and getting started guide" href="https://www.cloudskillsboost.google/course_sessions/13055280/documents/464477" class=" activity ql-label-large ">
+            <!--?lit$966745129$-->
+      <!--?lit$966745129$-->
+        <span class="non-visible-screen-reader-description">
+          <!--?lit$966745129$-->Activity completed
+        </span>
+        <ql-icon class="status complete"><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$966745129$--></slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template>check</ql-icon>
+      
+      <div class="activity-title">
+        <ql-icon><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$966745129$--></slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template><!--?lit$966745129$-->description</ql-icon>
+        <!--?lit$966745129$-->Welcome and getting started guide
+      </div>
+    
+          </a>
+        </li>
+      <!---->
+        </ul>
+      </li>
+    <!----><!---->
+      <li class="step">
+        <!--?lit$966745129$-->
+        <ul class="activities">
+          <!--?lit$966745129$--><!---->
+        <li>
+          <a data-analytics-action="Clicked course outline panel link." data-analytics-category="Course" tabindex="0" data-analytics-label="Course introduction" href="https://www.cloudskillsboost.google/course_sessions/13055280/video/464478" class=" activity ql-label-large ">
+            <!--?lit$966745129$-->
+      <!--?lit$966745129$-->
+        <span class="non-visible-screen-reader-description">
+          <!--?lit$966745129$-->Activity completed
+        </span>
+        <ql-icon class="status complete"><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$966745129$--></slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template>check</ql-icon>
+      
+      <div class="activity-title">
+        <ql-icon><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$966745129$--></slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template><!--?lit$966745129$-->play_circle</ql-icon>
+        <!--?lit$966745129$-->Course introduction
+      </div>
+    
+          </a>
+        </li>
+      <!---->
+        </ul>
+      </li>
+    <!---->
+          </ul>
+        </div>
+      </ql-collapsible>
+    <!----><!---->
+      <ql-collapsible expanded="" active="" class=" module active "><template shadowrootmode="open"><!----> <!--?lit$966745129$-->
+      <button aria-controls="panel" id="header" aria-expanded="true" class=" header expanded toggle-button active ">
+        <slot name="header"></slot>
+        <ql-icon icon="keyboard_arrow_right"><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: 24px;">
+        <slot><!--?lit$966745129$-->keyboard_arrow_right</slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template></ql-icon>
+      </button>
+     <!--?lit$966745129$-->
+      <div id="panel" role="region" aria-labelledby="header" class=" panel expanded " style="height: auto;">
+        <slot name="collapsible"></slot>
+      </div>
+     </template>
+        <h2 slot="header" class="ql-label-large" id="module-header-68435">
+          <!--?lit$966745129$-->Introduction to Google Cloud
+        </h2>
+        <div role="region" slot="collapsible" aria-labelledby="module-header-68435">
+          <ul class="steps">
+            <!--?lit$966745129$--><!---->
+      <li class="step">
+        <!--?lit$966745129$-->
+        <ul class="activities">
+          <!--?lit$966745129$--><!---->
+        <li>
+          <a data-analytics-action="Clicked course outline panel link." data-analytics-category="Course" tabindex="0" data-analytics-label="Introduction" href="https://www.cloudskillsboost.google/course_sessions/13055280/video/464479" class=" activity ql-label-large ">
+            <!--?lit$966745129$-->
+      <!--?lit$966745129$-->
+        <span class="non-visible-screen-reader-description">
+          <!--?lit$966745129$-->Activity completed
+        </span>
+        <ql-icon class="status complete"><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$966745129$--></slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template>check</ql-icon>
+      
+      <div class="activity-title">
+        <ql-icon><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$966745129$--></slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template><!--?lit$966745129$-->play_circle</ql-icon>
+        <!--?lit$966745129$-->Introduction
+      </div>
+    
+          </a>
+        </li>
+      <!---->
+        </ul>
+      </li>
+    <!----><!---->
+      <li class="step">
+        <!--?lit$966745129$-->
+        <ul class="activities">
+          <!--?lit$966745129$--><!---->
+        <li>
+          <a data-analytics-action="Clicked course outline panel link." data-analytics-category="Course" tabindex="0" data-analytics-label="Cloud computing and Google Cloud" href="https://www.cloudskillsboost.google/course_sessions/13055280/video/464480" class=" activity ql-label-large ">
+            <!--?lit$966745129$-->
+      <!--?lit$966745129$-->
+        <span class="non-visible-screen-reader-description">
+          <!--?lit$966745129$-->Activity completed
+        </span>
+        <ql-icon class="status complete"><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$966745129$--></slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template>check</ql-icon>
+      
+      <div class="activity-title">
+        <ql-icon><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$966745129$--></slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template><!--?lit$966745129$-->play_circle</ql-icon>
+        <!--?lit$966745129$-->Cloud computing and Google Cloud
+      </div>
+    
+          </a>
+        </li>
+      <!---->
+        </ul>
+      </li>
+    <!----><!---->
+      <li class="step">
+        <!--?lit$966745129$-->
+        <ul class="activities">
+          <!--?lit$966745129$--><!---->
+        <li>
+          <a data-analytics-action="Clicked course outline panel link." data-analytics-category="Course" tabindex="0" data-analytics-label="Google Cloud compute offerings" href="https://www.cloudskillsboost.google/course_sessions/13055280/video/464481" class=" activity ql-label-large ">
+            <!--?lit$966745129$-->
+      <!--?lit$966745129$-->
+        <span class="non-visible-screen-reader-description">
+          <!--?lit$966745129$-->Activity completed
+        </span>
+        <ql-icon class="status complete"><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$966745129$--></slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template>check</ql-icon>
+      
+      <div class="activity-title">
+        <ql-icon><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$966745129$--></slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template><!--?lit$966745129$-->play_circle</ql-icon>
+        <!--?lit$966745129$-->Google Cloud compute offerings
+      </div>
+    
+          </a>
+        </li>
+      <!---->
+        </ul>
+      </li>
+    <!----><!---->
+      <li class="step">
+        <!--?lit$966745129$-->
+        <ul class="activities">
+          <!--?lit$966745129$--><!---->
+        <li>
+          <a data-analytics-action="Clicked course outline panel link." data-analytics-category="Course" tabindex="0" data-analytics-label="The Google network" href="https://www.cloudskillsboost.google/course_sessions/13055280/video/464482" class=" activity ql-label-large ">
+            <!--?lit$966745129$-->
+      <!--?lit$966745129$-->
+        <span class="non-visible-screen-reader-description">
+          <!--?lit$966745129$-->Activity completed
+        </span>
+        <ql-icon class="status complete"><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$966745129$--></slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template>check</ql-icon>
+      
+      <div class="activity-title">
+        <ql-icon><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$966745129$--></slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template><!--?lit$966745129$-->play_circle</ql-icon>
+        <!--?lit$966745129$-->The Google network
+      </div>
+    
+          </a>
+        </li>
+      <!---->
+        </ul>
+      </li>
+    <!----><!---->
+      <li class="step">
+        <!--?lit$966745129$-->
+        <ul class="activities">
+          <!--?lit$966745129$--><!---->
+        <li>
+          <a data-analytics-action="Clicked course outline panel link." data-analytics-category="Course" tabindex="0" data-analytics-label="Resource management" href="https://www.cloudskillsboost.google/course_sessions/13055280/video/464483" class=" activity ql-label-large ">
+            <!--?lit$966745129$-->
+      <!--?lit$966745129$-->
+        <span class="non-visible-screen-reader-description">
+          <!--?lit$966745129$-->Activity completed
+        </span>
+        <ql-icon class="status complete"><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$966745129$--></slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template>check</ql-icon>
+      
+      <div class="activity-title">
+        <ql-icon><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$966745129$--></slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template><!--?lit$966745129$-->play_circle</ql-icon>
+        <!--?lit$966745129$-->Resource management
+      </div>
+    
+          </a>
+        </li>
+      <!---->
+        </ul>
+      </li>
+    <!----><!---->
+      <li class="step">
+        <!--?lit$966745129$-->
+        <ul class="activities">
+          <!--?lit$966745129$--><!---->
+        <li>
+          <a data-analytics-action="Clicked course outline panel link." data-analytics-category="Course" tabindex="0" data-analytics-label="Billing" href="https://www.cloudskillsboost.google/course_sessions/13055280/video/464484" class=" activity active ql-label-large " aria-current="page">
+            <!--?lit$966745129$-->
+      <!--?lit$966745129$--><div class="status"></div>
+      <div class="activity-title">
+        <ql-icon><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$966745129$--></slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template><!--?lit$966745129$-->play_circle</ql-icon>
+        <!--?lit$966745129$-->Billing
+      </div>
+    
+          </a>
+        </li>
+      <!---->
+        </ul>
+      </li>
+    <!----><!---->
+      <li class="step">
+        <!--?lit$966745129$-->
+        <ul class="activities">
+          <!--?lit$966745129$--><!---->
+        <li>
+          <a data-analytics-action="Clicked course outline panel link." data-analytics-category="Course" tabindex="0" data-analytics-label="Interacting with Google Cloud" href="https://www.cloudskillsboost.google/course_sessions/13055280/video/464485" class=" activity ql-label-large ">
+            <!--?lit$966745129$-->
+      <!--?lit$966745129$--><div class="status"></div>
+      <div class="activity-title">
+        <ql-icon><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$966745129$--></slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template><!--?lit$966745129$-->play_circle</ql-icon>
+        <!--?lit$966745129$-->Interacting with Google Cloud
+      </div>
+    
+          </a>
+        </li>
+      <!---->
+        </ul>
+      </li>
+    <!----><!---->
+      <li class="step">
+        <!--?lit$966745129$-->
+        <ul class="activities">
+          <!--?lit$966745129$--><!---->
+        <li>
+          <a data-analytics-action="Clicked course outline panel link." data-analytics-category="Course" tabindex="0" data-analytics-label="Lab Introduction: Accessing the Cloud console and Cloud Shell" href="https://www.cloudskillsboost.google/course_sessions/13055280/video/464486" class=" activity ql-label-large ">
+            <!--?lit$966745129$-->
+      <!--?lit$966745129$--><div class="status"></div>
+      <div class="activity-title">
+        <ql-icon><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$966745129$--></slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template><!--?lit$966745129$-->play_circle</ql-icon>
+        <!--?lit$966745129$-->Lab Introduction: Accessing the Cloud console and Cloud Shell
+      </div>
+    
+          </a>
+        </li>
+      <!---->
+        </ul>
+      </li>
+    <!----><!---->
+      <li class="step">
+        <!--?lit$966745129$-->
+        <ul class="activities">
+          <!--?lit$966745129$--><!---->
+        <li>
+          <a data-analytics-action="Clicked course outline panel link." data-analytics-category="Course" tabindex="0" data-analytics-label="Accessing the Google Cloud Console and Cloud Shell" href="https://www.cloudskillsboost.google/course_sessions/13055280/labs/464487" class=" activity ql-label-large ">
+            <!--?lit$966745129$-->
+      <!--?lit$966745129$--><div class="status"></div>
+      <div class="activity-title">
+        <ql-icon><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$966745129$--></slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template><!--?lit$966745129$-->science</ql-icon>
+        <!--?lit$966745129$-->Accessing the Google Cloud Console and Cloud Shell
+      </div>
+    
+          </a>
+        </li>
+      <!---->
+        </ul>
+      </li>
+    <!----><!---->
+      <li class="step">
+        <!--?lit$966745129$-->
+        <ul class="activities">
+          <!--?lit$966745129$--><!---->
+        <li>
+          <a data-analytics-action="Clicked course outline panel link." data-analytics-category="Course" tabindex="0" data-analytics-label="Quiz" href="https://www.cloudskillsboost.google/course_sessions/13055280/quizzes/464488" class=" activity ql-label-large ">
+            <!--?lit$966745129$-->
+      <!--?lit$966745129$--><div class="status"></div>
+      <div class="activity-title">
+        <ql-icon><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$966745129$--></slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template><!--?lit$966745129$-->fact_check</ql-icon>
+        <!--?lit$966745129$-->Quiz
+      </div>
+    
+          </a>
+        </li>
+      <!---->
+        </ul>
+      </li>
+    <!---->
+          </ul>
+        </div>
+      </ql-collapsible>
+    <!----><!---->
+      <ql-collapsible expanded="" class=" module "><template shadowrootmode="open"><!----> <!--?lit$966745129$-->
+      <button aria-controls="panel" id="header" aria-expanded="true" class=" header expanded toggle-button ">
+        <slot name="header"></slot>
+        <ql-icon icon="keyboard_arrow_right"><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: 24px;">
+        <slot><!--?lit$966745129$-->keyboard_arrow_right</slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template></ql-icon>
+      </button>
+     <!--?lit$966745129$-->
+      <div id="panel" role="region" aria-labelledby="header" class=" panel expanded " style="height: auto;">
+        <slot name="collapsible"></slot>
+      </div>
+     </template>
+        <h2 slot="header" class="ql-label-large" id="module-header-68436">
+          <!--?lit$966745129$-->Introduction to Containers and Kubernetes
+        </h2>
+        <div role="region" slot="collapsible" aria-labelledby="module-header-68436">
+          <ul class="steps">
+            <!--?lit$966745129$--><!---->
+      <li class="step">
+        <!--?lit$966745129$-->
+        <ul class="activities">
+          <!--?lit$966745129$--><!---->
+        <li>
+          <a data-analytics-action="Clicked course outline panel link." data-analytics-category="Course" tabindex="0" data-analytics-label="Introduction" href="https://www.cloudskillsboost.google/course_sessions/13055280/video/464489" class=" activity ql-label-large ">
+            <!--?lit$966745129$-->
+      <!--?lit$966745129$--><div class="status"></div>
+      <div class="activity-title">
+        <ql-icon><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$966745129$--></slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template><!--?lit$966745129$-->play_circle</ql-icon>
+        <!--?lit$966745129$-->Introduction
+      </div>
+    
+          </a>
+        </li>
+      <!---->
+        </ul>
+      </li>
+    <!----><!---->
+      <li class="step">
+        <!--?lit$966745129$-->
+        <ul class="activities">
+          <!--?lit$966745129$--><!---->
+        <li>
+          <a data-analytics-action="Clicked course outline panel link." data-analytics-category="Course" tabindex="0" data-analytics-label="Containers" href="https://www.cloudskillsboost.google/course_sessions/13055280/video/464490" class=" activity ql-label-large ">
+            <!--?lit$966745129$-->
+      <!--?lit$966745129$--><div class="status"></div>
+      <div class="activity-title">
+        <ql-icon><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$966745129$--></slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template><!--?lit$966745129$-->play_circle</ql-icon>
+        <!--?lit$966745129$-->Containers
+      </div>
+    
+          </a>
+        </li>
+      <!---->
+        </ul>
+      </li>
+    <!----><!---->
+      <li class="step">
+        <!--?lit$966745129$-->
+        <ul class="activities">
+          <!--?lit$966745129$--><!---->
+        <li>
+          <a data-analytics-action="Clicked course outline panel link." data-analytics-category="Course" tabindex="0" data-analytics-label="Container images" href="https://www.cloudskillsboost.google/course_sessions/13055280/video/464491" class=" activity ql-label-large ">
+            <!--?lit$966745129$-->
+      <!--?lit$966745129$--><div class="status"></div>
+      <div class="activity-title">
+        <ql-icon><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$966745129$--></slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template><!--?lit$966745129$-->play_circle</ql-icon>
+        <!--?lit$966745129$-->Container images
+      </div>
+    
+          </a>
+        </li>
+      <!---->
+        </ul>
+      </li>
+    <!----><!---->
+      <li class="step">
+        <!--?lit$966745129$-->
+        <ul class="activities">
+          <!--?lit$966745129$--><!---->
+        <li>
+          <a data-analytics-action="Clicked course outline panel link." data-analytics-category="Course" tabindex="0" data-analytics-label="Lab introduction: Working with Cloud Build" href="https://www.cloudskillsboost.google/course_sessions/13055280/video/464492" class=" activity ql-label-large ">
+            <!--?lit$966745129$-->
+      <!--?lit$966745129$--><div class="status"></div>
+      <div class="activity-title">
+        <ql-icon><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$966745129$--></slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template><!--?lit$966745129$-->play_circle</ql-icon>
+        <!--?lit$966745129$-->Lab introduction: Working with Cloud Build
+      </div>
+    
+          </a>
+        </li>
+      <!---->
+        </ul>
+      </li>
+    <!----><!---->
+      <li class="step">
+        <!--?lit$966745129$-->
+        <ul class="activities">
+          <!--?lit$966745129$--><!---->
+        <li>
+          <a data-analytics-action="Clicked course outline panel link." data-analytics-category="Course" tabindex="0" data-analytics-label="Working with Cloud Build" href="https://www.cloudskillsboost.google/course_sessions/13055280/labs/464493" class=" activity ql-label-large ">
+            <!--?lit$966745129$-->
+      <!--?lit$966745129$--><div class="status"></div>
+      <div class="activity-title">
+        <ql-icon><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$966745129$--></slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template><!--?lit$966745129$-->science</ql-icon>
+        <!--?lit$966745129$-->Working with Cloud Build
+      </div>
+    
+          </a>
+        </li>
+      <!---->
+        </ul>
+      </li>
+    <!----><!---->
+      <li class="step">
+        <!--?lit$966745129$-->
+        <ul class="activities">
+          <!--?lit$966745129$--><!---->
+        <li>
+          <a data-analytics-action="Clicked course outline panel link." data-analytics-category="Course" tabindex="0" data-analytics-label="Kubernetes" href="https://www.cloudskillsboost.google/course_sessions/13055280/video/464494" class=" activity ql-label-large ">
+            <!--?lit$966745129$-->
+      <!--?lit$966745129$--><div class="status"></div>
+      <div class="activity-title">
+        <ql-icon><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$966745129$--></slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template><!--?lit$966745129$-->play_circle</ql-icon>
+        <!--?lit$966745129$-->Kubernetes
+      </div>
+    
+          </a>
+        </li>
+      <!---->
+        </ul>
+      </li>
+    <!----><!---->
+      <li class="step">
+        <!--?lit$966745129$-->
+        <ul class="activities">
+          <!--?lit$966745129$--><!---->
+        <li>
+          <a data-analytics-action="Clicked course outline panel link." data-analytics-category="Course" tabindex="0" data-analytics-label="Google Kubernetes Engine" href="https://www.cloudskillsboost.google/course_sessions/13055280/video/464495" class=" activity ql-label-large ">
+            <!--?lit$966745129$-->
+      <!--?lit$966745129$--><div class="status"></div>
+      <div class="activity-title">
+        <ql-icon><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$966745129$--></slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template><!--?lit$966745129$-->play_circle</ql-icon>
+        <!--?lit$966745129$-->Google Kubernetes Engine
+      </div>
+    
+          </a>
+        </li>
+      <!---->
+        </ul>
+      </li>
+    <!----><!---->
+      <li class="step">
+        <!--?lit$966745129$-->
+        <ul class="activities">
+          <!--?lit$966745129$--><!---->
+        <li>
+          <a data-analytics-action="Clicked course outline panel link." data-analytics-category="Course" tabindex="0" data-analytics-label="Quiz" href="https://www.cloudskillsboost.google/course_sessions/13055280/quizzes/464496" class=" activity ql-label-large ">
+            <!--?lit$966745129$-->
+      <!--?lit$966745129$--><div class="status"></div>
+      <div class="activity-title">
+        <ql-icon><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$966745129$--></slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template><!--?lit$966745129$-->fact_check</ql-icon>
+        <!--?lit$966745129$-->Quiz
+      </div>
+    
+          </a>
+        </li>
+      <!---->
+        </ul>
+      </li>
+    <!---->
+          </ul>
+        </div>
+      </ql-collapsible>
+    <!----><!---->
+      <ql-collapsible expanded="" class=" module "><template shadowrootmode="open"><!----> <!--?lit$966745129$-->
+      <button aria-controls="panel" id="header" aria-expanded="true" class=" header expanded toggle-button ">
+        <slot name="header"></slot>
+        <ql-icon icon="keyboard_arrow_right"><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: 24px;">
+        <slot><!--?lit$966745129$-->keyboard_arrow_right</slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template></ql-icon>
+      </button>
+     <!--?lit$966745129$-->
+      <div id="panel" role="region" aria-labelledby="header" class=" panel expanded " style="height: auto;">
+        <slot name="collapsible"></slot>
+      </div>
+     </template>
+        <h2 slot="header" class="ql-label-large" id="module-header-68437">
+          <!--?lit$966745129$-->Kubernetes Architecture
+        </h2>
+        <div role="region" slot="collapsible" aria-labelledby="module-header-68437">
+          <ul class="steps">
+            <!--?lit$966745129$--><!---->
+      <li class="step">
+        <!--?lit$966745129$-->
+        <ul class="activities">
+          <!--?lit$966745129$--><!---->
+        <li>
+          <a data-analytics-action="Clicked course outline panel link." data-analytics-category="Course" tabindex="0" data-analytics-label="Introduction" href="https://www.cloudskillsboost.google/course_sessions/13055280/video/464497" class=" activity ql-label-large ">
+            <!--?lit$966745129$-->
+      <!--?lit$966745129$--><div class="status"></div>
+      <div class="activity-title">
+        <ql-icon><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$966745129$--></slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template><!--?lit$966745129$-->play_circle</ql-icon>
+        <!--?lit$966745129$-->Introduction
+      </div>
+    
+          </a>
+        </li>
+      <!---->
+        </ul>
+      </li>
+    <!----><!---->
+      <li class="step">
+        <!--?lit$966745129$-->
+        <ul class="activities">
+          <!--?lit$966745129$--><!---->
+        <li>
+          <a data-analytics-action="Clicked course outline panel link." data-analytics-category="Course" tabindex="0" data-analytics-label="Kubernetes concepts" href="https://www.cloudskillsboost.google/course_sessions/13055280/video/464498" class=" activity ql-label-large ">
+            <!--?lit$966745129$-->
+      <!--?lit$966745129$--><div class="status"></div>
+      <div class="activity-title">
+        <ql-icon><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$966745129$--></slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template><!--?lit$966745129$-->play_circle</ql-icon>
+        <!--?lit$966745129$-->Kubernetes concepts
+      </div>
+    
+          </a>
+        </li>
+      <!---->
+        </ul>
+      </li>
+    <!----><!---->
+      <li class="step">
+        <!--?lit$966745129$-->
+        <ul class="activities">
+          <!--?lit$966745129$--><!---->
+        <li>
+          <a data-analytics-action="Clicked course outline panel link." data-analytics-category="Course" tabindex="0" data-analytics-label="Kubernetes components" href="https://www.cloudskillsboost.google/course_sessions/13055280/video/464499" class=" activity ql-label-large ">
+            <!--?lit$966745129$-->
+      <!--?lit$966745129$--><div class="status"></div>
+      <div class="activity-title">
+        <ql-icon><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$966745129$--></slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template><!--?lit$966745129$-->play_circle</ql-icon>
+        <!--?lit$966745129$-->Kubernetes components
+      </div>
+    
+          </a>
+        </li>
+      <!---->
+        </ul>
+      </li>
+    <!----><!---->
+      <li class="step">
+        <!--?lit$966745129$-->
+        <ul class="activities">
+          <!--?lit$966745129$--><!---->
+        <li>
+          <a data-analytics-action="Clicked course outline panel link." data-analytics-category="Course" tabindex="0" data-analytics-label="GKE Autopilot and GKE standard" href="https://www.cloudskillsboost.google/course_sessions/13055280/video/464500" class=" activity ql-label-large ">
+            <!--?lit$966745129$-->
+      <!--?lit$966745129$--><div class="status"></div>
+      <div class="activity-title">
+        <ql-icon><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$966745129$--></slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template><!--?lit$966745129$-->play_circle</ql-icon>
+        <!--?lit$966745129$-->GKE Autopilot and GKE standard
+      </div>
+    
+          </a>
+        </li>
+      <!---->
+        </ul>
+      </li>
+    <!----><!---->
+      <li class="step">
+        <!--?lit$966745129$-->
+        <ul class="activities">
+          <!--?lit$966745129$--><!---->
+        <li>
+          <a data-analytics-action="Clicked course outline panel link." data-analytics-category="Course" tabindex="0" data-analytics-label="Object management" href="https://www.cloudskillsboost.google/course_sessions/13055280/video/464501" class=" activity ql-label-large ">
+            <!--?lit$966745129$-->
+      <!--?lit$966745129$--><div class="status"></div>
+      <div class="activity-title">
+        <ql-icon><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$966745129$--></slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template><!--?lit$966745129$-->play_circle</ql-icon>
+        <!--?lit$966745129$-->Object management
+      </div>
+    
+          </a>
+        </li>
+      <!---->
+        </ul>
+      </li>
+    <!----><!---->
+      <li class="step">
+        <!--?lit$966745129$-->
+        <ul class="activities">
+          <!--?lit$966745129$--><!---->
+        <li>
+          <a data-analytics-action="Clicked course outline panel link." data-analytics-category="Course" tabindex="0" data-analytics-label="Lab introduction: Deploying GKE Autopilot Clusters" href="https://www.cloudskillsboost.google/course_sessions/13055280/video/464502" class=" activity ql-label-large ">
+            <!--?lit$966745129$-->
+      <!--?lit$966745129$--><div class="status"></div>
+      <div class="activity-title">
+        <ql-icon><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$966745129$--></slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template><!--?lit$966745129$-->play_circle</ql-icon>
+        <!--?lit$966745129$-->Lab introduction: Deploying GKE Autopilot Clusters
+      </div>
+    
+          </a>
+        </li>
+      <!---->
+        </ul>
+      </li>
+    <!----><!---->
+      <li class="step">
+        <!--?lit$966745129$-->
+        <ul class="activities">
+          <!--?lit$966745129$--><!---->
+        <li>
+          <a data-analytics-action="Clicked course outline panel link." data-analytics-category="Course" tabindex="0" data-analytics-label="Deploying GKE Autopilot Clusters" href="https://www.cloudskillsboost.google/course_sessions/13055280/labs/464503" class=" activity ql-label-large ">
+            <!--?lit$966745129$-->
+      <!--?lit$966745129$--><div class="status"></div>
+      <div class="activity-title">
+        <ql-icon><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$966745129$--></slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template><!--?lit$966745129$-->science</ql-icon>
+        <!--?lit$966745129$-->Deploying GKE Autopilot Clusters
+      </div>
+    
+          </a>
+        </li>
+      <!---->
+        </ul>
+      </li>
+    <!----><!---->
+      <li class="step">
+        <!--?lit$966745129$-->
+        <ul class="activities">
+          <!--?lit$966745129$--><!---->
+        <li>
+          <a data-analytics-action="Clicked course outline panel link." data-analytics-category="Course" tabindex="0" data-analytics-label="Quiz" href="https://www.cloudskillsboost.google/course_sessions/13055280/quizzes/464504" class=" activity ql-label-large ">
+            <!--?lit$966745129$-->
+      <!--?lit$966745129$--><div class="status"></div>
+      <div class="activity-title">
+        <ql-icon><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$966745129$--></slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template><!--?lit$966745129$-->fact_check</ql-icon>
+        <!--?lit$966745129$-->Quiz
+      </div>
+    
+          </a>
+        </li>
+      <!---->
+        </ul>
+      </li>
+    <!---->
+          </ul>
+        </div>
+      </ql-collapsible>
+    <!----><!---->
+      <ql-collapsible expanded="" class=" module "><template shadowrootmode="open"><!----> <!--?lit$966745129$-->
+      <button aria-controls="panel" id="header" aria-expanded="true" class=" header expanded toggle-button ">
+        <slot name="header"></slot>
+        <ql-icon icon="keyboard_arrow_right"><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: 24px;">
+        <slot><!--?lit$966745129$-->keyboard_arrow_right</slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template></ql-icon>
+      </button>
+     <!--?lit$966745129$-->
+      <div id="panel" role="region" aria-labelledby="header" class=" panel expanded " style="height: auto;">
+        <slot name="collapsible"></slot>
+      </div>
+     </template>
+        <h2 slot="header" class="ql-label-large" id="module-header-68438">
+          <!--?lit$966745129$-->Kubernetes Operations
+        </h2>
+        <div role="region" slot="collapsible" aria-labelledby="module-header-68438">
+          <ul class="steps">
+            <!--?lit$966745129$--><!---->
+      <li class="step">
+        <!--?lit$966745129$-->
+        <ul class="activities">
+          <!--?lit$966745129$--><!---->
+        <li>
+          <a data-analytics-action="Clicked course outline panel link." data-analytics-category="Course" tabindex="0" data-analytics-label="Introduction" href="https://www.cloudskillsboost.google/course_sessions/13055280/video/464505" class=" activity ql-label-large ">
+            <!--?lit$966745129$-->
+      <!--?lit$966745129$--><div class="status"></div>
+      <div class="activity-title">
+        <ql-icon><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$966745129$--></slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template><!--?lit$966745129$-->play_circle</ql-icon>
+        <!--?lit$966745129$-->Introduction
+      </div>
+    
+          </a>
+        </li>
+      <!---->
+        </ul>
+      </li>
+    <!----><!---->
+      <li class="step">
+        <!--?lit$966745129$-->
+        <ul class="activities">
+          <!--?lit$966745129$--><!---->
+        <li>
+          <a data-analytics-action="Clicked course outline panel link." data-analytics-category="Course" tabindex="0" data-analytics-label="The kubectl command" href="https://www.cloudskillsboost.google/course_sessions/13055280/video/464506" class=" activity ql-label-large ">
+            <!--?lit$966745129$-->
+      <!--?lit$966745129$--><div class="status"></div>
+      <div class="activity-title">
+        <ql-icon><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$966745129$--></slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template><!--?lit$966745129$-->play_circle</ql-icon>
+        <!--?lit$966745129$-->The kubectl command
+      </div>
+    
+          </a>
+        </li>
+      <!---->
+        </ul>
+      </li>
+    <!----><!---->
+      <li class="step">
+        <!--?lit$966745129$-->
+        <ul class="activities">
+          <!--?lit$966745129$--><!---->
+        <li>
+          <a data-analytics-action="Clicked course outline panel link." data-analytics-category="Course" tabindex="0" data-analytics-label="Introspection" href="https://www.cloudskillsboost.google/course_sessions/13055280/video/464507" class=" activity ql-label-large ">
+            <!--?lit$966745129$-->
+      <!--?lit$966745129$--><div class="status"></div>
+      <div class="activity-title">
+        <ql-icon><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$966745129$--></slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template><!--?lit$966745129$-->play_circle</ql-icon>
+        <!--?lit$966745129$-->Introspection
+      </div>
+    
+          </a>
+        </li>
+      <!---->
+        </ul>
+      </li>
+    <!----><!---->
+      <li class="step">
+        <!--?lit$966745129$-->
+        <ul class="activities">
+          <!--?lit$966745129$--><!---->
+        <li>
+          <a data-analytics-action="Clicked course outline panel link." data-analytics-category="Course" tabindex="0" data-analytics-label="Lab introduction: Deploying GKE Autopilot Clusters from Cloud Shell" href="https://www.cloudskillsboost.google/course_sessions/13055280/video/464508" class=" activity ql-label-large ">
+            <!--?lit$966745129$-->
+      <!--?lit$966745129$--><div class="status"></div>
+      <div class="activity-title">
+        <ql-icon><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$966745129$--></slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template><!--?lit$966745129$-->play_circle</ql-icon>
+        <!--?lit$966745129$-->Lab introduction: Deploying GKE Autopilot Clusters from Cloud Shell
+      </div>
+    
+          </a>
+        </li>
+      <!---->
+        </ul>
+      </li>
+    <!----><!---->
+      <li class="step">
+        <!--?lit$966745129$-->
+        <ul class="activities">
+          <!--?lit$966745129$--><!---->
+        <li>
+          <a data-analytics-action="Clicked course outline panel link." data-analytics-category="Course" tabindex="0" data-analytics-label="Deploying GKE Autopilot Clusters from Cloud Shell" href="https://www.cloudskillsboost.google/course_sessions/13055280/labs/464509" class=" activity ql-label-large ">
+            <!--?lit$966745129$-->
+      <!--?lit$966745129$--><div class="status"></div>
+      <div class="activity-title">
+        <ql-icon><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$966745129$--></slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template><!--?lit$966745129$-->science</ql-icon>
+        <!--?lit$966745129$-->Deploying GKE Autopilot Clusters from Cloud Shell
+      </div>
+    
+          </a>
+        </li>
+      <!---->
+        </ul>
+      </li>
+    <!----><!---->
+      <li class="step">
+        <!--?lit$966745129$-->
+        <ul class="activities">
+          <!--?lit$966745129$--><!---->
+        <li>
+          <a data-analytics-action="Clicked course outline panel link." data-analytics-category="Course" tabindex="0" data-analytics-label="Quiz" href="https://www.cloudskillsboost.google/course_sessions/13055280/quizzes/464510" class=" activity ql-label-large ">
+            <!--?lit$966745129$-->
+      <!--?lit$966745129$--><div class="status"></div>
+      <div class="activity-title">
+        <ql-icon><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$966745129$--></slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template><!--?lit$966745129$-->fact_check</ql-icon>
+        <!--?lit$966745129$-->Quiz
+      </div>
+    
+          </a>
+        </li>
+      <!---->
+        </ul>
+      </li>
+    <!---->
+          </ul>
+        </div>
+      </ql-collapsible>
+    <!----><!---->
+      <ql-collapsible expanded="" class=" module "><template shadowrootmode="open"><!----> <!--?lit$966745129$-->
+      <button aria-controls="panel" id="header" aria-expanded="true" class=" header expanded toggle-button ">
+        <slot name="header"></slot>
+        <ql-icon icon="keyboard_arrow_right"><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: 24px;">
+        <slot><!--?lit$966745129$-->keyboard_arrow_right</slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template></ql-icon>
+      </button>
+     <!--?lit$966745129$-->
+      <div id="panel" role="region" aria-labelledby="header" class=" panel expanded " style="height: auto;">
+        <slot name="collapsible"></slot>
+      </div>
+     </template>
+        <h2 slot="header" class="ql-label-large" id="module-header-68439">
+          <!--?lit$966745129$-->Course Summary
+        </h2>
+        <div role="region" slot="collapsible" aria-labelledby="module-header-68439">
+          <ul class="steps">
+            <!--?lit$966745129$--><!---->
+      <li class="step">
+        <!--?lit$966745129$-->
+        <ul class="activities">
+          <!--?lit$966745129$--><!---->
+        <li>
+          <a data-analytics-action="Clicked course outline panel link." data-analytics-category="Course" tabindex="0" data-analytics-label="Course summary" href="https://www.cloudskillsboost.google/course_sessions/13055280/video/464511" class=" activity ql-label-large ">
+            <!--?lit$966745129$-->
+      <!--?lit$966745129$--><div class="status"></div>
+      <div class="activity-title">
+        <ql-icon><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$966745129$--></slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template><!--?lit$966745129$-->play_circle</ql-icon>
+        <!--?lit$966745129$-->Course summary
+      </div>
+    
+          </a>
+        </li>
+      <!---->
+        </ul>
+      </li>
+    <!---->
+          </ul>
+        </div>
+      </ql-collapsible>
+    <!----><!---->
+      <ql-collapsible expanded="" class=" module "><template shadowrootmode="open"><!----> <!--?lit$966745129$-->
+      <button aria-controls="panel" id="header" aria-expanded="true" class=" header expanded toggle-button ">
+        <slot name="header"></slot>
+        <ql-icon icon="keyboard_arrow_right"><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: 24px;">
+        <slot><!--?lit$966745129$-->keyboard_arrow_right</slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template></ql-icon>
+      </button>
+     <!--?lit$966745129$-->
+      <div id="panel" role="region" aria-labelledby="header" class=" panel expanded " style="height: auto;">
+        <slot name="collapsible"></slot>
+      </div>
+     </template>
+        <h2 slot="header" class="ql-label-large" id="module-header-next-steps">
+          <!--?lit$966745129$-->Your Next Steps
+        </h2>
+        <div role="region" slot="collapsible" aria-labelledby="module-header-next-steps">
+          <ul class="steps">
+            <!--?lit$966745129$--><!---->
+      <li class="step">
+        <!--?lit$966745129$-->
+        <ul class="activities">
+          <!--?lit$966745129$--><!----> <li class=" activity locked ql-label-large "> <!--?lit$966745129$-->
+      <!--?lit$966745129$-->
+        <span class="non-visible-screen-reader-description">
+          <!--?lit$966745129$-->Activity locked
+        </span>
+        <ql-icon class="status locked"><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$966745129$--></slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template>lock</ql-icon>
+      
+      <div class="activity-title">
+        <ql-icon><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$966745129$--></slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template><!--?lit$966745129$-->verified_user</ql-icon>
+        <!--?lit$966745129$-->Course Badge
+      </div>
+     </li> <!---->
+        </ul>
+      </li>
+    <!----><!---->
+      <li class="step">
+        <!--?lit$966745129$-->
+        <ul class="activities">
+          <!--?lit$966745129$--><!----> <li class=" activity locked ql-label-large "> <!--?lit$966745129$-->
+      <!--?lit$966745129$-->
+        <span class="non-visible-screen-reader-description">
+          <!--?lit$966745129$-->Activity locked
+        </span>
+        <ql-icon class="status locked"><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$966745129$--></slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template>lock</ql-icon>
+      
+      <div class="activity-title">
+        <ql-icon><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$966745129$--></slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template><!--?lit$966745129$-->description</ql-icon>
+        <!--?lit$966745129$-->Course Survey
+      </div>
+     </li> <!---->
+        </ul>
+      </li>
+    <!---->
+          </ul>
+        </div>
+      </ql-collapsible>
+    <!---->
+        <!--?lit$966745129$-->
+      <ql-fab mini="" class=" scroll-to-active hidden " arialabel="Scroll to current activity"><template shadowrootmode="open"><!----> <!--?lit$966745129$-->
+      <div class="buttonContainer" aria-disabled="false">
+        <!--?lit$966745129$-->
+        <button type="button" class=" mdc-fab mdc-fab--mini gm-fab google-material-icons " aria-label="Scroll to current activity" aria-busy="false">
+          <!--?lit$966745129$-->
+      <span class="mdc-fab__ripple"></span>
+      <span class="mdc-fab__icon"><!--?lit$966745129$--><slot></slot></span>
+    
+        </button>
+      </div>
+     <!--?lit$966745129$--> </template>
+        my_location
+      </ql-fab>
+    
+      </ql-expandable-list>
+    </template></ql-course-outline>
+</ql-drawer>
+<ql-drawer-content class="course-activity" slot="drawer-content"><template shadowrootmode="open"><!----><slot></slot></template>
+<div class="course-activity-header">
+<div class="breadcrumbs ql-label-medium">
+<a id="course_name" href="https://www.cloudskillsboost.google/course_templates/2">Getting Started with Google Kubernetes Engine</a>
+<ql-icon><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$966745129$--></slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template>navigate_next</ql-icon>
+<div class="course-name">
+<div id="module_name">Introduction to Google Cloud</div>
+</div>
+</div>
+</div>
+<div class="course-activity-content"><div class="video-wrapper">
+
+
+<ql-youtube-video currenttime="0" nextactivitypath="/course_sessions/13055280/video/464485" transcript="[{&quot;time&quot;:0.16,&quot;text&quot;:&quot;Let’s explore how billing works in Google Cloud.&quot;},{&quot;time&quot;:3.45,&quot;text&quot;:&quot;Billing is established at the project level of the Google Cloud resource hierarchy.&quot;},{&quot;time&quot;:10.599,&quot;text&quot;:&quot;This means that when you define a Google Cloud project, you link a billing account to it.&quot;},{&quot;time&quot;:15.639,&quot;text&quot;:&quot;This billing account is where you will configure all your billing information, including your payment option.&quot;},{&quot;time&quot;:21.64,&quot;text&quot;:&quot;A billing account can be linked to zero or more projects, but projects that aren’t linked to a billing account can only use free Google Cloud services.&quot;},{&quot;time&quot;:31.759,&quot;text&quot;:&quot;Billing accounts are charged automatically and invoiced every month or at every threshold limit.&quot;},{&quot;time&quot;:39.97,&quot;text&quot;:&quot;Billing subaccounts can be used to separate billing by project.&quot;},{&quot;time&quot;:43.8,&quot;text&quot;:&quot;Some Google Cloud customers who resell Google Cloud services use sub accounts for each of their own clients.&quot;},{&quot;time&quot;:50.34,&quot;text&quot;:&quot;Now, you’re probably thinking, “How can I ensure that I don’t accidentally face a big Google Cloud bill?”&quot;},{&quot;time&quot;:57.59,&quot;text&quot;:&quot;We provide a few tools to help.&quot;},{&quot;time&quot;:60.18,&quot;text&quot;:&quot;You can define budgets at the billing account level or at the project level.&quot;},{&quot;time&quot;:65.209,&quot;text&quot;:&quot;A budget can be a fixed limit, or it can be tied to another metric; for example, a percentage of the previous month’s spend.&quot;},{&quot;time&quot;:73.72,&quot;text&quot;:&quot;To be notified when costs approach your budget limit, you can create an alert.&quot;},{&quot;time&quot;:78.24,&quot;text&quot;:&quot;For example, with a budget limit of $20,000 and an alert set at 90%, you’ll receive a notification alert when your expenses reach $18,000.&quot;},{&quot;time&quot;:88.6,&quot;text&quot;:&quot;Alerts are generally set at 50%, 90% and 100%, but can also be customized.&quot;},{&quot;time&quot;:97.53,&quot;text&quot;:&quot;Reports is a visual tool in the Google Cloud console that lets you monitor expenditure based on a project or services.&quot;},{&quot;time&quot;:105.04,&quot;text&quot;:&quot;Finally, Google Cloud also implements quotas, which are designed to prevent the over-consumption of resources because of an error or a malicious attack.&quot;},{&quot;time&quot;:114.21,&quot;text&quot;:&quot;This way both account owners and the Google Cloud community as a whole are protected.&quot;},{&quot;time&quot;:119.08,&quot;text&quot;:&quot;There are two types of quotas: rate quotas and allocation quotas.&quot;},{&quot;time&quot;:125.07,&quot;text&quot;:&quot;Both are applied at the project level.&quot;},{&quot;time&quot;:128.1,&quot;text&quot;:&quot;Rate quotas reset after a specific time.&quot;},{&quot;time&quot;:130.77,&quot;text&quot;:&quot;For example, by default, the GKE service implements a quota of 3,000 calls to its API from each Google Cloud project every 100 seconds.&quot;},{&quot;time&quot;:141.47,&quot;text&quot;:&quot;After that 100 seconds, the limit is reset.&quot;},{&quot;time&quot;:145.04,&quot;text&quot;:&quot;Allocation quotas govern the number of resources that you can have in your projects.&quot;},{&quot;time&quot;:149.98,&quot;text&quot;:&quot;For example, by default, each Google Cloud project has a quota that allows it no more than five Virtual Private Cloud networks.&quot;},{&quot;time&quot;:159.42,&quot;text&quot;:&quot;Although all projects start with the same quotas, you can change some of them by requesting an increase from Google Cloud Support.&quot;}]" videoid="H8MBuunbLPc"><template shadowrootmode="open"><!---->
+      <div class="container">
+        <!--?lit$966745129$-->
+      <div class="video">
+        <google-youtube-player><template shadowrootmode="open"><!---->
+      <iframe id="player" frameborder="0" allowfullscreen="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Billing" width="640" height="360" src="https://www.youtube.com/embed/H8MBuunbLPc?playsinline=1&amp;controls=2&amp;modestbranding=1&amp;iv_load_policy=3&amp;rel=0&amp;enablejsapi=1&amp;autoplay=0&amp;origin=https%3A%2F%2Fwww.cloudskillsboost.google&amp;widgetid=1"></iframe>
+    </template>
+        </google-youtube-player>
+        <paper-toggle-button class="autoplay-toggle" checked="" role="button" aria-pressed="true" tabindex="0" toggles="" aria-disabled="false" active="" dir="null" style="touch-action: pan-y;"><template shadowrootmode="open"><style>:host {
+  display: inline-block;
+        display: var(--layout-horizontal_-_display, inline-block); -ms-flex-direction: var(--layout-horizontal_-_-ms-flex-direction); -webkit-flex-direction: var(--layout-horizontal_-_-webkit-flex-direction); flex-direction: var(--layout-horizontal_-_flex-direction);
+        -ms-flex-align: var(--layout-center_-_-ms-flex-align); -webkit-align-items: var(--layout-center_-_-webkit-align-items); align-items: var(--layout-center_-_align-items);
+        ;
+}
+
+:host([disabled]) {
+  pointer-events: none;
+}
+
+:host(:focus) {
+  outline:none;
+}
+
+.toggle-bar {
+  position: absolute;
+        height: 100%;
+        width: 100%;
+        border-radius: 8px;
+        pointer-events: none;
+        opacity: 0.4;
+        transition: background-color linear .08s;
+        background-color: var(--paper-toggle-button-unchecked-bar-color, #000000);
+
+        ;
+}
+
+.toggle-button {
+  position: absolute;
+        top: -3px;
+        left: 0;
+        right: auto;
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+        box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.6);
+        transition: -webkit-transform linear .08s, background-color linear .08s;
+        transition: transform linear .08s, background-color linear .08s;
+        will-change: transform;
+        background-color: var(--paper-toggle-button-unchecked-button-color, var(--paper-grey-50));
+
+        ;
+}
+
+:host([dir="rtl"]) .toggle-button, :host([dir="rtl"]) .toggle-button {
+  right: 0;
+        left: auto;
+}
+
+.toggle-button.dragging {
+  -webkit-transition: none;
+        transition: none;
+}
+
+:host([checked]:not([disabled])) .toggle-bar {
+  opacity: 0.5;
+        background-color: var(--paper-toggle-button-checked-bar-color, var(--primary-color));
+
+        ;
+}
+
+:host([disabled]) .toggle-bar {
+  background-color: var(--paper-toggle-button-disabled-bar-color, #000);
+        opacity: 0.12;
+        ;
+}
+
+:host([checked]) .toggle-button {
+  -webkit-transform: translate(16px, 0);
+        transform: translate(16px, 0);
+}
+
+:host(:host([dir="rtl"]) [checked]) .toggle-button, :host([dir="rtl"][checked]) .toggle-button {
+  -webkit-transform: translate(-16px, 0);
+        transform: translate(-16px, 0);
+}
+
+:host([dir="rtl"]) {
+  -webkit-transform: unset;
+        transform: unset;
+}
+
+:host([checked]:not([disabled])) .toggle-button {
+  background-color: var(--paper-toggle-button-checked-button-color, var(--primary-color));
+
+        ;
+}
+
+:host([disabled]) .toggle-button {
+  background-color: var(--paper-toggle-button-disabled-button-color, #bdbdbd);
+        opacity: 1;
+        ;
+}
+
+.toggle-ink {
+  position: absolute;
+        top: -14px;
+        left: -14px;
+        right: auto;
+        bottom: auto;
+        width: 48px;
+        height: 48px;
+        opacity: 0.5;
+        pointer-events: none;
+        color: var(--paper-toggle-button-unchecked-ink-color, var(--primary-text-color));
+
+        ;
+}
+
+:host([checked]) .toggle-ink {
+  color: var(--paper-toggle-button-checked-ink-color, var(--primary-color));
+
+        ;
+}
+
+.toggle-container {
+  display: inline-block;
+        position: relative;
+        width: 36px;
+        height: 14px;
+        
+        margin: 4px 1px;
+}
+
+.toggle-label {
+  position: relative;
+        display: inline-block;
+        vertical-align: middle;
+        padding-left: var(--paper-toggle-button-label-spacing, 8px);
+        pointer-events: none;
+        color: var(--paper-toggle-button-label-color, var(--primary-text-color));
+}
+
+:host([invalid]) .toggle-bar {
+  background-color: var(--paper-toggle-button-invalid-bar-color, var(--error-color));
+}
+
+:host([invalid]) .toggle-button {
+  background-color: var(--paper-toggle-button-invalid-button-color, var(--error-color));
+}
+
+:host([invalid]) .toggle-ink {
+  color: var(--paper-toggle-button-invalid-ink-color, var(--error-color));
+}
+
+</style><div class="toggle-container"><div id="toggleBar" class="toggle-bar"></div><div id="toggleButton" class="toggle-button"></div></div><div class="toggle-label"><slot></slot></div></template>
+          <!--?lit$966745129$-->Autoplay
+        </paper-toggle-button>
+      </div>
+     <!--?lit$966745129$-->
+      <div class="transcript">
+        <h1 class="ql-title-small"><!--?lit$966745129$-->Transcript</h1>
+        <div class="transcript__content"> <!--?lit$966745129$--><!---->
+      <div class="transcript__line">
+        <a class="timecode ql-title-small" href="javascript:;" data-analytics-action="Clicked transcript timestamp" data-analytics-category="Video" data-analytics-label="0.16" data-video-id="H8MBuunbLPc">
+          <!--?lit$966745129$-->00:00
+        </a>
+        <span><!--?lit$966745129$-->Let’s explore how billing works in Google Cloud.</span>
+      </div>
+    <!----><!---->
+      <div class="transcript__line">
+        <a class="timecode ql-title-small" href="javascript:;" data-analytics-action="Clicked transcript timestamp" data-analytics-category="Video" data-analytics-label="3.45" data-video-id="H8MBuunbLPc">
+          <!--?lit$966745129$-->00:03
+        </a>
+        <span><!--?lit$966745129$-->Billing is established at the project level of the Google Cloud resource hierarchy.</span>
+      </div>
+    <!----><!---->
+      <div class="transcript__line">
+        <a class="timecode ql-title-small" href="javascript:;" data-analytics-action="Clicked transcript timestamp" data-analytics-category="Video" data-analytics-label="10.599" data-video-id="H8MBuunbLPc">
+          <!--?lit$966745129$-->00:10
+        </a>
+        <span><!--?lit$966745129$-->This means that when you define a Google Cloud project, you link a billing account to it.</span>
+      </div>
+    <!----><!---->
+      <div class="transcript__line">
+        <a class="timecode ql-title-small" href="javascript:;" data-analytics-action="Clicked transcript timestamp" data-analytics-category="Video" data-analytics-label="15.639" data-video-id="H8MBuunbLPc">
+          <!--?lit$966745129$-->00:15
+        </a>
+        <span><!--?lit$966745129$-->This billing account is where you will configure all your billing information, including your payment option.</span>
+      </div>
+    <!----><!---->
+      <div class="transcript__line">
+        <a class="timecode ql-title-small" href="javascript:;" data-analytics-action="Clicked transcript timestamp" data-analytics-category="Video" data-analytics-label="21.64" data-video-id="H8MBuunbLPc">
+          <!--?lit$966745129$-->00:21
+        </a>
+        <span><!--?lit$966745129$-->A billing account can be linked to zero or more projects, but projects that aren’t linked to a billing account can only use free Google Cloud services.</span>
+      </div>
+    <!----><!---->
+      <div class="transcript__line">
+        <a class="timecode ql-title-small" href="javascript:;" data-analytics-action="Clicked transcript timestamp" data-analytics-category="Video" data-analytics-label="31.759" data-video-id="H8MBuunbLPc">
+          <!--?lit$966745129$-->00:31
+        </a>
+        <span><!--?lit$966745129$-->Billing accounts are charged automatically and invoiced every month or at every threshold limit.</span>
+      </div>
+    <!----><!---->
+      <div class="transcript__line">
+        <a class="timecode ql-title-small" href="javascript:;" data-analytics-action="Clicked transcript timestamp" data-analytics-category="Video" data-analytics-label="39.97" data-video-id="H8MBuunbLPc">
+          <!--?lit$966745129$-->00:39
+        </a>
+        <span><!--?lit$966745129$-->Billing subaccounts can be used to separate billing by project.</span>
+      </div>
+    <!----><!---->
+      <div class="transcript__line">
+        <a class="timecode ql-title-small" href="javascript:;" data-analytics-action="Clicked transcript timestamp" data-analytics-category="Video" data-analytics-label="43.8" data-video-id="H8MBuunbLPc">
+          <!--?lit$966745129$-->00:43
+        </a>
+        <span><!--?lit$966745129$-->Some Google Cloud customers who resell Google Cloud services use sub accounts for each of their own clients.</span>
+      </div>
+    <!----><!---->
+      <div class="transcript__line">
+        <a class="timecode ql-title-small" href="javascript:;" data-analytics-action="Clicked transcript timestamp" data-analytics-category="Video" data-analytics-label="50.34" data-video-id="H8MBuunbLPc">
+          <!--?lit$966745129$-->00:50
+        </a>
+        <span><!--?lit$966745129$-->Now, you’re probably thinking, “How can I ensure that I don’t accidentally face a big Google Cloud bill?”</span>
+      </div>
+    <!----><!---->
+      <div class="transcript__line">
+        <a class="timecode ql-title-small" href="javascript:;" data-analytics-action="Clicked transcript timestamp" data-analytics-category="Video" data-analytics-label="57.59" data-video-id="H8MBuunbLPc">
+          <!--?lit$966745129$-->00:57
+        </a>
+        <span><!--?lit$966745129$-->We provide a few tools to help.</span>
+      </div>
+    <!----><!---->
+      <div class="transcript__line">
+        <a class="timecode ql-title-small" href="javascript:;" data-analytics-action="Clicked transcript timestamp" data-analytics-category="Video" data-analytics-label="60.18" data-video-id="H8MBuunbLPc">
+          <!--?lit$966745129$-->01:00
+        </a>
+        <span><!--?lit$966745129$-->You can define budgets at the billing account level or at the project level.</span>
+      </div>
+    <!----><!---->
+      <div class="transcript__line">
+        <a class="timecode ql-title-small" href="javascript:;" data-analytics-action="Clicked transcript timestamp" data-analytics-category="Video" data-analytics-label="65.209" data-video-id="H8MBuunbLPc">
+          <!--?lit$966745129$-->01:05
+        </a>
+        <span><!--?lit$966745129$-->A budget can be a fixed limit, or it can be tied to another metric; for example, a percentage of the previous month’s spend.</span>
+      </div>
+    <!----><!---->
+      <div class="transcript__line">
+        <a class="timecode ql-title-small" href="javascript:;" data-analytics-action="Clicked transcript timestamp" data-analytics-category="Video" data-analytics-label="73.72" data-video-id="H8MBuunbLPc">
+          <!--?lit$966745129$-->01:13
+        </a>
+        <span><!--?lit$966745129$-->To be notified when costs approach your budget limit, you can create an alert.</span>
+      </div>
+    <!----><!---->
+      <div class="transcript__line">
+        <a class="timecode ql-title-small" href="javascript:;" data-analytics-action="Clicked transcript timestamp" data-analytics-category="Video" data-analytics-label="78.24" data-video-id="H8MBuunbLPc">
+          <!--?lit$966745129$-->01:18
+        </a>
+        <span><!--?lit$966745129$-->For example, with a budget limit of $20,000 and an alert set at 90%, you’ll receive a notification alert when your expenses reach $18,000.</span>
+      </div>
+    <!----><!---->
+      <div class="transcript__line current">
+        <a class="timecode ql-title-small" href="javascript:;" data-analytics-action="Clicked transcript timestamp" data-analytics-category="Video" data-analytics-label="88.6" data-video-id="H8MBuunbLPc">
+          <!--?lit$966745129$-->01:28
+        </a>
+        <span><!--?lit$966745129$-->Alerts are generally set at 50%, 90% and 100%, but can also be customized.</span>
+      </div>
+    <!----><!---->
+      <div class=" transcript__line ">
+        <a class="timecode ql-title-small" href="javascript:;" data-analytics-action="Clicked transcript timestamp" data-analytics-category="Video" data-analytics-label="97.53" data-video-id="H8MBuunbLPc">
+          <!--?lit$966745129$-->01:37
+        </a>
+        <span><!--?lit$966745129$-->Reports is a visual tool in the Google Cloud console that lets you monitor expenditure based on a project or services.</span>
+      </div>
+    <!----><!---->
+      <div class=" transcript__line ">
+        <a class="timecode ql-title-small" href="javascript:;" data-analytics-action="Clicked transcript timestamp" data-analytics-category="Video" data-analytics-label="105.04" data-video-id="H8MBuunbLPc">
+          <!--?lit$966745129$-->01:45
+        </a>
+        <span><!--?lit$966745129$-->Finally, Google Cloud also implements quotas, which are designed to prevent the over-consumption of resources because of an error or a malicious attack.</span>
+      </div>
+    <!----><!---->
+      <div class=" transcript__line ">
+        <a class="timecode ql-title-small" href="javascript:;" data-analytics-action="Clicked transcript timestamp" data-analytics-category="Video" data-analytics-label="114.21" data-video-id="H8MBuunbLPc">
+          <!--?lit$966745129$-->01:54
+        </a>
+        <span><!--?lit$966745129$-->This way both account owners and the Google Cloud community as a whole are protected.</span>
+      </div>
+    <!----><!---->
+      <div class=" transcript__line ">
+        <a class="timecode ql-title-small" href="javascript:;" data-analytics-action="Clicked transcript timestamp" data-analytics-category="Video" data-analytics-label="119.08" data-video-id="H8MBuunbLPc">
+          <!--?lit$966745129$-->01:59
+        </a>
+        <span><!--?lit$966745129$-->There are two types of quotas: rate quotas and allocation quotas.</span>
+      </div>
+    <!----><!---->
+      <div class=" transcript__line ">
+        <a class="timecode ql-title-small" href="javascript:;" data-analytics-action="Clicked transcript timestamp" data-analytics-category="Video" data-analytics-label="125.07" data-video-id="H8MBuunbLPc">
+          <!--?lit$966745129$-->02:05
+        </a>
+        <span><!--?lit$966745129$-->Both are applied at the project level.</span>
+      </div>
+    <!----><!---->
+      <div class=" transcript__line ">
+        <a class="timecode ql-title-small" href="javascript:;" data-analytics-action="Clicked transcript timestamp" data-analytics-category="Video" data-analytics-label="128.1" data-video-id="H8MBuunbLPc">
+          <!--?lit$966745129$-->02:08
+        </a>
+        <span><!--?lit$966745129$-->Rate quotas reset after a specific time.</span>
+      </div>
+    <!----><!---->
+      <div class=" transcript__line ">
+        <a class="timecode ql-title-small" href="javascript:;" data-analytics-action="Clicked transcript timestamp" data-analytics-category="Video" data-analytics-label="130.77" data-video-id="H8MBuunbLPc">
+          <!--?lit$966745129$-->02:10
+        </a>
+        <span><!--?lit$966745129$-->For example, by default, the GKE service implements a quota of 3,000 calls to its API from each Google Cloud project every 100 seconds.</span>
+      </div>
+    <!----><!---->
+      <div class=" transcript__line ">
+        <a class="timecode ql-title-small" href="javascript:;" data-analytics-action="Clicked transcript timestamp" data-analytics-category="Video" data-analytics-label="141.47" data-video-id="H8MBuunbLPc">
+          <!--?lit$966745129$-->02:21
+        </a>
+        <span><!--?lit$966745129$-->After that 100 seconds, the limit is reset.</span>
+      </div>
+    <!----><!---->
+      <div class=" transcript__line ">
+        <a class="timecode ql-title-small" href="javascript:;" data-analytics-action="Clicked transcript timestamp" data-analytics-category="Video" data-analytics-label="145.04" data-video-id="H8MBuunbLPc">
+          <!--?lit$966745129$-->02:25
+        </a>
+        <span><!--?lit$966745129$-->Allocation quotas govern the number of resources that you can have in your projects.</span>
+      </div>
+    <!----><!---->
+      <div class=" transcript__line ">
+        <a class="timecode ql-title-small" href="javascript:;" data-analytics-action="Clicked transcript timestamp" data-analytics-category="Video" data-analytics-label="149.98" data-video-id="H8MBuunbLPc">
+          <!--?lit$966745129$-->02:29
+        </a>
+        <span><!--?lit$966745129$-->For example, by default, each Google Cloud project has a quota that allows it no more than five Virtual Private Cloud networks.</span>
+      </div>
+    <!----><!---->
+      <div class=" transcript__line ">
+        <a class="timecode ql-title-small" href="javascript:;" data-analytics-action="Clicked transcript timestamp" data-analytics-category="Video" data-analytics-label="159.42" data-video-id="H8MBuunbLPc">
+          <!--?lit$966745129$-->02:39
+        </a>
+        <span><!--?lit$966745129$-->Although all projects start with the same quotas, you can change some of them by requesting an increase from Google Cloud Support.</span>
+      </div>
+    <!----> </div>
+      </div>
+    
+      </div>
+      <!--?lit$966745129$-->
+    </template></ql-youtube-video>
+
+</div>
+
+</div>
+<div class="course-navigation-buttons">
+<ql-button class="hide-mobile prev-button" href="/course_sessions/13055280/video/464483" icon="navigate_before"><template shadowrootmode="open"><!----> <!--?lit$966745129$-->
+      <a href="https://www.cloudskillsboost.google/course_sessions/13055280/video/464483" class=" mdc-button mdc-button--unelevated gm-button-fill ql-button default " aria-label="navigate_before">
+        <!--?lit$966745129$-->
+      <span class="mdc-button__ripple"></span>
+      <!--?lit$966745129$-->
+        <ql-icon class="mdc-button__icon" aria-hidden="true"><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$966745129$--></slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template>
+          <!--?lit$966745129$-->navigate_before
+        </ql-icon>
+       <!--?lit$966745129$--> <span class="mdc-button__label"> <!--?lit$966745129$--><slot></slot> </span> 
+    
+      </a>
+     <!--?lit$966745129$--> </template>Previous</ql-button>
+<ql-button class="next-button" href="/course_sessions/13055280/video/464485" icon="navigate_next" trailingicon=""><template shadowrootmode="open"><!----> <!--?lit$966745129$-->
+      <a href="https://www.cloudskillsboost.google/course_sessions/13055280/video/464485" class=" mdc-button mdc-button--unelevated gm-button-fill ql-button default " aria-label="navigate_next">
+        <!--?lit$966745129$-->
+        <span class="mdc-button__ripple"></span>
+        <!--?lit$966745129$--> <span class="mdc-button__label"> <!--?lit$966745129$--><slot></slot> </span>  <!--?lit$966745129$-->
+        <ql-icon class="mdc-button__icon" aria-hidden="true"><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$966745129$--></slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template>
+          <!--?lit$966745129$-->navigate_next
+        </ql-icon>
+      
+      
+      </a>
+     <!--?lit$966745129$--> </template>Next</ql-button>
+</div>
+</ql-drawer-content>
+</ql-drawer-container>
+
+</main>
+
+<footer class="application-footer">
+
+<a target="_blank" href="https://www.cloudskillsboost.google/privacy_policy">Privacy</a>
+<a href="https://www.cloudskillsboost.google/terms_of_service">Terms</a>
+<div class="powered-by">
+<span aria-hidden="">Powered by</span>
+<img alt="Powered by Qwiklabs" src="./Billing _ Google Cloud Skills Boost_files/qwiklabs_logo_grayscale-253167e4722753ac463e99dbda9945e0db4a7f88.svg">
+</div>
+
+
+</footer>
+</ql-drawer-content>
+</ql-drawer-container><script src="./Billing _ Google Cloud Skills Boost_files/iframe_api"></script>
+
+<span class="hidden" id="flash-sibling-before"></span>
+<ql-snackbar aria-live="polite" role="alert"><template shadowrootmode="open"><!---->
+      <div class=" snackbar " style="left: 0px;">
+        <slot></slot>
+      </div>
+    </template></ql-snackbar>
+
+<script data-glue-cookie-notification-bar-category="2B" src="./Billing _ Google Cloud Skills Boost_files/cookienotificationbar.min.js"></script>
+
+
+
+<ql-dialog dismissallabel="Cancel" headline="A newer version of this course is available. Your progress will carry over if you choose to upgrade. However, your completion percentage may change if the new version has added or removed any learning activities. Click the preview button to see the course changes before upgrading." icon="error" id="course-session-upgrade-modal" tabindex="-1" aria-hidden="true"><template shadowrootmode="open"><!---->
+      <div class=" dialog-wrapper ">
+        <ql-card elevation="3" role="dialog" aria-labelledby="title" aria-modal="true"><template shadowrootmode="open"><!---->
+      <div part="body" class="card   ">
+        <slot></slot>
+      </div>
+    </template>
+          <!--?lit$966745129$-->
+      <div part="header" class=" header centered ">
+        <!--?lit$966745129$--> <ql-icon><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$966745129$-->error</slot>
+      </i>
+      <!--?lit$966745129$--><!--?-->
+    </template></ql-icon>
+        <h1 id="title"><!--?lit$966745129$--><!--?lit$966745129$-->A newer version of this course is available. Your progress will carry over if you choose to upgrade. However, your completion percentage may change if the new version has added or removed any learning activities. Click the preview button to see the course changes before upgrading.<!--?--></h1>
+      </div>
+      <div class="body" part="body">
+        <slot></slot>
+      </div>
+      <div part="actions" class="actions multiple">
+        <!--?lit$966745129$-->
+      <ql-button text="" class="dismissal-button" label="Cancel"><template shadowrootmode="open"><!----> <!--?lit$966745129$-->
+      <div class="buttonContainer" aria-disabled="false">
+        <!--?lit$966745129$-->
+        <button type="button" class=" mdc-button gm-button-text ql-button default " aria-label="Cancel" aria-busy="false">
+          <!--?lit$966745129$-->
+      <span class="mdc-button__ripple"></span>
+      <!--?lit$966745129$--> <!--?lit$966745129$--> <span class="mdc-button__label"> <!--?lit$966745129$-->Cancel </span> 
+    
+        </button>
+      </div>
+     <!--?lit$966745129$--> </template>
+      </ql-button>
+    
+        <slot name="action"></slot>
+      </div>
+    
+        </ql-card>
+        <!--?lit$966745129$--> <div class=" overlay "></div>
+      </div>
+    </template>
+<ql-button href="/course_templates/2/preview" label="Preview" slot="action"><template shadowrootmode="open"><!----> <!--?lit$966745129$-->
+      <a href="https://www.cloudskillsboost.google/course_templates/2/preview" class=" mdc-button mdc-button--unelevated gm-button-fill gm-text-label-button ql-button default " aria-label="Preview">
+        <!--?lit$966745129$-->
+      <span class="mdc-button__ripple"></span>
+      <!--?lit$966745129$--> <!--?lit$966745129$--> <span class="mdc-button__label"> <!--?lit$966745129$-->Preview </span> 
+    
+      </a>
+     <!--?lit$966745129$--> </template>
+Preview
+</ql-button>
+</ql-dialog>
+
+
+
+<script>
+  document.addEventListener("turbo:load", function () {
+    ql.initMaterialInputs();
+    initChosen();
+    initSearch();
+    initTabs();
+    ql.list.init();
+    ql.favoriting.init();
+    ql.header.myAccount.init();
+    initTooltips();
+    ql.autocomplete.init();
+    ql.modals.init();
+    ql.toggleButtons.init();
+    ql.analytics.init();
+    Turbo.session.drive = false;
+    ql.video.survey.init();
+  ql.course_resize_layout.init("", "Path", "Getting Started with Google Kubernetes Engine", "Course", "Introduction to Google Cloud");
+  ql.course_navigation.init("13058570");
+  ql.chat.init();
+  ql.jumpContent.init();
+  
+  }, {once: true});
+</script>
+
+
+
+
+
+
+<iframe data-product="web_widget" title="No content" role="presentation" tabindex="-1" allow="microphone *" aria-hidden="true" src="./Billing _ Google Cloud Skills Boost_files/saved_resource.html" style="width: 0px; height: 0px; border: 0px; position: absolute; top: -9999px;"></iframe><div style="visibility: hidden;"><div></div><div><style>
+        @-webkit-keyframes ww-f6a32769-f02f-47d9-9f15-bdbb2ab35bfe-launcherOnOpen {
+          0% {
+            -webkit-transform: translateY(0px) rotate(0deg);
+                    transform: translateY(0px) rotate(0deg);
+          }
+
+          30% {
+            -webkit-transform: translateY(-5px) rotate(2deg);
+                    transform: translateY(-5px) rotate(2deg);
+          }
+
+          60% {
+            -webkit-transform: translateY(0px) rotate(0deg);
+                    transform: translateY(0px) rotate(0deg);
+          }
+
+
+          90% {
+            -webkit-transform: translateY(-1px) rotate(0deg);
+                    transform: translateY(-1px) rotate(0deg);
+
+          }
+
+          100% {
+            -webkit-transform: translateY(-0px) rotate(0deg);
+                    transform: translateY(-0px) rotate(0deg);
+          }
+        }
+        @keyframes ww-f6a32769-f02f-47d9-9f15-bdbb2ab35bfe-launcherOnOpen {
+          0% {
+            -webkit-transform: translateY(0px) rotate(0deg);
+                    transform: translateY(0px) rotate(0deg);
+          }
+
+          30% {
+            -webkit-transform: translateY(-5px) rotate(2deg);
+                    transform: translateY(-5px) rotate(2deg);
+          }
+
+          60% {
+            -webkit-transform: translateY(0px) rotate(0deg);
+                    transform: translateY(0px) rotate(0deg);
+          }
+
+
+          90% {
+            -webkit-transform: translateY(-1px) rotate(0deg);
+                    transform: translateY(-1px) rotate(0deg);
+
+          }
+
+          100% {
+            -webkit-transform: translateY(-0px) rotate(0deg);
+                    transform: translateY(-0px) rotate(0deg);
+          }
+        }
+
+        @keyframes ww-f6a32769-f02f-47d9-9f15-bdbb2ab35bfe-widgetOnLoad {
+          0% {
+            opacity: 0;
+          }
+          100% {
+            opacity: 1;
+          }
+        }
+
+        @-webkit-keyframes ww-f6a32769-f02f-47d9-9f15-bdbb2ab35bfe-widgetOnLoad {
+          0% {
+            opacity: 0;
+          }
+          100% {
+            opacity: 1;
+          }
+        }
+      </style><iframe title="Button to launch messaging window" id="launcher" style="color-scheme: light; height: 64px; width: 64px; position: fixed; bottom: 14px; right: 14px; transform: none; transform-origin: right bottom; border: 0px; margin-top: 0px; opacity: 0; box-shadow: rgba(23, 73, 77, 0.15) 0px 20px 30px; animation: 0.2s ease-in 0.5s 1 normal forwards running ww-f6a32769-f02f-47d9-9f15-bdbb2ab35bfe-widgetOnLoad; z-index: 999999; border-radius: 50%;" src="./Billing _ Google Cloud Skills Boost_files/saved_resource(1).html"></iframe></div></div></body></html>
